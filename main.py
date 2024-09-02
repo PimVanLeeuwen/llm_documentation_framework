@@ -1,16 +1,17 @@
-# This is a sample Python script.
+"""
+Main file in the LLM Documentation Framework
+Autor -- Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+repo_path = '/home/pimvanleeuwen/Documents/zerocode'
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from ASTExtractor.astextractor import ASTExtractor
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+	'''Used as a test for the python bindings'''
+	ast_extractor = ASTExtractor("ASTExtractor/ASTExtractor-0.5.jar", "ASTExtractor/ASTExtractor.properties")
+	ast = ast_extractor.parse_folder(repo_path, representation="JSON")
+	print(ast)
+	ast_extractor.close()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
