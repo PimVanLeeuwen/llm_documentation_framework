@@ -4,7 +4,7 @@ Autor -- Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
 """
 from prompt import SYS_PROMPT, USR_PROMPT
 
-repo_path = '/home/pimvanleeuwen/Documents/zerocode'
+repo_path = '/home/pimvanleeuwen/Documents/Train-Ticket-Reservation-System'
 
 from ASTExtractor.astextractor import ASTExtractor
 import json
@@ -13,6 +13,27 @@ import os
 # needed for the LLM interface
 from openai import OpenAI
 import prompt
+
+
+def find_method_declarations(data, field):
+	"""Function to recursively search for field in the JSON data"""
+	if isinstance(data, dict):
+		for key, value in data.items():
+			if key == field:
+				values = value if isinstance(value, list) else [value]
+				for v in values:
+					# Skip the comments, we want the first line that is not a comment
+					for line in str(v).split('\n'):
+						if not '*' in line and not line[:-1].strip() == "":
+							yield line[:-1].strip() # leave out last bracket
+							break
+			# Recursively find methods
+			elif isinstance(value, (dict, list)):
+				yield from find_method_declarations(value, field)
+	# Recursively find methods
+	elif isinstance(data, list):
+		for item in data:
+			yield from find_method_declarations(item, field)
 
 def contains_java_files(dir_path):
 		"""Check if a directory or any of its subdirectories contain .java files."""
@@ -30,10 +51,21 @@ def list_java_files(directory, prefix=""):
 			level = root.replace(directory, '').count(os.sep)
 			indent = '    ' * (level)
 			sub_indent = '    ' * (level + 1)
+			sub_sub_indent = '    ' * (level + 2)
 			java_files.append(f"{indent}└── {os.path.basename(root)}/")
 			for file in files:
 				if file.endswith(".java"):
 					java_files.append(f"{sub_indent}└── {file}")
+					ast_extractor = ASTExtractor("ASTExtractor/ASTExtractor-0.5.jar", "ASTExtractor/ASTExtractor.properties")
+
+					# This gets us the full methods from the java file
+					for method in list(find_method_declarations(json.loads(ast_extractor.parse_file(
+						os.path.join(root, file), representation="JSON")), "MethodDeclaration")):
+
+						java_files.append(f"{sub_sub_indent}└── [Method] {method}")
+
+
+
 	return java_files
 
 def print_tree(files):
@@ -88,9 +120,9 @@ if __name__ == '__main__':
 
 	print("STARTING PROMPT")
 
-	query_llm("\n".join(java_files),
-			  "zerocode/core/src/main/java/org/jsmart/zerocode/core/domain/MockSteps.java",
-			  "getMocks()")
+	# query_llm("\n".join(java_files),
+	# 		  "zerocode/core/src/main/java/org/jsmart/zerocode/core/domain/MockSteps.java",
+	# 		  "getMocks()")
 
 
 
