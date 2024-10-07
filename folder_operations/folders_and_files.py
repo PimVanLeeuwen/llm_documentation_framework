@@ -25,13 +25,13 @@ def parse_file(path, file):
 	file_node = ASTNode(file, ASTNodeType.FILE)
 
 	# Attach the children for the imports
-	for imp in all_imports:
-		import_node = ASTNode(imp, ASTNodeType.IMPORT)
+	for imp, imp_content in all_imports:
+		import_node = ASTNode(imp, ASTNodeType.IMPORT, content=imp_content, parent_node=file_node)
 		file_node.add_child(import_node)
 
 	# Attach the children for the methods
-	for method in all_methods:
-		method_node = ASTNode(method, ASTNodeType.METHOD)
+	for method, method_content in all_methods:
+		method_node = ASTNode(method, ASTNodeType.METHOD, content=method_content, parent_node=file_node)
 		file_node.add_child(method_node)
 
 	# Return the node
@@ -54,12 +54,13 @@ def create_tree_from_files(directory, extension=".java"):
 					parent_node = parent_node.children[-1]
 
 			# Create the node for this folder and add to parent
-			dir_node = ASTNode(os.path.basename(root), ASTNodeType.FOLDER)
+			dir_node = ASTNode(os.path.basename(root), ASTNodeType.FOLDER, parent_node=parent_node)
 			parent_node.add_child(dir_node)
 
 			# Process any non-folder items in this folder
 			for file in files:
 				if file.endswith(".java"):
 					file_node = parse_file(os.path.join(root, file), file)
+					file_node.parent_node = parent_node
 					dir_node.add_child(file_node)
 	return tree

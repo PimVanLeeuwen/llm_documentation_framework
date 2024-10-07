@@ -8,7 +8,7 @@ def find_declarations(data, field):
 					# Skip the comments, we want the first line that is not a comment
 					for line in str(v).split('\n'):
 						if not '*' in line and not line[:-1].strip() == "":
-							yield line[:-1].strip() # leave out last bracket
+							yield line[:-1].strip(), v # leave out last bracket
 							break
 			# Recursively find methods
 			elif isinstance(value, (dict, list)):
