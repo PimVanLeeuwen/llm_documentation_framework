@@ -3,6 +3,7 @@ import json
 from ASTExtractor.astextractor import ASTExtractor
 from tree.abstract_tree import ASTNode, ASTNodeType, AbstractSyntaxTree
 from folder_operations.parse_json import find_declarations
+from grammars.java.java_parser import parse_java_file
 
 def contains_files(dir_path, extension=".java"):
 	"""Check if a directory or any of its subdirectories contain .x files."""
@@ -15,24 +16,14 @@ def parse_file(path, file):
 	"""process one project file, creates a node of that file and attaches any info we want in the AST
 	@:return The file node with the added information
 	"""
-	# For java we use this ASTExtractor
-	ast_extractor = ASTExtractor("ASTExtractor/ASTExtractor-0.5.jar", "ASTExtractor/ASTExtractor.properties")
-	# Then we get all methods and imports
-	all_methods = list(find_declarations(json.loads(ast_extractor.parse_file(path, representation="JSON")), "MethodDeclaration"))
-	all_imports = list(find_declarations(json.loads(ast_extractor.parse_file(path, representation="JSON")), "ImportDeclaration"))
+
+	print(file)
+	file_node = parse_java_file(path, file)
+	print()
+	exit(0)
 
 	# Create the node for the project file
 	file_node = ASTNode(file, ASTNodeType.FILE)
-
-	# Attach the children for the imports
-	for imp, imp_content in all_imports:
-		import_node = ASTNode(imp, ASTNodeType.IMPORT, content=imp_content, parent_node=file_node)
-		file_node.add_child(import_node)
-
-	# Attach the children for the methods
-	for method, method_content in all_methods:
-		method_node = ASTNode(method, ASTNodeType.METHOD, content=method_content, parent_node=file_node)
-		file_node.add_child(method_node)
 
 	# Return the node
 	return file_node
@@ -40,7 +31,6 @@ def parse_file(path, file):
 def create_tree_from_files(directory, extension=".java"):
 	"""Creates a tree like structure adding the files with a certain extension"""
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
-
 	# Do an OSWalk through the project directory
 	for root, dirs, files in os.walk(directory):
 		# If the folder contains any files with a certain extension it is worth looking into

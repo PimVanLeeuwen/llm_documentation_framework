@@ -21,7 +21,7 @@ class _ASTExtractor(object):
 		self.nummessages = 0
 		line = self.send_message("START_OF_TRANSMISSION")
 		if line != "START_OF_TRANSMISSION":
-			print("Error in Java compiler!!")
+			print("Error in java compiler!!")
 			exit()
 
 	def close_extractor(self):
@@ -38,7 +38,7 @@ class _ASTExtractor(object):
 			self.proc = subprocess.Popen(self.cmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
 			self.nummessages = 0
 		else:
-			print("Error in Java compiler!!")
+			print("Error in java compiler!!")
 			exit()
 
 	def get_ast(self, code_entity, code_entity_properties):

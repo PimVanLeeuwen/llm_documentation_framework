@@ -21,13 +21,13 @@ if __name__ == '__main__':
 
 	# print(ast)
 
-	counter = 0
-	for node in ast:
-		if counter == 3:
-			break
-		elif node.node_type == ASTNodeType.METHOD:
-			query_llm(client, ast, node)
-			counter += 1
+	# counter = 0
+	# for node in ast:
+	# 	if counter == 3:
+	# 		break
+	# 	elif node.node_type == ASTNodeType.METHOD:
+	# 		query_llm(client, ast, node)
+	# 		counter += 1
 
 
 
