@@ -27,7 +27,7 @@ def query_llm(client, tree, node):
 	completion = client.chat.completions.create(
 		model="TheBloke/CodeLlama-7B-GGUF",
 		messages=history,
-		temperature=0.7,
+		temperature=0,
 		stream=False,
 	)
 

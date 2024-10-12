@@ -9,7 +9,7 @@ from tree.abstract_tree import ASTNode, ASTNodeType, AbstractSyntaxTree
 from folder_operations.folders_and_files import contains_files, create_tree_from_files
 from llm.llm_query import query_llm
 
-repo_path = '/home/pimvanleeuwen/Documents/Train-Ticket-Reservation-System'
+repo_path = '/home/pimvanleeuwen/Documents/employer-worker-registration-system'
 
 if __name__ == '__main__':
 	# setup the LLM client
