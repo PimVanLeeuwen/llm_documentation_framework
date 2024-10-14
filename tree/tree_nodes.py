@@ -74,7 +74,7 @@ class ASTNode:
                 ASTNodeType.CLASS: "[Class]",
                 ASTNodeType.METHOD: "[Method]"
             }
-            indent = '    ' * (level)
+            indent = '    ' * level
             output = f"{indent}└── {type_prefix.get(self.node_type)} {self.name}\n"
             if extended:
                 for i in self.imports:

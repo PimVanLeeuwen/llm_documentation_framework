@@ -5,7 +5,6 @@ from antlr4 import *
 from grammars.java.JavaLexer import JavaLexer
 from grammars.java.JavaParser import JavaParser
 from grammars.java.JavaParserListener import JavaParserListener
-from tree.abstract_tree import *
 from tree.tree_nodes import *
 
 # Create a listener for the Java project, from this we create the nodes and content of the nodes into the target

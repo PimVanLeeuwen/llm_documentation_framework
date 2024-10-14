@@ -1,10 +1,8 @@
 import os
-import json
-from ASTExtractor.astextractor import ASTExtractor
 from tree.abstract_tree import *
 from tree.tree_nodes import *
-from folder_operations.parse_json import find_declarations
 from grammars.java.java_parser import parse_java_file
+from tqdm import tqdm
 
 def contains_files(dir_path, extension=".java"):
 	"""Check if a directory or any of its subdirectories contain .x files."""
@@ -29,7 +27,7 @@ def create_tree_from_files(directory, extension=".java"):
 	"""Creates a tree like structure adding the files with a certain extension"""
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	# Do an OSWalk through the project directory
-	for root, dirs, files in os.walk(directory):
+	for root, dirs, files in tqdm(os.walk(directory), desc="Creating Tree", unit="files"):
 		# If the folder contains any files with a certain extension it is worth looking into
 		if contains_files(root, extension):
 			# Current depth of the folder
@@ -50,4 +48,8 @@ def create_tree_from_files(directory, extension=".java"):
 					file_node = parse_file(os.path.join(root, file), file)
 					file_node.parent_node = parent_node
 					dir_node.add_child(file_node)
+
+	# we need to make a dict with names -> nodes with one pass
+	# then another pass to replace the names with nodes
+
 	return tree
