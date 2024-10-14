@@ -1,38 +1,60 @@
+import warnings
+
 from antlr4 import *
+
 from grammars.java.JavaLexer import JavaLexer
 from grammars.java.JavaParser import JavaParser
 from grammars.java.JavaParserListener import JavaParserListener
 from tree.abstract_tree import *
+from tree.tree_nodes import *
 
 # Create a listener for the Java project, from this we create the nodes and content of the nodes into the target
 # format. Overrides the methods from JavaParserListener
 class MyJavaListener(JavaParserListener):
 
-    # Import declarations
+    def __init__(self, current_node:ASTNode=None):
+        # At the start this is the file node
+        self.current_node = current_node
+        self.return_node = current_node
+
+    def get_return_node(self):
+        return self.return_node
+
+    # Import declarations, this is at the beginning of a file and comes in a file node
     def enterImportDeclaration(self, ctx: JavaParser.ImportDeclarationContext):
-        print("Import:", ctx.qualifiedName().getText())
+        if not self.current_node.get_type() == ASTNodeType.FILE:
+            warnings.warn("You are appending imports to non-file node: " + str(self.current_node))
+        self.current_node.add_import(ctx.qualifiedName().getText())
 
     # Enter class creations
     def enterClassDeclaration(self, ctx:JavaParser.classDeclaration):
-        print("Enter ClassBody:", ctx.identifier().getText())
+        class_node = ASTNode(ctx.identifier().getText(), ASTNodeType.CLASS, parent_node=self.current_node, content=ctx.getText())
+        self.current_node.add_child(class_node)
+        self.current_node = class_node
 
-    # Exits classes
+    # Exits classes, go back to parent node
     def exitClassDeclaration(self, ctx:JavaParser.classDeclaration):
-        print("Exit ClassBody:", ctx.identifier().getText())
+        self.current_node = self.current_node.get_parent()
 
     # Call another method
     def enterMethodCall(self, ctx: JavaParser.MethodCallContext):
-        print("Enter Method Call:", ctx.identifier().getText())
-        print("Method Params:", ctx.arguments().getText())
+        self.current_node.add_call(ctx.getText())
 
     # Enter method creation
     def enterMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):
-        print("Enter Method Declaration:", ctx.identifier().getText())
-        print("Method content:", ctx.getText())
+        method_node = ASTNode(ctx.identifier().getText(), ASTNodeType.METHOD, parent_node=self.current_node,
+                             content=ctx.getText())
+        self.current_node.add_child(method_node)
+        self.current_node = method_node
+
+        # Adding parameters to the method node
+        if ctx.formalParameters().formalParameterList() is not None:
+            for param in ctx.formalParameters().formalParameterList().formalParameter():
+                self.current_node.add_param(param.getText())
 
     # Exit method
     def exitMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):
-        print("Exit Method Declaration:", ctx.identifier().getText())
+        self.current_node = self.current_node.get_parent()
 
 def parse_java_file(path, file):
     input_stream = FileStream(path, encoding='utf-8')
@@ -43,17 +65,13 @@ def parse_java_file(path, file):
 
     # This will be the full node of the file
     return_node = ASTNode(file, ASTNodeType.FILE)
-    # This will be the node that we are currently add throughout the process. Since we only go up or down one level
-    # at a time this should work out
-    # Still need to work out how to do this through the listener
-    current_node = return_node
 
     # This is a default Tree Walker
     walker = ParseTreeWalker()
     # This is the adapter JavaParserListener that we created above to adapt to our tree
-    listener = MyJavaListener()
+    listener = MyJavaListener(return_node)
     # Perform the walk
     walker.walk(listener, tree)
 
-    # return the node of this file and then we parsed a Java file
-    return return_node
+    # return the processed node
+    return listener.get_return_node()

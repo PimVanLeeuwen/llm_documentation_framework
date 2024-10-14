@@ -1,7 +1,8 @@
 import os
 import json
 from ASTExtractor.astextractor import ASTExtractor
-from tree.abstract_tree import ASTNode, ASTNodeType, AbstractSyntaxTree
+from tree.abstract_tree import *
+from tree.tree_nodes import *
 from folder_operations.parse_json import find_declarations
 from grammars.java.java_parser import parse_java_file
 
@@ -17,13 +18,9 @@ def parse_file(path, file):
 	@:return The file node with the added information
 	"""
 
-	print(file)
+	# print(file)
 	file_node = parse_java_file(path, file)
-	print()
-	exit(0)
-
-	# Create the node for the project file
-	file_node = ASTNode(file, ASTNodeType.FILE)
+	# print()
 
 	# Return the node
 	return file_node

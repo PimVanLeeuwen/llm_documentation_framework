@@ -5,7 +5,8 @@ Autor -- Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
 
 from tree import abstract_tree
 from openai import OpenAI
-from tree.abstract_tree import ASTNode, ASTNodeType, AbstractSyntaxTree
+from tree.abstract_tree import *
+from tree.tree_nodes import *
 from folder_operations.folders_and_files import contains_files, create_tree_from_files
 from llm.llm_query import query_llm
 
@@ -17,6 +18,7 @@ if __name__ == '__main__':
 
 	print("-- START AST GENERATION --")
 	ast = create_tree_from_files(repo_path, ".java")
+	print(ast)
 	print("-- END AST GENERATION --")
 
 	# print(ast)
