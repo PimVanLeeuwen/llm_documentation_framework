@@ -27,6 +27,7 @@ def create_tree_from_files(directory, extension=".java"):
 	"""Creates a tree like structure adding the files with a certain extension"""
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	# Do an OSWalk through the project directory
+	# TODO: add total files to this counter such that it is more representable
 	for root, dirs, files in tqdm(os.walk(directory), desc="Creating Tree", unit="files"):
 		# If the folder contains any files with a certain extension it is worth looking into
 		if contains_files(root, extension):
@@ -51,5 +52,19 @@ def create_tree_from_files(directory, extension=".java"):
 
 	# we need to make a dict with names -> nodes with one pass
 	# then another pass to replace the names with nodes
+
+	# This will contain all the methods calls from objects
+	class_method_calls = {}
+
+	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Creating Tree", unit="files"):
+		if node.get_type() == ASTNodeType.METHOD and node.get_parent().get_type() == ASTNodeType.CLASS:
+			class_method_calls[f"{node.get_parent().get_name()}.{node.get_name()}"] = node
+
+	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Creating Tree", unit="files"):
+		if len(node.get_calls()) > 0:
+			for call in node.get_calls():
+				listing = [key for key in class_method_calls.keys() if call.split('(')[0] == key.split(".")[1]]
+				if len(listing) > 0:
+					print(listing)
 
 	return tree

@@ -49,7 +49,11 @@ class MyJavaListener(JavaParserListener):
         # Adding parameters to the method node
         if ctx.formalParameters().formalParameterList() is not None:
             for param in ctx.formalParameters().formalParameterList().formalParameter():
-                self.current_node.add_param(param.getText())
+                start = param.start.start
+                stop = param.stop.stop
+                input_stream = param.start.getInputStream()
+                text = input_stream.getText(start, stop)
+                self.current_node.add_param(text)
 
     # Exit method
     def exitMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):

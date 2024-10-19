@@ -35,6 +35,10 @@ class ASTNode:
     def add_call(self, call_statement):
         self.calls.append(call_statement)
 
+    # Add an import statement
+    def get_calls(self):
+        return self.calls
+
     # Add a child to this node
     def add_child(self, child_node):
         self.children.append(child_node)
@@ -64,6 +68,10 @@ class ASTNode:
             node = node.parent_node
         return '/'.join(reversed(path))
 
+    # Return name of node
+    def get_name(self):
+        return self.name
+
     # print this node and its children
     def __repr__(self, level=0, recursive=False, extended=True):
         # This is for when we print the entire tree
@@ -78,9 +86,9 @@ class ASTNode:
             output = f"{indent}└── {type_prefix.get(self.node_type)} {self.name}\n"
             if extended:
                 for i in self.imports:
-                    output += f"{indent}    import {i}\n"
+                    output += f"{indent}    [import] {i}\n"
                 for i in self.parameters:
-                    output += f"{indent}    param {i}\n"
+                    output += f"{indent}    [param] {i}\n"
                 for i in self.calls:
                     output += f"{indent}    [call] {i}\n"
             for child in self.children:
@@ -94,7 +102,7 @@ class ASTNode:
             output += f"[Parent] {self.parent_node.name}\n" if self.parent_node else f"[Parent] None\n"
             output += f"[Children]"
             for c in self.children:
-                output += f"{c.name}"
+                output += f"{c.name}, "
             output += "\n"
             return output
 

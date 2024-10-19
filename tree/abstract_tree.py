@@ -3,6 +3,16 @@ class AbstractSyntaxTree:
     def __init__(self, root=None):
         self.root = root
         self.str_rep = None
+        self.nr_nodes = None
+
+    def get_nr_nodes(self):
+        if self.nr_nodes:
+            return self.nr_nodes
+        else:
+            self.nr_nodes = 0
+            for n in self:
+                self.nr_nodes += 1
+            return self.nr_nodes
 
     def __repr__(self):
         # Printing a tree is just printing the root and all children

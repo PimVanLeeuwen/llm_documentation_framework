@@ -9127,10 +9127,8 @@ class JavaParser ( Parser ):
         def arguments(self):
             return self.getTypedRuleContext(JavaParser.ArgumentsContext,0)
 
-
         def identifier(self):
             return self.getTypedRuleContext(JavaParser.IdentifierContext,0)
-
 
         def THIS(self):
             return self.getToken(JavaParser.THIS, 0)
@@ -9148,9 +9146,6 @@ class JavaParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMethodCall" ):
                 listener.exitMethodCall(self)
-
-
-
 
     def methodCall(self):
 
