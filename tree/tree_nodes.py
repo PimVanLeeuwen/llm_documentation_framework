@@ -31,9 +31,17 @@ class ASTNode:
     def add_import(self, import_statement):
         self.imports.append(import_statement)
 
+    # Get imports
+    def get_imports(self):
+        return self.imports
+
     # Add an import statement
     def add_call(self, call_statement):
         self.calls.append(call_statement)
+
+    # Add imports array
+    def set_calls(self, calls_array):
+        self.calls = calls_array
 
     # Add an import statement
     def get_calls(self):
@@ -90,7 +98,7 @@ class ASTNode:
                 for i in self.parameters:
                     output += f"{indent}    [param] {i}\n"
                 for i in self.calls:
-                    output += f"{indent}    [call] {i}\n"
+                    output += f"{indent}    [call] {i.get_name() if isinstance(i, ASTNode) else i}\n"
             for child in self.children:
                 output += child.__repr__(level + 1, recursive, extended)
             return output
