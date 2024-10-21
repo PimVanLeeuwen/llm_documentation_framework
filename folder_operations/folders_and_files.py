@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 def calls_mapped(tree):
 	"""check if all calls are mapped to nodes, if so return true, else return false"""
-	for n in tqdm(tree, total=tree.get_nr_nodes() ,desc="Check if all calls are mapped", unit="files"):
+	for n in tqdm(tree, total=tree.get_nr_nodes() ,desc="Check if all calls are mapped", unit="nodes"):
 		if n.get_calls():
 			for call in n.get_calls():
 				if not isinstance(call, ASTNode):
@@ -85,7 +85,7 @@ def create_tree_from_files(directory, extension=".java"):
 	class_method_calls = {}
 
 
-	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Indexing Sources", unit="files"):
+	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Indexing Sources", unit="nodes"):
 		# only interested in the methods
 		if not node.get_type() == ASTNodeType.METHOD:
 			continue
@@ -99,7 +99,7 @@ def create_tree_from_files(directory, extension=".java"):
 		class_method_calls[f"{p_node.get_name()}.{node.get_name()}"] = node
 
 
-	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Converting Calls", unit="files"):
+	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Converting Calls", unit="nodes"):
 
 		# get the calls and we will construct the converted calls
 		calls = node.get_calls()
