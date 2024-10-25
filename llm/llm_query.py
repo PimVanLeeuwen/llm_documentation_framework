@@ -1,6 +1,6 @@
 # needed for the LLM interface
-from llm.prompt import SYS_PROMPT, USR_PROMPT
-
+from llm.prompt import SYS_PROMPT
+import ollama
 
 
 def query_llm(client, tree, node):
@@ -18,33 +18,37 @@ def query_llm(client, tree, node):
 	if param_list:
 		param_prompt += "**Parameters**:\n"
 		for param in param_list:
-			param_prompt += f"{param}: ... \n"
+			param_prompt += f"`{param}`: *FILL IN* \n"
 	prompt = prompt.replace("{parameters_or_attribute}", param_prompt)
 
 	call_prompt = ""
 	if call_list:
-		call_prompt += "This code calls the following methods within the repository:\n"
+		call_prompt += "## Calls \ \n This code calls the following methods within the repository: \ \n"
 		for call in call_list:
-			call_prompt += f"{call.get_path()}.{call.name}\n"
+			call_prompt += f"`{call.get_path()}.{call.name}` \\n"
 	prompt = prompt.replace("{function_calls}", call_prompt)
 
-	with open(f"outputs/{node.name}.txt", "w") as f:
-
-		f.write("-- START PROMPT --")
+	with open(f"outputs/{node.name}_prompt.md", "w") as f:
+		f.write("# PROMPT")
 		f.write(prompt)
-		f.write("-- END PROMPT --")
 
-		completion = client.chat.completions.create(
-			model="lmstudio-community/Qwen2.5-Coder-7B-Instruct-GGUF",
-			messages=[{"role": "system", "content": prompt}],
-			temperature=0,
-			stream=False,
-		)
+	response = ollama.chat(model='llama3.1', messages=[
+		{
+			'role': 'user',
+			'content': prompt,
+		},
+	])
 
-		result = completion.choices[0].message.content
+	with open(f"outputs/{node.name}_result.md", "w") as f:
+		f.write(response['message']['content'])
+
+		# completion = client.chat.completions.create(
+		# 	model="lmstudio-community/Qwen2.5-Coder-7B-Instruct-GGUF",
+		# 	messages=[{"role": "system", "content": prompt}],
+		# 	temperature=0,
+		# 	stream=False,
+		# )
+
+		# result = completion.choices[0].message.content
 
 		# Some weird exclamation mark glitch
-
-		f.write("-- START RESULT --")
-		f.write(result)
-		f.write("-- END RESULT --")

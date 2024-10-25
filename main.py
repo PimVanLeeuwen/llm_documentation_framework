@@ -28,7 +28,7 @@ if __name__ == '__main__':
 		if n.get_type() == ASTNodeType.METHOD:
 			query_llm(client, ast, n)
 			counter += 1
-		if counter == 3:
+		if counter == 6:
 			break
 
 
