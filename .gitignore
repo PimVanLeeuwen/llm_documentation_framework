@@ -1,2 +1,4 @@
 /outputs/
 *.pyc
+/documentation/
+/prompts/
