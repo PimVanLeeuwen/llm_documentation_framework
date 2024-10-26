@@ -26,6 +26,32 @@ class ASTNode:
         self.calls = []
         # parameter in case of method node
         self.parameters = []
+        # this will contain the comment of the code
+        self.documentation = None
+
+    # Set the comment of the node
+    def set_documentation(self, comment):
+        self.documentation = comment
+
+    # Set the comment of the node
+    def get_documentation(self):
+        return self.documentation
+
+    # Returns true if there is a comment, false otherwise
+    def has_documentation(self):
+        return self.documentation is not None
+
+    # We can only comment nodes if the calls that they make are commented and their children are commented.
+    def can_document(self):
+        for call in self.calls:
+            if not call.has_documentation():
+                return False
+
+        for child in self.children:
+            if not child.has_documentation():
+                return False
+
+        return True
 
     # Add an import statement
     def add_import(self, import_statement):
@@ -50,6 +76,10 @@ class ASTNode:
     # Add a child to this node
     def add_child(self, child_node):
         self.children.append(child_node)
+
+    # Get the children of this node
+    def get_children(self):
+        return self.children
 
     # Return the type of the node
     def get_type(self):

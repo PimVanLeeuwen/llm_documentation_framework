@@ -1,15 +1,18 @@
-SYS_PROMPT = """
+METHOD_PROMPT = """
 ## Instruction
 You are an AI documentation assistant. Your task is to generate clear, concise documentation for the given code of an 
 object to help developers and beginners understand its function and usage.
 ## Information
 **Project Structure:** `{project_structure_prefix}` \\
 **File Path:** `{file_path}` \\
-**Method Name:** `{name}` \\
+**Type:** `{type}` \\
+**{type} Name:** `{name}` \\
 **Code Content:** \\
 `{code_content}`
 
 {function_calls}
+
+{children}
 
 ## Task
 Please complete the template below, so a simple sentence of behaviour first, followed by a concise analysis in plain text (including details).
@@ -21,6 +24,7 @@ Your answer should not include more than the functionality of the code and shoul
 {parameters_or_attribute}
 **Code Description**: *FILL IN*
 """
+
 #
 # SYS_PROMPT = """
 # ###Instruction###’
