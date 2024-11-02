@@ -27,7 +27,7 @@ class MyJavaListener(JavaParserListener):
 
     # Enter class creations
     def enterClassDeclaration(self, ctx:JavaParser.classDeclaration):
-        class_node = ASTNode(ctx.identifier().getText(), ASTNodeType.CLASS, parent_node=self.current_node, content=ctx.getText())
+        class_node = ASTNode(ctx.identifier().getText(), ASTNodeType.OBJECT, parent_node=self.current_node, content=ctx.getText())
         self.current_node.add_child(class_node)
         self.current_node = class_node
 

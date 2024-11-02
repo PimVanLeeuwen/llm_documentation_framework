@@ -16,11 +16,11 @@ def calls_mapped(tree):
 
 	return True
 
-def get_classes_from_file(node):
-	"""Return the classes in a file"""
+def get_objects_from_file(node):
+	"""Return the objects in a file"""
 	return_array = []
 	for n in node:
-		if n.get_type() == ASTNodeType.CLASS:
+		if n.get_type() == ASTNodeType.OBJECT:
 			return_array.append(n)
 
 	return return_array
@@ -82,7 +82,7 @@ def create_tree_from_files(directory, extension=".java"):
 	# then another pass to replace the names with nodes
 
 	# This will contain all the methods calls from objects
-	class_method_calls = {}
+	object_method_calls = {}
 
 
 	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Indexing Sources", unit="nodes"):
@@ -92,11 +92,11 @@ def create_tree_from_files(directory, extension=".java"):
 
 		# find an identifying parent, pref a class but file will suffice (usually not needed)
 		p_node = node.get_parent()
-		while not (p_node.get_type() == ASTNodeType.CLASS or p_node.get_type() == ASTNodeType.FILE):
+		while not (p_node.get_type() == ASTNodeType.OBJECT or p_node.get_type() == ASTNodeType.FILE):
 			p_node = p_node.get_parent()
 
 		# add it to the dictionary
-		class_method_calls[f"{p_node.get_name()}.{node.get_name()}"] = node
+		object_method_calls[f"{p_node.get_name()}.{node.get_name()}"] = node
 
 
 	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Converting Calls", unit="nodes"):
@@ -112,7 +112,7 @@ def create_tree_from_files(directory, extension=".java"):
 		# check for all calls if we can convert them, if not, drop them
 		for call in calls:
 			# these are all the hits for a node call
-			node_calls = [key for key in class_method_calls.keys() if call.split('(')[0] == key.split(".")[-1]]
+			node_calls = [key for key in object_method_calls.keys() if call.split('(')[0] == key.split(".")[-1]]
 
 			match len(node_calls):
 				case 0:
@@ -120,7 +120,7 @@ def create_tree_from_files(directory, extension=".java"):
 					continue
 				case 1:
 					# if there is only one, no checks are needed and we can just add that one, since there is no doubt.
-					new_calls.add(class_method_calls[node_calls[0]])
+					new_calls.add(object_method_calls[node_calls[0]])
 					continue
 				case _:
 					# in this case we need to check if we can find the method that is most relevant
@@ -132,7 +132,7 @@ def create_tree_from_files(directory, extension=".java"):
 						current_node = current_node.get_parent()
 
 					# get the internal sources, file name and classes within the file
-					local_sources = get_classes_from_file(current_node)
+					local_sources = get_objects_from_file(current_node)
 					if not current_node.get_name().split(".")[0] in local_sources:
 						local_sources.append(current_node.get_name().split(".")[0])
 
@@ -150,7 +150,7 @@ def create_tree_from_files(directory, extension=".java"):
 							if len(hits) > 1:
 								warnings.warn("There are more than 1 hits in this: " + str(hits))
 							# get this new hit
-							new_calls.add(class_method_calls[hits[0]])
+							new_calls.add(object_method_calls[hits[0]])
 							# we break because in this case we do not need to cover the external sources (if happens in internal)
 							break
 

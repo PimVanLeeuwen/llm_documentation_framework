@@ -21,7 +21,7 @@ class AbstractSyntaxTree:
     # return if the tree is 'filled' with documentation
     def has_documentation(self):
         for n in self:
-            if not n.has_documentation() and (n.get_type == ASTNodeType.METHOD or n.get_type == ASTNodeType.CLASS):
+            if not n.has_documentation() and (n.get_type == ASTNodeType.METHOD or n.get_type == ASTNodeType.OBJECT):
                 return False
 
     def __repr__(self):

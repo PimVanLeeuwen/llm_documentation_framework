@@ -23,7 +23,7 @@ def document_node(node: ASTNode):
 	match node.get_type():
 		case ASTNodeType.METHOD:
 			prompt = prompt.replace("{type}", "Method")
-		case ASTNodeType.CLASS:
+		case ASTNodeType.OBJECT:
 			prompt = prompt.replace("{type}", "Class")
 		case _ :
 			warnings.warn("You are trying to document the following node: " + str(node))

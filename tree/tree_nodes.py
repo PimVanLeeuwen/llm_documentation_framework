@@ -5,7 +5,7 @@ class ASTNodeType(Enum):
     FOLDER = 1
     FILE = 2
     METHOD = 3
-    CLASS = 4
+    OBJECT = 4
 
 class ASTNode:
     """The nodes of the AST"""
@@ -117,7 +117,7 @@ class ASTNode:
             type_prefix = {
                 ASTNodeType.FOLDER: "[Folder]",
                 ASTNodeType.FILE: "[File]",
-                ASTNodeType.CLASS: "[Class]",
+                ASTNodeType.OBJECT: "[Object]",
                 ASTNodeType.METHOD: "[Method]"
             }
             indent = '    ' * level
