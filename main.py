@@ -13,7 +13,7 @@ repo_path = '/home/pimvanleeuwen/Documents/employer-worker-registration-system'
 
 if __name__ == '__main__':
 	# generate the AST
-	tree = create_tree_from_files(repo_path, ".java")
+	tree = create_tree_from_files(repo_path, [".java"])
 
 	# Write the Tree
 	with open("AbstractSyntaxTree.txt", "w") as f:

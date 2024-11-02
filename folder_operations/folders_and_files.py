@@ -25,10 +25,10 @@ def get_objects_from_file(node):
 
 	return return_array
 
-def contains_files(dir_path, extension=".java"):
+def contains_files(dir_path, extensions):
 	"""Check if a directory or any of its subdirectories contain .x files."""
 	for root, dirs, files in os.walk(dir_path):
-		if any(file.endswith(extension) for file in files):
+		if any(file.endswith(extensions) for file in files):
 			return True
 	return False
 
@@ -44,21 +44,21 @@ def parse_file(path, file):
 	# Return the node
 	return file_node
 
-def create_tree_from_files(directory, extension=".java"):
-	"""Creates a tree like structure adding the files with a certain extension"""
+def create_tree_from_files(directory, extensions=[".java"]):
+	"""Creates a tree like structure adding the files with a certain extensions (default is everything that we have added support for)"""
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	nr_files = 0
 
 	# Small check for the status bar, adds negligible time
 	for root, dirs, files in os.walk(directory):
 		for file in files:
-			if file.endswith('.java'):
+			if file.endswith(extensions):
 				nr_files += 1
 
 	# Do an OSWalk through the project directory
 	for root, dirs, files in tqdm(os.walk(directory), total=nr_files, desc="Creating Tree", unit="files"):
 		# If the folder contains any files with a certain extension it is worth looking into
-		if contains_files(root, extension):
+		if contains_files(root, extensions):
 			# Current depth of the folder
 			level = root.replace(directory, '').count(os.sep)
 			# We compute the parent node, since we are doing a pre-order traversal we know where to find the parent
