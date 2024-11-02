@@ -29,13 +29,61 @@ class ASTNode:
         # this will contain the comment of the code
         self.documentation = None
 
+    # Get the name of the node
+    def get_name(self):
+        return self.name
+
+    # Get the parent of the node
+    def get_parent(self):
+        return self.parent_node
+
+    # Get the type of the node
+    def get_type(self):
+        return self.node_type
+
+    # Get the content of the node
+    def get_content(self):
+        return self.content
+
+    # Get the children of this node
+    def get_children(self):
+        return self.children
+
+    # Add a child to this node
+    def add_child(self, child_node):
+        self.children.append(child_node)
+
+    # Get imports
+    def get_imports(self):
+        return self.imports
+
+    # Add an import statement
+    def add_import(self, import_statement):
+        self.imports.append(import_statement)
+
+    # Get the calls
+    def get_calls(self):
+        return self.calls
+
+    # Add an import statement
+    def add_call(self, call_statement):
+        self.calls.append(call_statement)
+
+    # Get the parameters list
+    def get_parameters(self):
+        return self.parameters
+
+    # Add parameters to the list
+    def add_parameter(self, param):
+        self.parameters.append(param)
+
+    # Get the comment of the node
+    def get_documentation(self):
+        return self.documentation
+
     # Set the comment of the node
     def set_documentation(self, comment):
         self.documentation = comment
-
-    # Set the comment of the node
-    def get_documentation(self):
-        return self.documentation
 
     # Returns true if there is a comment, false otherwise
     def has_documentation(self):
@@ -53,50 +101,6 @@ class ASTNode:
 
         return True
 
-    # Add an import statement
-    def add_import(self, import_statement):
-        self.imports.append(import_statement)
-
-    # Get imports
-    def get_imports(self):
-        return self.imports
-
-    # Add an import statement
-    def add_call(self, call_statement):
-        self.calls.append(call_statement)
-
-    # Add imports array
-    def set_calls(self, calls_array):
-        self.calls = calls_array
-
-    # Add an import statement
-    def get_calls(self):
-        return self.calls
-
-    # Add a child to this node
-    def add_child(self, child_node):
-        self.children.append(child_node)
-
-    # Get the children of this node
-    def get_children(self):
-        return self.children
-
-    # Return the type of the node
-    def get_type(self):
-        return self.node_type
-
-    # Return the parent of the node
-    def get_parent(self):
-        return self.parent_node
-
-    # Add parameters to the list
-    def add_param(self, param):
-        self.parameters.append(param)
-
-    # Get the parameters list
-    def get_param(self):
-        return self.parameters
-
     # Get the path of a node
     def get_path(self):
         path = []
@@ -105,10 +109,6 @@ class ASTNode:
             path.append(node.name)
             node = node.parent_node
         return '/'.join(reversed(path))
-
-    # Return name of node
-    def get_name(self):
-        return self.name
 
     # print this node and its children
     def __repr__(self, level=0, recursive=False, extended=True):

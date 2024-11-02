@@ -14,9 +14,9 @@ def document_node(node: ASTNode):
 	# set the path of the node
 	prompt = prompt.replace("{file_path}", node.get_path())
 	# set the name of the method/class
-	prompt = prompt.replace("{name}", node.name)
+	prompt = prompt.replace("{name}", node.get_name())
 	# set the content of the code
-	prompt = prompt.replace("{code_content}", node.content)
+	prompt = prompt.replace("{code_content}", node.get_content())
 
 	# set the type of the node
 	# This will warn if we document an unsupported node
@@ -29,7 +29,7 @@ def document_node(node: ASTNode):
 			warnings.warn("You are trying to document the following node: " + str(node))
 
 	# fetch the parameters and add these
-	param_list = node.get_param()
+	param_list = node.get_parameters()
 
 	param_prompt = ""
 	if param_list:
@@ -66,8 +66,8 @@ def document_node(node: ASTNode):
 	prompt = prompt.replace("{children}", children_prompt)
 
 	# add the prompt so that we can inspect it later
-	os.makedirs(os.path.dirname(f"prompts/{node.get_path()}/{node.name}.md"), exist_ok=True)
-	with open(f"prompts/{node.get_path()}/{node.name}.md", "w") as f:
+	os.makedirs(os.path.dirname(f"prompts/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
+	with open(f"prompts/{node.get_path()}/{node.get_name()}.md", "w") as f:
 		f.write("# PROMPT")
 		f.write(prompt)
 
@@ -83,6 +83,6 @@ def document_node(node: ASTNode):
 	node.set_documentation(response['message']['content'])
 
 	# write the comment to the documentation
-	os.makedirs(os.path.dirname(f"documentation/{node.get_path()}/{node.name}.md"), exist_ok=True)
-	with open(f"documentation/{node.get_path()}/{node.name}.md", "w") as f:
+	os.makedirs(os.path.dirname(f"documentation/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
+	with open(f"documentation/{node.get_path()}/{node.get_name()}.md", "w") as f:
 		f.write(node.get_documentation())

@@ -53,7 +53,7 @@ class MyJavaListener(JavaParserListener):
                 stop = param.stop.stop
                 input_stream = param.start.getInputStream()
                 text = input_stream.getText(start, stop)
-                self.current_node.add_param(text)
+                self.current_node.add_parameter(text)
 
     # Exit method
     def exitMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):
