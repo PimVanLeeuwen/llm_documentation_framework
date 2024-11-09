@@ -2,4 +2,6 @@
 *.pyc
 /docs/
 /prompts/
+/site/
+mkdocs.yml
 AbstractSyntaxTree.txt

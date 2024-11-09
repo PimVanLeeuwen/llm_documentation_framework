@@ -45,21 +45,10 @@ if __name__ == '__main__':
 		tree_to_mkdocs(tree)
 
 	if args.Run_Website:
+		# If there is no documentation, raise exception
 		if not (os.path.isdir("docs") and os.path.isfile("mkdocs.yml")):
 			raise Exception("Missing documentation, use -d flag to also generate documentation")
 
+		# Run the local server for the documentation
 		logging.basicConfig(level=logging.INFO, format='mkdocs: %(message)s')
 		mkdocs.commands.serve.serve(open_in_browser=True)
-
-
-
-
-
-
-
-
-
-
-
-
-

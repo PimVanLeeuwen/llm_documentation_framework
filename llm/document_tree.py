@@ -15,6 +15,7 @@ def document_tree(tree: AbstractSyntaxTree):
                                  (node.can_document() and
                                   (node.get_type() == ASTNodeType.METHOD or node.get_type() == ASTNodeType.OBJECT))])
 
+    # Number of nodes to do for progress bar
     total_nodes_to_document = len([node for node in tree if (node.get_type() == ASTNodeType.METHOD or node.get_type() == ASTNodeType.OBJECT)])
 
     with tqdm(total=total_nodes_to_document, dynamic_ncols=True, leave=True, desc="Creating Documentation", unit="nodes") as pbar:
@@ -43,6 +44,6 @@ def document_tree(tree: AbstractSyntaxTree):
                             break
 
 
-
+    # Check if everything is documented, as it should be now
     if not tree.has_documentation():
         warnings.warn("Not the entire tree has been documented!!")
