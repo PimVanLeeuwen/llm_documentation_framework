@@ -7,7 +7,7 @@ from tree.tree_nodes import ASTNode, ASTNodeType
 from llm.prompt import METHOD_PROMPT
 
 def document_node(node: ASTNode):
-	"""given a method node and the corresponding tree, query the LLM to generate documentation and return the output"""
+	"""given a method node and the corresponding tree, query the LLM to generate docs and return the output"""
 
 	# set the repo name
 	prompt = METHOD_PROMPT.replace("{project_structure_prefix}", node.get_path().split("/")[0])
@@ -45,7 +45,7 @@ def document_node(node: ASTNode):
 	if call_list:
 		call_prompt += "## Calls \\\n This code calls the following methods within the repository: \\\n"
 		for call in call_list:
-			# This should become the documentation
+			# This should become the docs
 			call_prompt += f"### {call.get_path()}.{call.name} \\\n"
 			# if call.has_documentation():
 			# 	call_prompt += f"{call.get_documentation()} \\\n"
@@ -59,7 +59,7 @@ def document_node(node: ASTNode):
 	if children:
 		children_prompt += "## Children \\\n This code contains the following methods/classes: \\\n"
 		for child in children:
-			# This should become the documentation
+			# This should become the docs
 			children_prompt += f"### {child.get_path()}.{child.name} \\\n"
 			# if child.has_documentation():
 			# 	children_prompt += f"{child.get_documentation()} \\\n"
@@ -72,7 +72,7 @@ def document_node(node: ASTNode):
 		f.write(prompt)
 
 	# prompt the llm
-	response = ollama.chat(model='llama3.1', messages=[
+	response = ollama.chat(model='llama3.1', options={"temperature":0}, messages=[
 		{
 			'role': 'user',
 			'content': prompt,
@@ -82,7 +82,7 @@ def document_node(node: ASTNode):
 	# set the comment in the node
 	node.set_documentation(response['message']['content'])
 
-	# write the comment to the documentation
-	os.makedirs(os.path.dirname(f"documentation/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
-	with open(f"documentation/{node.get_path()}/{node.get_name()}.md", "w") as f:
+	# write the comment to the docs
+	os.makedirs(os.path.dirname(f"docs/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
+	with open(f"docs/{node.get_path()}/{node.get_name()}.md", "w") as f:
 		f.write(node.get_documentation())

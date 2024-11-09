@@ -3,23 +3,56 @@ Main file in the LLM Documentation Framework
 Autor -- Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
 """
 
+import argparse
 import os
+import sys
+import logging
+import mkdocs.commands.build
+import mkdocs.commands.serve
+import mkdocs.config
+from documentation_combiner.tree_to_mkdocs import tree_to_mkdocs
 from folder_operations.folders_and_files import create_tree_from_files
 from llm.document_tree import document_tree
-from tree.tree_nodes import ASTNodeType, ASTNode
-from llm.document_node import document_node
-
-repo_path = '/home/pimvanleeuwen/Documents/employer-worker-registration-system'
 
 if __name__ == '__main__':
-	# generate the AST
-	tree = create_tree_from_files(repo_path, [".java"])
 
-	# Write the Tree
-	with open("AbstractSyntaxTree.txt", "w") as f:
-		f.write(str(tree))
+	# Initialize parser
+	parser = argparse.ArgumentParser()
 
-	document_tree(tree)
+	# Adding optional argument
+	parser.add_argument("-d", "--Gen-Doc", help="Generate Documentation, requires path of the repo")
+	parser.add_argument("-w", "--Run-Website", action="store_true", help="Run the website, requires documentation to have been generated (before)")
+
+
+	# Read arguments from command line
+	args = parser.parse_args()
+
+	if not (args.Gen_Doc or args.Run_Website):
+		parser.print_help(sys.stderr)
+
+	if args.Gen_Doc:
+		# generate the AST
+		tree = create_tree_from_files(args.Gen_Doc, tuple([".java"]))
+
+		# Write the Tree
+		with open("AbstractSyntaxTree.txt", "w") as f:
+			f.write(str(tree))
+
+		# Put the documentation in the tree
+		document_tree(tree)
+
+		# Put the documentation in the right format
+		tree_to_mkdocs(tree)
+
+	if args.Run_Website:
+		if not (os.path.isdir("docs") and os.path.isfile("mkdocs.yml")):
+			raise Exception("Missing documentation, use -d flag to also generate documentation")
+
+		logging.basicConfig(level=logging.INFO, format='mkdocs: %(message)s')
+		mkdocs.commands.serve.serve(open_in_browser=True)
+
+
+
 
 
 

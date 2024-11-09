@@ -65,9 +65,13 @@ class ASTNode:
     def get_calls(self):
         return self.calls
 
-    # Add an import statement
+    # Add a call
     def add_call(self, call_statement):
         self.calls.append(call_statement)
+
+    # Set the calls
+    def set_calls(self, calls):
+        self.calls = calls
 
     # Get the parameters list
     def get_parameters(self):

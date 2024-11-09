@@ -44,7 +44,7 @@ def parse_file(path, file):
 	# Return the node
 	return file_node
 
-def create_tree_from_files(directory, extensions=[".java"]):
+def create_tree_from_files(directory, extensions=tuple([".java"])):
 	"""Creates a tree like structure adding the files with a certain extensions (default is everything that we have added support for)"""
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	nr_files = 0
@@ -62,7 +62,7 @@ def create_tree_from_files(directory, extensions=[".java"]):
 			# Current depth of the folder
 			level = root.replace(directory, '').count(os.sep)
 			# We compute the parent node, since we are doing a pre-order traversal we know where to find the parent
-			parent_node = tree.root
+			parent_node = tree.get_root()
 			for _ in range(level):
 				if parent_node.children:
 					parent_node = parent_node.children[-1]

@@ -8,6 +8,10 @@ class AbstractSyntaxTree:
         self.str_rep = None
         self.nr_nodes = None
 
+    # Get the root of the tree
+    def get_root(self):
+        return self.root
+
     # get the number of nodes in the tree and cache this
     def get_nr_nodes(self):
         if self.nr_nodes:
@@ -18,7 +22,7 @@ class AbstractSyntaxTree:
                 self.nr_nodes += 1
             return self.nr_nodes
 
-    # return if the tree is 'filled' with documentation
+    # return if the tree is 'filled' with docs
     def has_documentation(self):
         for n in self:
             if not n.has_documentation() and (n.get_type == ASTNodeType.METHOD or n.get_type == ASTNodeType.OBJECT):

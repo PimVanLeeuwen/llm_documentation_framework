@@ -1,6 +1,6 @@
 METHOD_PROMPT = """
 ## Instruction
-You are an AI documentation assistant. Your task is to generate clear, concise documentation for the given code of an 
+You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an 
 object to help developers and beginners understand its function and usage.
 ## Information
 **Project Structure:** `{project_structure_prefix}` \\
@@ -17,6 +17,7 @@ object to help developers and beginners understand its function and usage.
 ## Task
 Please complete the template below, so a simple sentence of behaviour first, followed by a concise analysis in plain text (including details).
 AVOID ANY SPECULATION and inaccurate description. Stay concise, only fill out the dots in the expected output. 
+Do not start with an introduction of your answer (so not "here's the completed template" first), just give what is asked. 
 Your answer should not include more than the functionality of the code and should be no more than 500 words.
 
 ## Expected output
@@ -28,7 +29,7 @@ Your answer should not include more than the functionality of the code and shoul
 #
 # SYS_PROMPT = """
 # ###Instruction###’
-# You are an AI documentation assistant. Your task is to generate clear, concise documentation for the given code of an
+# You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an
 # object to help developers and beginners understand its function and usage.
 #
 # ###Information###
@@ -50,4 +51,4 @@ Your answer should not include more than the functionality of the code and shoul
 # **Code Description**: ...
 # """
 #
-# USR_PROMPT = """Keep in mind that your audience is document readers, so  Now, provide the documentation for the target object in English in a professional way."""
+# USR_PROMPT = """Keep in mind that your audience is document readers, so  Now, provide the docs for the target object in English in a professional way."""
