@@ -37,14 +37,17 @@ def parse_file(path, file):
 	@:return The file node with the added information
 	"""
 
-	# print(file)
-	file_node = parse_java_file(path, file)
-	# print()
+	file_name, file_ext = os.path.splitext(file)
 
-	# Return the node
-	return file_node
+	match file_ext:
+		case ".java":
+			return parse_java_file(path, file)
+		case ".cpp":
+			pass
+		case _:
+			raise Exception("Unexpected extension, unknown what to do with this")
 
-def create_tree_from_files(directory, extensions=tuple([".java"])):
+def create_tree_from_files(directory, extensions):
 	"""Creates a tree like structure adding the files with a certain extensions (default is everything that we have added support for)"""
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	nr_files = 0
@@ -73,10 +76,11 @@ def create_tree_from_files(directory, extensions=tuple([".java"])):
 
 			# Process any non-folder items in this folder
 			for file in files:
-				if file.endswith(".java"):
+				if file.endswith(extensions):
 					file_node = parse_file(os.path.join(root, file), file)
 					file_node.parent_node = parent_node
 					dir_node.add_child(file_node)
+
 
 	# we need to make a dict with names -> nodes with one pass
 	# then another pass to replace the names with nodes

@@ -4,7 +4,7 @@ import warnings
 import ollama
 
 from tree.tree_nodes import ASTNode, ASTNodeType
-from llm.prompt import METHOD_PROMPT
+from llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK
 
 def document_node(node: ASTNode):
 	"""given a method node and the corresponding tree, query the LLM to generate docs and return the output"""
@@ -47,8 +47,8 @@ def document_node(node: ASTNode):
 		for call in call_list:
 			# This should become the docs
 			call_prompt += f"### {call.get_path()}.{call.name} \\\n"
-			# if call.has_documentation():
-			# 	call_prompt += f"{call.get_documentation()} \\\n"
+			if call.has_documentation():
+				call_prompt += f" - Explanation:  _{call.get_short_documentation()}_ \\\n"
 
 	prompt = prompt.replace("{function_calls}", call_prompt)
 
@@ -64,12 +64,25 @@ def document_node(node: ASTNode):
 			# if child.has_documentation():
 			# 	children_prompt += f"{child.get_documentation()} \\\n"
 	prompt = prompt.replace("{children}", children_prompt)
+	short_prompt = prompt + SHORT_TASK
+	prompt = prompt + LONG_TASK.replace("{name}", node.get_name())
 
 	# add the prompt so that we can inspect it later
 	os.makedirs(os.path.dirname(f"prompts/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
 	with open(f"prompts/{node.get_path()}/{node.get_name()}.md", "w") as f:
 		f.write("# PROMPT")
 		f.write(prompt)
+
+	# prompt the llm
+	response = ollama.chat(model='llama3.1', options={"temperature":0}, messages=[
+		{
+			'role': 'user',
+			'content': short_prompt,
+		},
+	])
+
+	# set the comment in the node
+	node.set_short_documentation(response['message']['content'])
 
 	# prompt the llm
 	response = ollama.chat(model='llama3.1', options={"temperature":0}, messages=[
@@ -86,3 +99,8 @@ def document_node(node: ASTNode):
 	os.makedirs(os.path.dirname(f"docs/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
 	with open(f"docs/{node.get_path()}/{node.get_name()}.md", "w") as f:
 		f.write(node.get_documentation())
+
+	# TODO: REMOVE THIS
+	os.makedirs(os.path.dirname(f"docs/{node.get_path()}/{node.get_name()}_short.md"), exist_ok=True)
+	with open(f"docs/{node.get_path()}/{node.get_name()}_short.md", "w") as f:
+		f.write(node.get_short_documentation())

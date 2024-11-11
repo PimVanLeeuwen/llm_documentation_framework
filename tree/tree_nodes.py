@@ -28,6 +28,7 @@ class ASTNode:
         self.parameters = []
         # this will contain the comment of the code
         self.documentation = None
+        self.short_documentation = None
 
     # Get the name of the node
     def get_name(self):
@@ -92,6 +93,14 @@ class ASTNode:
     # Returns true if there is a comment, false otherwise
     def has_documentation(self):
         return self.documentation is not None
+
+    # Get the short comment of the node
+    def get_short_documentation(self):
+        return self.short_documentation
+
+    # Set the short comment of the node
+    def set_short_documentation(self, comment):
+        self.short_documentation = comment
 
     # We can only comment nodes if the calls that they make are commented and their children are commented.
     def can_document(self):

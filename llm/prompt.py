@@ -14,6 +14,17 @@ object to help developers and beginners understand its function and usage.
 
 {children}
 
+"""
+
+SHORT_TASK = """
+## Task
+Give a two-line general explanation about this code. 
+AVOID ANY SPECULATION and inaccurate description. Stay concise. 
+Do not start with an introduction of your answer (so not "here's the completed template" first), just give what is asked. 
+"""
+
+
+LONG_TASK = """
 ## Task
 Please complete the template below, so a simple sentence of behaviour first, followed by a concise analysis in plain text (including details).
 AVOID ANY SPECULATION and inaccurate description. Stay concise, only fill out the dots in the expected output. 
