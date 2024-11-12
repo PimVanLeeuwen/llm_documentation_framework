@@ -10,11 +10,13 @@ def document_node(node: ASTNode):
 	"""given a method node and the corresponding tree, query the LLM to generate docs and return the output"""
 
 	# set the repo name
+	long_prompt = LONG_TASK
 	prompt = METHOD_PROMPT.replace("{project_structure_prefix}", node.get_path().split("/")[0])
 	# set the path of the node
 	prompt = prompt.replace("{file_path}", node.get_path())
 	# set the name of the method/class
 	prompt = prompt.replace("{name}", node.get_name())
+	long_prompt = long_prompt.replace("{name}", node.get_name())
 	# set the content of the code
 	prompt = prompt.replace("{code_content}", node.get_content())
 
@@ -36,7 +38,7 @@ def document_node(node: ASTNode):
 		param_prompt += "**Parameters**:\\\n"
 		for param in param_list:
 			param_prompt += f"`{param}`: *FILL IN* \\\n"
-	prompt = prompt.replace("{parameters_or_attribute}", param_prompt)
+	long_prompt = long_prompt.replace("{parameters_or_attribute}", param_prompt)
 
 	# fetch the calls and add these
 	call_list = node.get_calls()
@@ -65,7 +67,7 @@ def document_node(node: ASTNode):
 			# 	children_prompt += f"{child.get_documentation()} \\\n"
 	prompt = prompt.replace("{children}", children_prompt)
 	short_prompt = prompt + SHORT_TASK
-	prompt = prompt + LONG_TASK.replace("{name}", node.get_name())
+	prompt = prompt + long_prompt
 
 	# add the prompt so that we can inspect it later
 	os.makedirs(os.path.dirname(f"prompts/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
