@@ -42,8 +42,6 @@ def parse_file(path, file):
 	match file_ext:
 		case ".java":
 			return parse_java_file(path, file)
-		case ".cpp":
-			pass
 		case _:
 			raise Exception("Unexpected extension, unknown what to do with this")
 
