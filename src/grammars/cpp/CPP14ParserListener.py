@@ -17,6 +17,15 @@ class CPP14ParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CPP14Parser#preprocessorDirective.
+    def enterPreprocessorDirective(self, ctx:CPP14Parser.PreprocessorDirectiveContext):
+        pass
+
+    # Exit a parse tree produced by CPP14Parser#preprocessorDirective.
+    def exitPreprocessorDirective(self, ctx:CPP14Parser.PreprocessorDirectiveContext):
+        pass
+
+
     # Enter a parse tree produced by CPP14Parser#primaryExpression.
     def enterPrimaryExpression(self, ctx:CPP14Parser.PrimaryExpressionContext):
         pass

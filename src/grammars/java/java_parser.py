@@ -2,10 +2,11 @@ import warnings
 
 from antlr4 import *
 
-from grammars.java.JavaLexer import JavaLexer
-from grammars.java.JavaParser import JavaParser
-from grammars.java.JavaParserListener import JavaParserListener
-from tree.tree_nodes import *
+from src.grammars.java.JavaLexer import JavaLexer
+from src.grammars.java.JavaParser import JavaParser
+from src.grammars.java.JavaParserListener import JavaParserListener
+from src.tree.tree_nodes import ASTNodeType, ASTNode
+
 
 # Create a listener for the Java project, from this we create the nodes and content of the nodes into the target
 # format. Overrides the methods from JavaParserListener

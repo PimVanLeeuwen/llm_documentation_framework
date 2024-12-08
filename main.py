@@ -10,9 +10,9 @@ import logging
 import mkdocs.commands.build
 import mkdocs.commands.serve
 import mkdocs.config
-from documentation_combiner.tree_to_mkdocs import tree_to_mkdocs
-from folder_operations.folders_and_files import create_tree_from_files
-from llm.document_tree import document_tree
+from src.documentation_combiner.tree_to_mkdocs import tree_to_mkdocs
+from src.folder_operations.folders_and_files import create_tree_from_files
+from src.llm.document_tree import document_tree
 
 if __name__ == '__main__':
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
 	if args.Gen_Doc:
 		# generate the AST
-		tree = create_tree_from_files(args.Gen_Doc, tuple([".java"]))
+		tree = create_tree_from_files(args.Gen_Doc, tuple([".java", ".cpp"]))
 
 		# Write the Tree
 		with open("AbstractSyntaxTree.txt", "w") as f:

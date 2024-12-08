@@ -1,4 +1,4 @@
-from tree.tree_nodes import ASTNodeType
+from src.tree.tree_nodes import ASTNodeType
 
 
 class AbstractSyntaxTree:
@@ -18,7 +18,7 @@ class AbstractSyntaxTree:
             return self.nr_nodes
         else:
             self.nr_nodes = 0
-            for n in self:
+            for _n in self:
                 self.nr_nodes += 1
             return self.nr_nodes
 

@@ -3,8 +3,8 @@ import os
 import warnings
 import ollama
 
-from tree.tree_nodes import ASTNode, ASTNodeType
-from llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK
+from src.tree.tree_nodes import ASTNode, ASTNodeType
+from src.llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK
 
 def document_node(node: ASTNode):
 	"""given a method node and the corresponding tree, query the LLM to generate docs and return the output"""

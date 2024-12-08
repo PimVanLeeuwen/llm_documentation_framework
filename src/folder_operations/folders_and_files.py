@@ -1,10 +1,12 @@
 import os
 import warnings
 
-from tree.abstract_tree import *
-from tree.tree_nodes import *
-from grammars.java.java_parser import parse_java_file
+from src.grammars.java.java_parser import parse_java_file
+from src.grammars.cpp.cpp_parser import parse_cpp_file
+from src.tree.abstract_tree import AbstractSyntaxTree
+from src.tree.tree_nodes import ASTNodeType, ASTNode
 from tqdm import tqdm
+
 
 def calls_mapped(tree):
 	"""check if all calls are mapped to nodes, if so return true, else return false"""
@@ -38,10 +40,13 @@ def parse_file(path, file):
 	"""
 
 	file_name, file_ext = os.path.splitext(file)
+	# print(file_name)
 
 	match file_ext:
 		case ".java":
 			return parse_java_file(path, file)
+		case ".cpp":
+			return parse_cpp_file(path, file)
 		case _:
 			raise Exception("Unexpected extension, unknown what to do with this")
 
@@ -121,7 +126,7 @@ def create_tree_from_files(directory, extensions):
 					# if there are no matching calls, just remove this, then there is no content that we can add
 					continue
 				case 1:
-					# if there is only one, no checks are needed and we can just add that one, since there is no doubt.
+					# if there is only one, no checks are needed, and we can just add that one, since there is no doubt.
 					new_calls.add(object_method_calls[node_calls[0]])
 					continue
 				case _:
@@ -145,7 +150,7 @@ def create_tree_from_files(directory, extensions):
 					for source in local_sources, external_sources:
 						hits = []
 						for local in source:
-							# check if we can math any of the sources with the calls
+							# check if we can match any of the sources with the calls
 							hits = [key for key in node_calls if key.split(".")[0] == local]
 						if hits:
 							# this should not occur, because then we are not certain that we have the right one

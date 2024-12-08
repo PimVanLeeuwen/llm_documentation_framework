@@ -1,11 +1,9 @@
-import os
 import warnings
-import ollama
 
 from collections import deque
-from llm.document_node import document_node
-from tree.tree_nodes import ASTNodeType
-from tree.abstract_tree import AbstractSyntaxTree
+from src.llm.document_node import document_node
+from src.tree.tree_nodes import ASTNodeType
+from src.tree.abstract_tree import AbstractSyntaxTree
 from tqdm import tqdm
 
 def document_tree(tree: AbstractSyntaxTree):

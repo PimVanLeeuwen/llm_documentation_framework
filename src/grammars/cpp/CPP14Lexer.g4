@@ -33,7 +33,7 @@ UserDefinedLiteral:
 
 MultiLineMacro: '#' (~[\n]*? '\\' '\r'? '\n')+ ~ [\n]+ -> channel (HIDDEN);
 
-Directive: '#' ~ [\n]* -> channel (HIDDEN);
+Directive: '#' ~ [\n]*;
 /*Keywords*/
 
 Alignas: 'alignas';

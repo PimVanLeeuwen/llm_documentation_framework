@@ -1,5 +1,5 @@
-from tree.abstract_tree import AbstractSyntaxTree
-from tree.tree_nodes import ASTNodeType, ASTNode
+from src.tree.abstract_tree import AbstractSyntaxTree
+from src.tree.tree_nodes import ASTNodeType, ASTNode
 
 
 def tree_to_mkdocs(tree: AbstractSyntaxTree):
