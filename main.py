@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 		# Write the Tree
 		with open("AbstractSyntaxTree.txt", "w") as f:
-			f.write(str(tree))
+			f.write(tree.root.__repr__(recursive=True, extended=True))
 
 		# Put the documentation in the tree
 		document_tree(tree)

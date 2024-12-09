@@ -56,23 +56,22 @@ class MyCPPListener(CPP14ParserListener):
         text = ctx.getText()
 
         if text[-1] == ")":
-            self.current_node.add_call(text.split(".")[-1])
+            # print(text.split(".")[-1])
+            self.current_node.add_call(text)
 
     # def enterEveryRule(self, ctx):
     #     rule_name = CPP14Parser.ruleNames[ctx.getRuleIndex()]
     #     print(f"Entering rule: {rule_name}")
 
 def parse_cpp_file(path, file):
-    # with open(path, 'rb') as file:
-    #     content = file.read()
-    # if content.startswith(b'\xef\xbb\xbf'):
-    #     content = content[3:]
-    # with open(path, 'wb') as file:
-    #     file.write(content)
     input_stream = FileStream(path, encoding='utf-8')
     lexer = CPP14Lexer(input_stream)
+    # not all c++ projects adhere fully to the grammar, ignore the errors
+    lexer.removeErrorListeners()
     stream = CommonTokenStream(lexer)
     parser = CPP14Parser(stream)
+    # not all c++ projects adhere fully to the grammar, ignore the errors
+    parser.removeErrorListeners()
     tree = parser.translationUnit()
 
     # This will be the full node of the file

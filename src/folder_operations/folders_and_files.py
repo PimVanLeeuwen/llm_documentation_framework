@@ -105,6 +105,9 @@ def create_tree_from_files(directory, extensions):
 		# add it to the dictionary
 		object_method_calls[f"{p_node.get_name()}.{node.get_name()}"] = node
 
+	for key in object_method_calls.keys():
+		print(key.split(".")[-1].split("::")[-1])
+
 
 	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Converting Calls", unit="nodes"):
 
@@ -119,7 +122,10 @@ def create_tree_from_files(directory, extensions):
 		# check for all calls if we can convert them, if not, drop them
 		for call in calls:
 			# these are all the hits for a node call
-			node_calls = [key for key in object_method_calls.keys() if call.split('(')[0] == key.split(".")[-1]]
+			print(call)
+			node_calls = [key for key in object_method_calls.keys() if call.split('(')[0] == key.split(".")[-1].split("::")[-1].split("(")[0]]
+			print(node_calls)
+			print()
 
 			match len(node_calls):
 				case 0:
@@ -162,7 +168,7 @@ def create_tree_from_files(directory, extensions):
 							break
 
 		# set updated array
-		node.set_calls([call for call in new_calls])
+		# node.set_calls([call for call in new_calls])
 
 	# We should warn the user when we are returning still unmapped errors.
 	if not calls_mapped(tree):
