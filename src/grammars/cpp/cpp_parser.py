@@ -27,7 +27,7 @@ class MyCPPListener(CPP14ParserListener):
 
     # Enter Method Creation
     def enterFunctionDefinition(self, ctx:CPP14Parser.FunctionDefinitionContext):
-        method_node = ASTNode(ctx.declarator().getText(), ASTNodeType.METHOD, parent_node=self.current_node,
+        method_node = ASTNode(ctx.declarator().getText().split("(")[0], ASTNodeType.METHOD, parent_node=self.current_node,
                               content=ctx.functionBody().getText())
         # TODO: Parameters?
 
