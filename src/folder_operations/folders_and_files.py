@@ -121,11 +121,13 @@ def create_tree_from_files(directory, extensions):
 
 		# check for all calls if we can convert them, if not, drop them
 		for call in calls:
+			# TODO: Fix this because right now C++ things are not getting mapped but that might also be because the repo is shit
 			# these are all the hits for a node call
-			print(call)
-			node_calls = [key for key in object_method_calls.keys() if call.split('(')[0] == key.split(".")[-1].split("::")[-1].split("(")[0]]
-			print(node_calls)
-			print()
+			# print(call)
+			# print(call.split("::")[-1].split(".")[-1].split("->")[-1].split('(')[0])
+			node_calls = [key for key in object_method_calls.keys() if call.split("::")[-1].split(".")[-1].split("->")[-1].split('(')[0] == key]
+			# print(node_calls)
+			# print()
 
 			match len(node_calls):
 				case 0:
@@ -168,7 +170,7 @@ def create_tree_from_files(directory, extensions):
 							break
 
 		# set updated array
-		# node.set_calls([call for call in new_calls])
+		node.set_calls([call for call in new_calls])
 
 	# We should warn the user when we are returning still unmapped errors.
 	if not calls_mapped(tree):

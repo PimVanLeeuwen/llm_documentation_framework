@@ -27,7 +27,7 @@ class MyCPPListener(CPP14ParserListener):
 
     # Enter Method Creation
     def enterFunctionDefinition(self, ctx:CPP14Parser.FunctionDefinitionContext):
-        method_node = ASTNode(ctx.declarator().getText().split("(")[0], ASTNodeType.METHOD, parent_node=self.current_node,
+        method_node = ASTNode(ctx.declarator().getText().split("(")[0].split("::")[-1], ASTNodeType.METHOD, parent_node=self.current_node,
                               content=ctx.functionBody().getText())
         # TODO: Parameters?
 
@@ -49,31 +49,31 @@ class MyCPPListener(CPP14ParserListener):
     def exitNamespaceDefinition(self, ctx:CPP14Parser.NamespaceDefinitionContext):
         self.current_node = self.current_node.get_parent()
 
-    def enterUnaryExpression(self, ctx:CPP14Parser.UnaryExpressionContext):
-        print()
+    # def enterUnaryExpression(self, ctx:CPP14Parser.UnaryExpressionContext):
+    #     print()
 
     # Call another method
     def enterPostfixExpression(self, ctx: CPP14Parser.PostfixExpressionContext):
-        # self.current_node.add_call(ctx.getText())
-        print("=== BEGIN ===")
-        print(ctx.getText())
-        if ctx.LeftParen(): print("Left: " + ctx.LeftParen().getText())
-        if ctx.RightParen(): print("Right: " + ctx.RightParen().getText())
-        if ctx.bracedInitList(): print("Braced: " + ctx.bracedInitList().getText())
-        if ctx.expressionList(): print("Espression: " + ctx.expressionList().getText())
-        if ctx.primaryExpression(): print("primary: " + ctx.primaryExpression().getText())
-        if ctx.simpleTypeSpecifier(): print("simpleType: " + ctx.simpleTypeSpecifier().getText())
-        if ctx.typeNameSpecifier(): print("TypeName: " + ctx.typeNameSpecifier().getText())
-        print()
-        print("==== END ====")
+        self.current_node.add_call(ctx.getText())
+        # print("=== BEGIN ===")
+        # print(ctx.getText())
+        # if ctx.LeftParen(): print("Left: " + ctx.LeftParen().getText())
+        # if ctx.RightParen(): print("Right: " + ctx.RightParen().getText())
+        # if ctx.bracedInitList(): print("Braced: " + ctx.bracedInitList().getText())
+        # if ctx.expressionList(): print("Espression: " + ctx.expressionList().getText())
+        # if ctx.primaryExpression(): print("primary: " + ctx.primaryExpression().getText())
+        # if ctx.simpleTypeSpecifier(): print("simpleType: " + ctx.simpleTypeSpecifier().getText())
+        # if ctx.typeNameSpecifier(): print("TypeName: " + ctx.typeNameSpecifier().getText())
+        # print()
+        # print("==== END ====")
 
         # if text[-1] == ")":
         #     # print(text.split(".")[-1])
         #     self.current_node.add_call(text)
 
-    def enterEveryRule(self, ctx):
-        rule_name = CPP14Parser.ruleNames[ctx.getRuleIndex()]
-        print(f"Entering rule: {rule_name}")
+    # def enterEveryRule(self, ctx):
+    #     rule_name = CPP14Parser.ruleNames[ctx.getRuleIndex()]
+    #     print(f"Entering rule: {rule_name}")
 
 def parse_cpp_file(path, file):
     input_stream = FileStream(path, encoding='utf-8')
