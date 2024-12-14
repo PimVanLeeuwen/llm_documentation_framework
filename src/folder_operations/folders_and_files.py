@@ -105,10 +105,6 @@ def create_tree_from_files(directory, extensions):
 		# add it to the dictionary
 		object_method_calls[f"{p_node.get_name()}.{node.get_name()}"] = node
 
-	for key in object_method_calls.keys():
-		print(key.split(".")[-1].split("::")[-1])
-
-
 	for node in tqdm(tree, total=tree.get_nr_nodes() ,desc="Converting Calls", unit="nodes"):
 
 		# get the calls and we will construct the converted calls
@@ -121,11 +117,10 @@ def create_tree_from_files(directory, extensions):
 
 		# check for all calls if we can convert them, if not, drop them
 		for call in calls:
-			# TODO: Fix this because right now C++ things are not getting mapped but that might also be because the repo is shit
 			# these are all the hits for a node call
 			# print(call)
 			# print(call.split("::")[-1].split(".")[-1].split("->")[-1].split('(')[0])
-			node_calls = [key for key in object_method_calls.keys() if call.split("::")[-1].split(".")[-1].split("->")[-1].split('(')[0] == key]
+			node_calls = [key for key in object_method_calls.keys() if call.split("::")[-1].split(".")[-1].split("->")[-1].split('(')[0] == key.split(".")[-1]]
 			# print(node_calls)
 			# print()
 
@@ -168,6 +163,8 @@ def create_tree_from_files(directory, extensions):
 							new_calls.add(object_method_calls[hits[0]])
 							# we break because in this case we do not need to cover the external sources (if happens in internal)
 							break
+					# print(new_calls)
+					# print()
 
 		# set updated array
 		node.set_calls([call for call in new_calls])

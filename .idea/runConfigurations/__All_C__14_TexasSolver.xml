@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="--All C++14" type="PythonConfigurationType" factoryName="Python">
+  <configuration default="false" name="--All C++14 TexasSolver" type="PythonConfigurationType" factoryName="Python" folderName="TexasSolver">
     <module name="llm_documentation_framework" />
     <option name="ENV_FILES" value="" />
     <option name="INTERPRETER_OPTIONS" value="" />
@@ -15,7 +15,7 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-    <option name="PARAMETERS" value="-d &quot;$PROJECT_DIR$/../lgui&quot; -w" />
+    <option name="PARAMETERS" value="-d &quot;$PROJECT_DIR$/../TexasSolver&quot; -w" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />

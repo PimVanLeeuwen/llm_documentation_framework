@@ -28,7 +28,8 @@ class MyJavaListener(JavaParserListener):
 
     # Enter class creations
     def enterClassDeclaration(self, ctx:JavaParser.classDeclaration):
-        class_node = ASTNode(ctx.identifier().getText(), ASTNodeType.OBJECT, parent_node=self.current_node, content=ctx.getText())
+        class_node = ASTNode(ctx.identifier().getText(), ASTNodeType.OBJECT, parent_node=self.current_node,
+                             content=ctx.start.getInputStream().getText(ctx.start.start, ctx.stop.stop))
         self.current_node.add_child(class_node)
         self.current_node = class_node
 
@@ -43,7 +44,8 @@ class MyJavaListener(JavaParserListener):
     # Enter method creation
     def enterMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):
         method_node = ASTNode(ctx.identifier().getText(), ASTNodeType.METHOD, parent_node=self.current_node,
-                             content=ctx.getText())
+                             content=ctx.start.getInputStream().getText(ctx.start.start, ctx.stop.stop))
+
         self.current_node.add_child(method_node)
         self.current_node = method_node
 

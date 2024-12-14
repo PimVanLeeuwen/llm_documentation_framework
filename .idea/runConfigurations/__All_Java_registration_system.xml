@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="--All Java" type="PythonConfigurationType" factoryName="Python">
+  <configuration default="false" name="--All Java registration-system" type="PythonConfigurationType" factoryName="Python" folderName="employer-worker-registration-system">
     <module name="llm_documentation_framework" />
     <option name="ENV_FILES" value="" />
     <option name="INTERPRETER_OPTIONS" value="" />

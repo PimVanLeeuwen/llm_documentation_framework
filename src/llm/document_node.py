@@ -95,7 +95,7 @@ def document_node(node: ASTNode):
 	])
 
 	# set the comment in the node
-	node.set_documentation(response['message']['content'])
+	node.set_documentation(response['message']['content'] + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")
 
 	# write the comment to the docs
 	os.makedirs(os.path.dirname(f"docs/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
