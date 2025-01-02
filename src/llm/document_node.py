@@ -2,7 +2,6 @@
 import os
 import warnings
 import ollama
-import json
 import requests
 import uuid
 
@@ -20,13 +19,12 @@ headers = {
 	"Accept": "application/json"
 }
 
-def invoke_llm(system_prompt, model_provider= "azure", model_name="openai.gpt-4o",
+def invoke_llm(prompt, model_provider="azure", model_name="openai.gpt-4o",
 			   prompt_id="123e4567-e89b-12d3-a456-426614174002"):
-	"""
-	This calls the API to generate LLM documentation
+	"""calls the API to generate LLM documentation
 
 	Args:
-		system_prompt (str): The prompt to parse.
+		prompt (str): The prompt to parse.
 		model_provider (str): The provider of the model.
 		model_name (str): The name of the model.
 		prompt_id (str): UUID of the prompt.
@@ -39,11 +37,11 @@ def invoke_llm(system_prompt, model_provider= "azure", model_name="openai.gpt-4o
 		"modelInterface": "langchain",
 		"data": {
 			"mode": "chain",
-			"text": "You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an object to help developers and beginners understand its function and usage.",
-			"systemPrompt": system_prompt,
+			"text": prompt,
 			"files": [],
 			"modelName": model_name,
 			"provider": model_provider,
+			"systemPrompt": "You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an object to help developers and beginners understand its function and usage.",
 			"sessionId": prompt_id,
 			"modelKwargs": {
 				"maxTokens": 512,
@@ -155,7 +153,7 @@ def document_node(node: ASTNode):
 	# 	},
 	# ])
 
-	response = invoke_llm(short_prompt, str(uuid.uuid4()))
+	response = invoke_llm(short_prompt, prompt_id=str(uuid.uuid4()))
 
 	# set the comment in the node
 	# node.set_short_documentation(response['message']['content'])
@@ -169,7 +167,7 @@ def document_node(node: ASTNode):
 	# 	},
 	# ])
 
-	response = invoke_llm(prompt, str(uuid.uuid4()))
+	response = invoke_llm(prompt, prompt_id=str(uuid.uuid4()))
 
 	# set the comment in the node
 	# node.set_documentation(response['message']['content'] + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")

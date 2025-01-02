@@ -8,7 +8,7 @@ from tqdm import tqdm
 
 def document_tree(tree: AbstractSyntaxTree):
     """
-	This method recusively goes over the tree to create documentation.
+	This method recursively goes over the tree to create documentation.
 
 	Args:
 		tree (AbstractSyntaxTree): The tree to document.
