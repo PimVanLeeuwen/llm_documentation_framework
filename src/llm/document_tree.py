@@ -7,6 +7,12 @@ from src.tree.abstract_tree import AbstractSyntaxTree
 from tqdm import tqdm
 
 def document_tree(tree: AbstractSyntaxTree):
+    """
+	This method recusively goes over the tree to create documentation.
+
+	Args:
+		tree (AbstractSyntaxTree): The tree to document.
+	"""
 
     # queue of nodes that can be documented
     documentation_queue = deque([node for node in tree if

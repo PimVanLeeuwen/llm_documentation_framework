@@ -15,7 +15,6 @@ from src.folder_operations.folders_and_files import create_tree_from_files
 from src.llm.document_tree import document_tree
 
 if __name__ == '__main__':
-
 	# Initialize parser
 	parser = argparse.ArgumentParser()
 

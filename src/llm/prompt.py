@@ -1,7 +1,8 @@
+# ## Instruction
+# You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an
+# object to help developers and beginners understand its function and usage.
+
 METHOD_PROMPT = """
-## Instruction
-You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an 
-object to help developers and beginners understand its function and usage.
 ## Information
 **Project Structure:** `{project_structure_prefix}` \\
 **File Path:** `{file_path}` \\

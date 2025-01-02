@@ -168,6 +168,8 @@ def create_tree_from_files(directory, extensions):
 
 		# set updated array
 		node.set_calls([call for call in new_calls])
+		# print(new_calls)
+		# print()
 
 	# We should warn the user when we are returning still unmapped errors.
 	if not calls_mapped(tree):
