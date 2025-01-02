@@ -16,11 +16,10 @@ def document_tree(tree: AbstractSyntaxTree):
 
     # queue of nodes that can be documented
     documentation_queue = deque([node for node in tree if
-                                 (node.can_document() and
-                                  (node.get_type() == ASTNodeType.METHOD or node.get_type() == ASTNodeType.OBJECT))])
+                                 (node.can_document() and (node.get_type() in {ASTNodeType.METHOD, ASTNodeType.OBJECT}))])
 
     # Number of nodes to do for progress bar
-    total_nodes_to_document = len([node for node in tree if (node.get_type() == ASTNodeType.METHOD or node.get_type() == ASTNodeType.OBJECT)])
+    total_nodes_to_document = len([node for node in tree if (node.get_type() in {ASTNodeType.METHOD, ASTNodeType.OBJECT})])
 
     with tqdm(total=total_nodes_to_document, dynamic_ncols=True, leave=True, desc="Creating Documentation", unit="nodes") as pbar:
         while documentation_queue:
@@ -37,15 +36,14 @@ def document_tree(tree: AbstractSyntaxTree):
             if not documentation_queue:
                 documentation_queue = deque([node for node in tree if
                                              (node.can_document() and not node.has_documentation() and
-                                              (node.get_type() == ASTNodeType.METHOD or node.get_type() == ASTNodeType.OBJECT))])
+                                              (node.get_type() in {ASTNodeType.METHOD, ASTNodeType.OBJECT}))])
 
 
                 if not documentation_queue:
                     warnings.warn("No suitable targets for documentations")
-                    for node in tree:
-                        if not node.has_documentation() and (node.get_type() == ASTNodeType.METHOD or node.get_type() == ASTNodeType.OBJECT):
-                            documentation_queue = deque([node])
-                            break
+                    documentation_queue = deque([node for node in tree if not node.has_documentation() and
+                                                 node.get_type() in {ASTNodeType.METHOD, ASTNodeType.OBJECT}][:1])
+
 
 
     # Check if everything is documented, as it should be now

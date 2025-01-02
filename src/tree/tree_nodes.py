@@ -193,15 +193,8 @@ class ASTNode:
         Returns:
 		    bool: True if there is documentation for all children and all called methods.
         """
-        for call in self.calls:
-            if not call.has_documentation():
-                return False
-
-        for child in self.children:
-            if not child.has_documentation():
-                return False
-
-        return True
+        return (all(call.has_documentation() for call in self.calls) and
+                all(child.has_documentation() for child in self.children))
 
     def get_path(self):
         """Get the path of a node
@@ -248,6 +241,7 @@ class ASTNode:
             for child in self.children:
                 output += child.__repr__(level + 1, recursive, extended)
             return output
+
         # This is for just printing a node
         else:
             output = f"[Name] {self.name}\n"
@@ -261,10 +255,10 @@ class ASTNode:
             return output
 
     def __iter__(self):
-        """Iterator for nodes in the tree
+        """Iterator for nodes in the subtree rooted at this node.
 
         Returns:
-		    iterator or ASTNode: Iterator for nodes in the tree or node if just one .
+		    iterator or ASTNode: Iterator for nodes in the tree or node if just one.
         """
         yield self
         for child in self.children:
