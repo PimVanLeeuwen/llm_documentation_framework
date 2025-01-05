@@ -1,3 +1,10 @@
+"""
+File that contains ASTNodeType Enum and ASTNode Class
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+
 from enum import Enum
 
 class ASTNodeType(Enum):
@@ -17,7 +24,7 @@ class ASTNode:
 
         Args:
             name (str): Name of the node.
-            parent_node (str): Parent of the node.
+            parent_node (ASTNode): Parent of the node.
             node_type (str): Type of the node.
             children (ASTNode[] or None): Children of the node.
             imports (string[] or None): Imports of the node, this is used only in a File node.

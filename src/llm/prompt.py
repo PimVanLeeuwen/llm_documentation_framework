@@ -1,3 +1,10 @@
+"""
+Prompt variables for the LLM framework
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+
 # ## Instruction
 # You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an
 # object to help developers and beginners understand its function and usage.

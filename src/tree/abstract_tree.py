@@ -1,3 +1,10 @@
+"""
+File that contains AbstractSyntaxTree.
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+
 from src.tree.tree_nodes import ASTNodeType
 
 

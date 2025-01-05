@@ -1,3 +1,10 @@
+"""
+File that handles all of the folder operations and converting files to ASTNodes.
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+
 import os
 import warnings
 
@@ -8,8 +15,15 @@ from src.tree.tree_nodes import ASTNodeType, ASTNode
 from tqdm import tqdm
 
 
-def calls_mapped(tree):
-	"""check if all calls are mapped to nodes, if so return true, else return false"""
+def calls_mapped(tree: AbstractSyntaxTree):
+	"""Check if all calls are mapped to nodes.
+
+    Args:
+        tree (AbstractSyntaxTree): tree to check for mapped calls.
+
+    Returns:
+        bool: Whether all calls are mapped to nodes.
+    """
 	for n in tqdm(tree, total=tree.get_nr_nodes() ,desc="Check if all calls are mapped", unit="nodes"):
 		if n.get_calls():
 			for call in n.get_calls():
@@ -18,8 +32,15 @@ def calls_mapped(tree):
 
 	return True
 
-def get_objects_from_file(node):
-	"""Return the objects in a file"""
+def get_objects_from_file(node: ASTNode):
+	"""Return the objects in a file.
+
+    Args:
+        node (ASTNode): node to get objects from.
+
+    Returns:
+        ASTNode[]: array of ASTNodes with ASTNodeType.OBJECT that are children of node.
+    """
 	return_array = []
 	for n in node:
 		if n.get_type() == ASTNodeType.OBJECT:
@@ -28,16 +49,30 @@ def get_objects_from_file(node):
 	return return_array
 
 def contains_files(dir_path, extensions):
-	"""Check if a directory or any of its subdirectories contain .x files."""
+	"""Check if a directory or any of its subdirectories contain .x files.
+
+    Args:
+        dir_path (string): directory to check.
+        extensions (string[]): extensions to check.
+
+    Returns:
+        bool: If the folder or any of its subdirectories contain .x files.
+    """
 	for root, dirs, files in os.walk(dir_path):
 		if any(file.endswith(extensions) for file in files):
 			return True
 	return False
 
 def parse_file(path, file):
-	"""process one project file, creates a node of that file and attaches any info we want in the AST
-	@:return The file node with the added information
-	"""
+	"""process one project file, creates a node of that file and attaches any info we want in the AST.
+
+    Args:
+        path (string): directory of the file.
+        file (string): file to process.
+
+    Returns:
+        ASTNode: The file node with the added information.
+    """
 
 	file_name, file_ext = os.path.splitext(file)
 	# print(file_name)
@@ -51,7 +86,16 @@ def parse_file(path, file):
 			raise Exception("Unexpected extension, unknown what to do with this")
 
 def create_tree_from_files(directory, extensions):
-	"""Creates a tree like structure adding the files with a certain extensions (default is everything that we have added support for)"""
+	"""Creates a tree like structure adding the files with a certain extensions
+	(default is everything that we have added support for).
+
+    Args:
+        directory (string): root directory of the project.
+        extensions (string[]): extensions to process.
+
+    Returns:
+        AbstractSyntaxTree: The tree for this folder.
+    """
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	nr_files = 0
 
@@ -174,6 +218,5 @@ def create_tree_from_files(directory, extensions):
 	# We should warn the user when we are returning still unmapped errors.
 	if not calls_mapped(tree):
 		warnings.warn("There are unmapped calls and this tree is being returned, this should not happen")
-
 
 	return tree

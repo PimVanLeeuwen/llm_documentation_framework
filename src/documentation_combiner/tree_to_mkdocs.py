@@ -1,9 +1,20 @@
+"""
+File that handles convertion from AbstractSyntaxTree to mkdocs format
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+
 from src.tree.abstract_tree import AbstractSyntaxTree
 from src.tree.tree_nodes import ASTNodeType, ASTNode
 
 
 def tree_to_mkdocs(tree: AbstractSyntaxTree):
-     """This will go through the tree and create the mkdocs.yml file"""
+     """This will go through the tree and create the mkdocs.yml file.
+
+    Args:
+        tree (AbstractSyntaxTree): tree to process.
+    """
 
      # It needs an index file so we will write one with the project title
      f = open("docs/index.md", "w")
@@ -25,7 +36,14 @@ def tree_to_mkdocs(tree: AbstractSyntaxTree):
      f.close()
 
 def get_children(node: ASTNode):
-     """This method adds all the yml entries for the mkdocs config"""
+     """This method adds all the yml entries for the mkdocs config.
+
+    Args:
+        node (ASTNode): node to add entries for.
+
+    Returns:
+        str: output for the mkdocs config.
+    """
      to_process = node.get_children()
      output = set()
 

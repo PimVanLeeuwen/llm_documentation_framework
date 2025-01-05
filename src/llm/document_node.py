@@ -1,3 +1,10 @@
+"""
+Methods to document a single ASTNode.
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+"""
+
 # needed for the LLM interface
 import os
 import warnings

@@ -1,6 +1,8 @@
 """
 Main file in the LLM Documentation Framework
-Autor -- Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
+
+Author:
+	Pim van Leeuwen (1303422, p.p.h.v.leeuwen@student.tue.nl)
 """
 
 import argparse
