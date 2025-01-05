@@ -136,12 +136,12 @@ def document_node(node: ASTNode):
 
 	call_prompt = ""
 	if call_list:
-		call_prompt += "## Calls \\\n This code calls the following methods within the repository: \\\n"
+		call_prompt += "## Calls \n This code calls the following methods within the repository: \n"
 		for call in call_list:
 			# This should become the docs
-			call_prompt += f"### {call.get_path()}.{call.name} \\\n"
+			call_prompt += f"### {call.get_path()}.{call.name} \n"
 			if call.has_documentation():
-				call_prompt += f" - Explanation:  _{call.get_short_documentation()}_ \\\n"
+				call_prompt += f" - Explanation:  _{call.get_short_documentation()}_ \n"
 
 	prompt = prompt.replace("{function_calls}", call_prompt)
 
@@ -150,12 +150,11 @@ def document_node(node: ASTNode):
 
 	children_prompt = ""
 	if children:
-		children_prompt += "## Children \\\n This code contains the following methods/classes: \\\n"
+		children_prompt += "## Children \n This code contains the following methods/classes that are already documented: \n"
 		for child in children:
-			# This should become the docs
-			children_prompt += f"### {child.get_path()}.{child.name} \\\n"
-			# if child.has_documentation():
-			# 	children_prompt += f"{child.get_documentation()} \\\n"
+			if child.has_documentation():
+				children_prompt += f"### {child.name} \n"
+				children_prompt += f"{child.get_short_documentation()} \n"
 	prompt = prompt.replace("{children}", children_prompt)
 	short_prompt = prompt + SHORT_TASK
 	prompt = prompt + long_prompt

@@ -40,7 +40,7 @@ Do not start with an introduction of your answer (so not "here's the completed t
 Your answer should not include more than the functionality of the code and should be no more than 500 words.
 
 ## Expected output
-`{name}`: The function of `{name}` is *FILL IN* \\
+`{name}`: The function of `{name}` is *FILL IN* 
 {parameters_or_attribute}
 **Code Description**: *FILL IN*
 """

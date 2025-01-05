@@ -9,7 +9,8 @@ else:
 class CPP14ParserListener(ParseTreeListener):
 
     # Enter a parse tree produced by CPP14Parser#translationUnit.
-    def enterTranslationUnit(self, ctx:CPP14Parser.TranslationUnitContext):
+    def enterTranslationUnit(self, ctx
+    :CPP14Parser.TranslationUnitContext):
         pass
 
     # Exit a parse tree produced by CPP14Parser#translationUnit.

@@ -9,7 +9,7 @@ import warnings
 
 from antlr4 import *
 
-from typing import override
+# from typing import override
 from src.grammars.java.JavaLexer import JavaLexer
 from src.grammars.java.JavaParser import JavaParser
 from src.grammars.java.JavaParserListener import JavaParserListener
@@ -43,7 +43,7 @@ class MyJavaListener(JavaParserListener):
         """
         return self.return_node
 
-    @override
+    #@override
     def enterImportDeclaration(self, ctx: JavaParser.ImportDeclarationContext):
         """Enter an import declaration, this is at the beginning of a file and occurs in a ASTNodeType.FILE node
 
@@ -54,7 +54,7 @@ class MyJavaListener(JavaParserListener):
             warnings.warn("You are appending imports to non-file node: " + str(self.current_node))
         self.current_node.add_import(ctx.qualifiedName().getText())
 
-    @override
+    #@override
     def enterClassDeclaration(self, ctx: JavaParser.classDeclaration):
         """Enter class declaration, this produces a new ASTNodeType.CLASS node and makes it the current node.
 
@@ -66,7 +66,7 @@ class MyJavaListener(JavaParserListener):
         self.current_node.add_child(class_node)
         self.current_node = class_node
 
-    @override
+    #@override
     def exitClassDeclaration(self, ctx: JavaParser.classDeclaration):
         """Exit class declaration, this makes the current node the parent again.
 
@@ -75,7 +75,7 @@ class MyJavaListener(JavaParserListener):
         """
         self.current_node = self.current_node.get_parent()
 
-    @override
+    #@override
     def enterMethodCall(self, ctx: JavaParser.MethodCallContext):
         """Enter method call, this adds a call to the ASTNode calls variable via the ASTNode.add_call() method.
 
@@ -84,7 +84,7 @@ class MyJavaListener(JavaParserListener):
         """
         self.current_node.add_call(ctx.getText())
 
-    @override
+    #@override
     def enterMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):
         """Enter method creation, this adds ASTNodeType.METHOD node and makes it the current node. It also adds
         parameters to the method node.
@@ -107,7 +107,7 @@ class MyJavaListener(JavaParserListener):
                 text = input_stream.getText(start, stop)
                 self.current_node.add_parameter(text)
 
-    @override
+    #@override
     def exitMethodDeclaration(self, ctx: JavaParser.MethodDeclarationContext):
         """exit method creation, set current node to parent again.
 

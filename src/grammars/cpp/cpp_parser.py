@@ -9,7 +9,6 @@ import warnings
 
 from antlr4 import *
 
-from typing import override
 from src.grammars.cpp.CPP14Lexer import CPP14Lexer
 from src.grammars.cpp.CPP14Parser import CPP14Parser
 from src.grammars.cpp.CPP14ParserListener import CPP14ParserListener
@@ -42,7 +41,7 @@ class MyCPPListener(CPP14ParserListener):
         """
         return self.return_node
 
-    @override
+    #@override
     def enterPreprocessorDirective(self, ctx: CPP14Parser.PreprocessorDirectiveContext):
         """Enter an include statement, this is at the beginning of a file and occurs in a ASTNodeType.FILE node
 
@@ -53,7 +52,7 @@ class MyCPPListener(CPP14ParserListener):
             warnings.warn("You are appending imports to non-file node: " + str(self.current_node))
         self.current_node.add_import(ctx.Directive().getText())
 
-    @override
+    #@override
     def enterFunctionDefinition(self, ctx: CPP14Parser.FunctionDefinitionContext):
         """Enter method declaration, this produces a new ASTNodeType.METHOD node and makes it the current node.
         It also parses along the parameters of the method.
@@ -72,7 +71,7 @@ class MyCPPListener(CPP14ParserListener):
                                                                      ctx.declarator().stop.stop).split("(")[1].split(")")[0].split(","):
             if param: self.current_node.add_parameter(param.strip())
 
-    @override
+    #@override
     def exitFunctionDefinition(self, ctx: CPP14Parser.FunctionDefinitionContext):
         """Exit method declaration, this makes the current node the parent again.
 
@@ -82,7 +81,7 @@ class MyCPPListener(CPP14ParserListener):
         self.current_node = self.current_node.get_parent()
 
 
-    @override
+    #@override
     def enterNamespaceDefinition(self, ctx: CPP14Parser.NamespaceDefinitionContext):
         """Enter namespace definition, this creates a ASTNodeType.OBJECT node and makes it the current node.
 
@@ -93,7 +92,7 @@ class MyCPPListener(CPP14ParserListener):
         self.current_node.add_child(object_node)
         self.current_node = object_node
 
-    @override
+    #@override
     def exitNamespaceDefinition(self, ctx:CPP14Parser.NamespaceDefinitionContext):
         """exit namespace definition, make parent node the current node again.
 
@@ -102,7 +101,7 @@ class MyCPPListener(CPP14ParserListener):
         """
         self.current_node = self.current_node.get_parent()
 
-    @override
+    #@override
     def enterPostfixExpression(self, ctx: CPP14Parser.PostfixExpressionContext):
         """make a call to another method, add that to the current ASTNode.
 
@@ -111,7 +110,9 @@ class MyCPPListener(CPP14ParserListener):
         """
         self.current_node.add_call(ctx.getText())
 
-    #TODO: ADD CLASS CREATION IN CPP
+    #DISADVANTAGE: ANTLR Parser for CPP does not support class creation listings
+
+
 
 def parse_cpp_file(path, file):
     """Parse a cpp file and return the tree rooted at the ASTNodeType.FILE node for this file.
