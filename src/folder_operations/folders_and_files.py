@@ -99,6 +99,8 @@ def create_tree_from_files(directory, extensions):
 	tree = AbstractSyntaxTree(ASTNode(os.path.basename(directory), ASTNodeType.FOLDER))
 	nr_files = 0
 
+	if not os.path.isdir(directory): raise UserWarning("A Repo is not found in the provided location.")
+
 	# Small check for the status bar, adds negligible time
 	for root, dirs, files in os.walk(directory):
 		for file in files:

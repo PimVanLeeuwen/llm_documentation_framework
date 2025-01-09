@@ -13,12 +13,14 @@ from src.tree.tree_nodes import ASTNodeType
 from src.tree.abstract_tree import AbstractSyntaxTree
 from tqdm import tqdm
 
-def document_tree(tree: AbstractSyntaxTree):
+def document_tree(tree: AbstractSyntaxTree, llm_provider: str = "azure", llm_model: str = "openai.gpt-4o"):
     """
 	This method recursively goes over the tree to create documentation.
 
 	Args:
 		tree (AbstractSyntaxTree): The tree to document.
+		llm_provider (str, default = "azure") The provider to use for the LLM used in documentation
+        llm_model (str, default = "openai.gpt-4o") The LLM model to use for documentation.
 	"""
 
     # queue of nodes that can be documented
@@ -34,7 +36,7 @@ def document_tree(tree: AbstractSyntaxTree):
             node = documentation_queue.popleft()
 
             # process the node
-            document_node(node)
+            document_node(node, llm_provider, llm_model)
 
             # this is just for the progress bar, which is nice if your program runs for quite a while
             pbar.update(1)

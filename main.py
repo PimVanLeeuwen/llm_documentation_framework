@@ -23,7 +23,8 @@ if __name__ == '__main__':
 	# Adding optional argument
 	parser.add_argument("-d", "--Gen-Doc", help="Generate Documentation, requires path of the repo")
 	parser.add_argument("-w", "--Run-Website", action="store_true", help="Run the website, requires documentation to have been generated (before)")
-
+	parser.add_argument("-p", "--Model-Provider", help="Provider of the LLM model to use in the documentation")
+	parser.add_argument("-m", "--Model-Name", help="Name of the LLM model to use in the documentation")
 
 	# Read arguments from command line
 	args = parser.parse_args()
@@ -40,7 +41,8 @@ if __name__ == '__main__':
 			f.write(tree.root.__repr__(recursive=True, extended=True))
 
 		# Put the documentation in the tree
-		document_tree(tree)
+		if args.Model_Provider and args.Model_Name: document_tree(tree, llm_model=args.Model_Name, llm_provider=args.Model_Provider)
+		else: document_tree(tree)
 
 		# Put the documentation in the right format
 		tree_to_mkdocs(tree)

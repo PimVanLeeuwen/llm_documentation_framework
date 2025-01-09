@@ -18,6 +18,7 @@ from src.llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK
 # API URL and max retries variables
 API_URL = "https://api.generative.engine.capgemini.com/v2/llm/invoke"
 API_KEY = os.environ.get('CAPGEMINI_API_KEY')
+if not API_KEY: warnings.warn("No API Key found to document with")
 MAX_RETRIES = 10
 
 def invoke_llm_local(prompt, model="llama3.1"):
@@ -40,14 +41,14 @@ def invoke_llm_local(prompt, model="llama3.1"):
 
 	return response['message']['content']
 
-def invoke_llm_api(prompt, model_provider="azure", model_name="openai.gpt-4o",
+def invoke_llm_api(prompt, model_provider: str, model_name: str,
 				   prompt_id="123e4567-e89b-12d3-a456-426614174002"):
 	"""calls the API to generate LLM documentation
 
 	Args:
 		prompt (str): The prompt to parse.
-		model_provider (str, optional): The provider of the model. Defaults to "azure".
-		model_name (str, optional): The name of the model. Defaults to "openai.gpt-4o".
+		model_provider (str): The provider of the model.
+		model_name (str): The name of the model.
 		prompt_id (str, optional): UUID of the prompt. Defaults to "123e4567-e89b-12d3-a456-426614174002".
 
 	Returns:
@@ -92,11 +93,13 @@ def invoke_llm_api(prompt, model_provider="azure", model_name="openai.gpt-4o",
 		return None
 
 
-def document_node(node: ASTNode):
+def document_node(node: ASTNode, llm_provider: str, llm_model: str):
 	"""
 	given a method node and the corresponding tree, query the LLM to generate docs and return the output
 
 	Args:
+		llm_provider (str) The provider to use for the LLM used in documentation
+        llm_model (str) The LLM model to use for documentation.
 		node (ASTNode): The node to document.
 	"""
 
@@ -168,10 +171,10 @@ def document_node(node: ASTNode):
 	# PROMPTING THE LLM
 
 	# set the short documentation in the node
-	node.set_short_documentation(invoke_llm_api(short_prompt, prompt_id=str(uuid.uuid4())))
+	node.set_short_documentation(invoke_llm_api(short_prompt, llm_provider, llm_model, str(uuid.uuid4())))
 
 	# set the documentation in the node
-	node.set_documentation(invoke_llm_api(prompt, prompt_id=str(uuid.uuid4())) + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")
+	node.set_documentation(invoke_llm_api(prompt, llm_provider, llm_model, str(uuid.uuid4())) + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")
 
 	# write the comment to the docs
 	os.makedirs(os.path.dirname(f"docs/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
