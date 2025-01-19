@@ -107,28 +107,31 @@ def create_tree_from_files(directory, extensions):
 			if file.endswith(extensions):
 				nr_files += 1
 
-	# Do an OSWalk through the project directory
-	for root, dirs, files in tqdm(os.walk(directory), total=nr_files, desc="Creating Tree", unit="files"):
-		# If the folder contains any files with a certain extension it is worth looking into
-		if contains_files(root, extensions):
-			# Current depth of the folder
-			level = root.replace(directory, '').count(os.sep)
-			# We compute the parent node, since we are doing a pre-order traversal we know where to find the parent
-			parent_node = tree.get_root()
-			for _ in range(level):
-				if parent_node.children:
-					parent_node = parent_node.children[-1]
+	with tqdm(total=nr_files, dynamic_ncols=True, leave=True, desc="Creating Tree", unit="files") as pbar:
+		# Do an OSWalk through the project directory
+		for root, dirs, files in os.walk(directory):
+			# If the folder contains any files with a certain extension it is worth looking into
 
-			# Create the node for this folder and add to parent
-			dir_node = ASTNode(os.path.basename(root), ASTNodeType.FOLDER, parent_node=parent_node)
-			parent_node.add_child(dir_node)
+			if contains_files(root, extensions):
+				# Current depth of the folder
+				level = root.replace(directory, '').count(os.sep)
+				# We compute the parent node, since we are doing a pre-order traversal we know where to find the parent
+				parent_node = tree.get_root()
+				for _ in range(level):
+					if parent_node.children:
+						parent_node = parent_node.children[-1]
 
-			# Process any non-folder items in this folder
-			for file in files:
-				if file.endswith(extensions):
-					file_node = parse_file(os.path.join(root, file), file)
-					file_node.parent_node = parent_node
-					dir_node.add_child(file_node)
+				# Create the node for this folder and add to parent
+				dir_node = ASTNode(os.path.basename(root), ASTNodeType.FOLDER, parent_node=parent_node)
+				parent_node.add_child(dir_node)
+
+				# Process any non-folder items in this folder
+				for file in files:
+					if file.endswith(extensions):
+						file_node = parse_file(os.path.join(root, file), file)
+						file_node.parent_node = parent_node
+						dir_node.add_child(file_node)
+						pbar.update(1)
 
 
 	# we need to make a dict with names -> nodes with one pass
