@@ -67,9 +67,12 @@ class MyCPPListener(CPP14ParserListener):
         self.current_node = method_node
 
         # add the parameters
-        for param in ctx.declarator().start.getInputStream().getText(ctx.declarator().start.start,
-                                                                     ctx.declarator().stop.stop).split("(")[1].split(")")[0].split(","):
-            if param: self.current_node.add_parameter(param.strip())
+        try:
+            for param in ctx.declarator().start.getInputStream().getText(ctx.declarator().start.start,
+                                                                         ctx.declarator().stop.stop).split("(")[1].split(")")[0].split(","):
+                if param: self.current_node.add_parameter(param.strip())
+        except IndexError:
+            warnings.warn("Parameters not found but somehow I am checking for it")
 
     #@override
     def exitFunctionDefinition(self, ctx: CPP14Parser.FunctionDefinitionContext):
