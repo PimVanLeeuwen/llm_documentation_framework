@@ -19,7 +19,7 @@ class ASTNode:
     """The nodes of the abstract syntax tree
 	"""
     def __init__(self, name, node_type: ASTNodeType, children=None, imports=None, calls=None,
-                 parameters=None, parent_node=None, content: str = None):
+                 parameters=None, parent_node=None, content: str = ""):
         """initialize the node
 
         Args:

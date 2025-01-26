@@ -4,4 +4,5 @@ ollama~=0.3.3
 mkdocs~=1.6.1
 requests~=2.32.3
 argparse~=1.4.0
-requests~=2.32.3
+typing~=3.7.4.3
+markdownify~=0.14.1

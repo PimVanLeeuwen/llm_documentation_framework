@@ -1,0 +1,11 @@
+
+
+compact3 - java.util.logging (Java Platform SE 8 )
+
+
+
+
+
+compact3 - java.util.loggingInterfacesFilterLoggingMXBeanClassesConsoleHandlerErrorManagerFileHandlerFormatterHandlerLevelLoggerLoggingPermissionLogManagerLogRecordMemoryHandlerSimpleFormatterSocketHandlerStreamHandlerXMLFormatter
+
+

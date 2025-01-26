@@ -15,6 +15,7 @@ import mkdocs.config
 from src.documentation_combiner.tree_to_mkdocs import tree_to_mkdocs
 from src.folder_operations.folders_and_files import create_tree_from_files
 from src.llm.document_tree import document_tree
+from src.eval.evaluate import evaluate_documentation
 
 if __name__ == '__main__':
 	# Initialize parser
@@ -25,11 +26,12 @@ if __name__ == '__main__':
 	parser.add_argument("-w", "--Run-Website", action="store_true", help="Run the website, requires documentation to have been generated (before)")
 	parser.add_argument("-p", "--Model-Provider", help="Provider of the LLM model to use in the documentation")
 	parser.add_argument("-m", "--Model-Name", help="Name of the LLM model to use in the documentation")
+	parser.add_argument("-e", "--Evaluate", action="store_true", help="Give the evaluation of a generated documentation, for this reference documentation must be placed in the reference folder. The same layout is used as the generated documentation.")
 
 	# Read arguments from command line
 	args = parser.parse_args()
 
-	if not (args.Gen_Doc or args.Run_Website):
+	if not (args.Gen_Doc or args.Run_Website or args.Evaluate):
 		parser.print_help(sys.stderr)
 
 	if args.Gen_Doc:
@@ -55,3 +57,8 @@ if __name__ == '__main__':
 		# Run the local server for the documentation
 		logging.basicConfig(level=logging.INFO, format='mkdocs: %(message)s')
 		mkdocs.commands.serve.serve(open_in_browser=True)
+
+	if args.Evaluate:
+		# Evaluate using ROUGE and BLUE
+		print("Eval")
+		evaluate_documentation()

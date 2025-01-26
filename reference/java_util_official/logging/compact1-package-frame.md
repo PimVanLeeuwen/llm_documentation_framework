@@ -1,0 +1,11 @@
+
+
+compact1 - java.util.logging (Java Platform SE 8 )
+
+
+
+
+
+compact1 - java.util.loggingInterfacesFilterLoggingMXBeanClassesConsoleHandlerErrorManagerFileHandlerFormatterHandlerLevelLoggerLoggingPermissionLogManagerLogRecordMemoryHandlerSimpleFormatterSocketHandlerStreamHandlerXMLFormatter
+
+

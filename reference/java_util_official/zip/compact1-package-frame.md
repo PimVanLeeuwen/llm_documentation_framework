@@ -1,0 +1,11 @@
+
+
+compact1 - java.util.zip (Java Platform SE 8 )
+
+
+
+
+
+compact1 - java.util.zipInterfacesChecksumClassesAdler32CheckedInputStreamCheckedOutputStreamCRC32DeflaterDeflaterInputStreamDeflaterOutputStreamGZIPInputStreamGZIPOutputStreamInflaterInflaterInputStreamInflaterOutputStreamZipEntryZipFileZipInputStreamZipOutputStreamExceptionsDataFormatExceptionZipExceptionErrorsZipError
+
+
