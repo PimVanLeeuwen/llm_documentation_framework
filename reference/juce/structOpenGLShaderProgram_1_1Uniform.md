@@ -1,0 +1,1 @@
+Represents an openGL uniform value.After a program has been linked, you can create Uniform objects to let you set the uniforms that your shaders use.Be careful not to call the set() functions unless the appropriate program is loaded into the current context.

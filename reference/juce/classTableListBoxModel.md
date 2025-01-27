@@ -1,0 +1,1 @@
+One of these is used by a TableListBox as the data model for the table's contents.The virtual methods that you override in this class take care of drawing the table cells, and reacting to events.See alsoTableListBox 

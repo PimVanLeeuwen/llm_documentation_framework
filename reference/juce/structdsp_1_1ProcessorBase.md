@@ -1,0 +1,1 @@
+Acts as a polymorphic base class for processors.This exposes the same set of methods that a processor must implement as virtual methods, so that you can use the ProcessorWrapper class to wrap an instance of a subclass, and then pass that around using ProcessorBase as a base class.See alsoProcessorWrapper 

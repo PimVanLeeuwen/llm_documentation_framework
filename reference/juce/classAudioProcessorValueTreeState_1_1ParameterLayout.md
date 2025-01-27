@@ -1,0 +1,1 @@
+A class to contain a set of RangedAudioParameters and AudioProcessorParameterGroups containing RangedAudioParameters.This class is used in the AudioProcessorValueTreeState constructor to allow arbitrarily grouped RangedAudioParameters to be passed to an AudioProcessor.

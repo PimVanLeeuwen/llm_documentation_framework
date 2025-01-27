@@ -1,0 +1,1 @@
+A class to keep an eye on a component and check for it being deleted.This is designed for use with the ListenerList::callChecked() methods, to allow the list iterator to stop cleanly if the component is deleted by a listener callback while the list is still being iterated.

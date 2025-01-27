@@ -1,0 +1,4 @@
+#### scrollUp()
+
+
+ bool TextEditor::scrollUp ( )

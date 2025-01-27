@@ -1,0 +1,1 @@
+An iterator that visits child documents in a directory.Instances of this iterator can be created by calling makeRecursive() or makeNonRecursive(). The results of these functions can additionally be used in standard algorithms, and in rangefor loops:AndroidDocument findFileWithName (const AndroidDocument& parent, const String& name)

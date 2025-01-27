@@ -1,0 +1,1 @@
+A class to asynchronously scan for details about the files in a directory.This keeps a list of files and some information about them, using a background thread to scan for more files. As files are found, it broadcasts change messages to tell any listeners.See alsoFileListComponent, FileBrowserComponent 

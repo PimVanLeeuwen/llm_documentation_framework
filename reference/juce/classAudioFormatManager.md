@@ -1,0 +1,1 @@
+A class for keeping a list of available audio formats, and for deciding which one to use to open a given file.After creating an AudioFormatManager object, you should call registerFormat() or registerBasicFormats() to give it a list of format types that it can use.See alsoAudioFormat 

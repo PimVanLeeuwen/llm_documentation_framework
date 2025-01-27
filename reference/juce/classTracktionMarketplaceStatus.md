@@ -1,0 +1,1 @@
+An implementation of the OnlineUnlockStatus class which talks to the Tracktion Marketplace server.For details about how to use this class, see the docs for the base class: OnlineUnlockStatus. Basically, you need to inherit from it, and implement all the pure virtual methods to tell it about your product.See alsoOnlineUnlockStatus, OnlineUnlockForm, KeyGeneration 

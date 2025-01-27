@@ -1,0 +1,1 @@
+Utility class wrapping a single nonnull callback called by a Timer.You can use the usual Timer functions to start and stop the TimedCallback. Deleting the TimedCallback will automatically stop the underlying Timer.With this class you can use the Timer facility without inheritance.See alsoTimer 

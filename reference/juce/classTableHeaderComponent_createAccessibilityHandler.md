@@ -1,0 +1,7 @@
+#### createAccessibilityHandler()
+
+
+ std::unique\_ptr< AccessibilityHandler > TableHeaderComponent::createAccessibilityHandler ( ) overridevirtual 
+ 
+
+Override this method to return a custom AccessibilityHandler for this component.The default implementation creates and returns a AccessibilityHandler object with an unspecified role, meaning that it will be visible to accessibility clients but without a specific role, action callbacks or interfaces. To control how accessibility clients see and interact with your component subclass AccessibilityHandler, implement the desired behaviours, and return an instance of it from this method in your component subclass.The accessibility handler you return here is guaranteed to be destroyed before its Component, so it's safe to store and use a reference back to the Component inside the AccessibilityHandler if necessary.This function should rarely be called directly. If you need to query a component's accessibility handler, it's normally better to call getAccessibilityHandler(). The exception to this rule is derived implementations of createAccessibilityHandler(), which may find it useful to call the base class implementation, and then wrap or modify the result.See alsogetAccessibilityHandler Reimplemented from Component.

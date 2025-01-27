@@ -1,0 +1,4 @@
+#### reset()
+
+
+ void MidiDataConcatenator::reset ( )

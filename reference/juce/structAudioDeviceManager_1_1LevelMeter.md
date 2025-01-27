@@ -1,0 +1,1 @@
+A simple referencecounted struct that holds a levelmeter value that can be read using getCurrentLevel().This is used to ensure that the level processing code is only executed when something holds a reference to one of these objects and will be bypassed otherwise.See alsogetInputLevelGetter, getOutputLevelGetter 

@@ -1,0 +1,1 @@
+This is a derivative of DocumentWindow that is used inside a MultiDocumentPanel component.It's like a normal DocumentWindow but has some extra functionality to make sure everything works nicely inside a MultiDocumentPanel.See alsoMultiDocumentPanel 

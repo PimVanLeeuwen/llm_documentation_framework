@@ -1,0 +1,9 @@
+#### getDocument()
+
+
+template<typename Document\_t = ARADocument> 
+
+ Document\_t \* ARAAudioSource::getDocument ( ) const noexcept 
+ 
+
+Returns the result of ARA::PlugIn::AudioSource::getDocument() with the pointer cast to ARADocument\*.If you have overridden ARADocumentControllerSpecialisation::doCreateDocument(), then you can use the template parameter to cast the pointers to your subclass of ARADocument.

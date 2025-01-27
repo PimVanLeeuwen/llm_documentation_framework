@@ -1,0 +1,1 @@
+A struct containing data members that correspond to common fields in a reply to a property exchange request.Check the Property Exchange specification to find the meaning of the different fields.For extended attributes that don't correspond to any of the defined data members, use the 'extended' map.

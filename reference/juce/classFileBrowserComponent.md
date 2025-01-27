@@ -1,0 +1,1 @@
+A component for browsing and selecting a file or directory to open or save.This contains a FileListComponent and adds various boxes and controls for navigating and selecting a file. It can work in different modes so that it can be used for loading or saving a file, or for choosing a directory.See alsoFileChooserDialogBox, FileChooser, FileListComponent 

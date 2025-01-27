@@ -1,0 +1,1 @@
+This wraps a context menu for a specific parameter, as provided by the host.You can choose to create a standard PopupMenu to display the hostprovided options. Alternatively, you can ask the host to display a native menu at a specific location.

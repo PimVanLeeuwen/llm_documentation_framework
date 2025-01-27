@@ -1,0 +1,1 @@
+Handles the opening and closing of DLLs.This class can be used to open a DLL and get some function pointers from it. Since the DLL is freed when this object is deleted, it's handy for managing library lifetimes using RAII.

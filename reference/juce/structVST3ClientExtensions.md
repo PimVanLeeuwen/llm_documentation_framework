@@ -1,0 +1,1 @@
+An interface to allow an AudioProcessor to implement extended VST3specific functionality.To use this class, create an object that inherits from it, implement the methods, then return a pointer to the object in your AudioProcessor::getVST3ClientExtensions() method.See alsoAudioProcessor, AAXClientExtensions, VST2ClientExtensions 

@@ -1,0 +1,1 @@
+A type of AudioFormatReader that reads from an audio CD.One of these can be used to read a CD as if it's one big audio stream. Use the getPositionOfTrackStart() method to find where the individual tracks are within the stream.See alsoAudioFormatReader 

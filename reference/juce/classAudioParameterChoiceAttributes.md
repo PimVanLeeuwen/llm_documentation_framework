@@ -1,0 +1,1 @@
+Properties of an AudioParameterChoice.See alsoAudioParameterChoice(), RangedAudioParameterAttributes()

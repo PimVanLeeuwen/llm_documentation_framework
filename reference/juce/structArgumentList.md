@@ -1,0 +1,1 @@
+Holds a list of commandline arguments, and provides useful methods for searching and operating on them.You can create an ArgumentList manually, or give it some argv/argc values from a main() function to parse.See alsoConsoleApplication 

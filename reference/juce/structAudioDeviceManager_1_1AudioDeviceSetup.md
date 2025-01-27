@@ -1,0 +1,1 @@
+This structure holds a set of properties describing the current audio setup.An AudioDeviceManager uses this class to save/load its current settings, and to specify your preferred options when opening a device.See alsoAudioDeviceManager::setAudioDeviceSetup(), AudioDeviceManager::initialise() 

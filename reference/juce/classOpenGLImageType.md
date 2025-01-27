@@ -1,0 +1,1 @@
+A type of ImagePixelData that stores its image data in an OpenGL framebuffer, allowing a JUCE Image object to wrap a framebuffer.By creating an Image from an instance of an OpenGLFrameBufferImage, you can then use a Graphics object to draw into the framebuffer using normal JUCE 2D operations.See alsoImage, ImageType, ImagePixelData, OpenGLFrameBuffer 

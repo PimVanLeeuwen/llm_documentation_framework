@@ -1,0 +1,7 @@
+#### openDeviceAsync()
+
+
+ static void CameraDevice::openDeviceAsync ( int deviceIndex, OpenCameraResultCallback resultCallback, int minWidth = 128, int minHeight = 64, int maxWidth = 1024, int maxHeight = 768, bool highQuality = true ) static 
+ 
+
+Asynchronously opens a camera device on iOS or Android.On other platforms, the function will simply call openDevice(). Upon completion, resultCallback will be invoked with valid CameraDevice\* and an empty error String on success, or nullptr CameraDevice and a nonempty error String on failure.This is the preferred method of opening a camera device, because it works on all platforms, whereas synchronous openDevice() does not work on iOS & Android.The index parameter indicates which of the items returned by getAvailableDevices() to open.The size constraints allow the method to choose between different resolutions if the camera supports this. If the resolution can't be specified then these will be ignored.On iOS, if you want to switch a device, it is more efficient to open a new device before closing the older one, because this way both devices can share the same underlying camera session. Otherwise, the session needs to be close first, and this is a lengthy process that can take several seconds.The Android implementation currently supports a maximum recording resolution of 1080p. Choosing a larger size will result in larger pictures taken, but the video will be capped at 1080p.

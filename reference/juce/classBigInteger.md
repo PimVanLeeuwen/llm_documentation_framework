@@ -1,0 +1,1 @@
+An arbitrarily large integer class.A BigInteger can be used in a similar way to a normal integer, but has no size limit (except for memory and performance constraints).Negative values are possible, but the value isn't stored as 2scomplement, so be careful if you use negative values and look at the values of individual bits.

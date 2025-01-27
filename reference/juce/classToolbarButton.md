@@ -1,0 +1,1 @@
+A type of button designed to go on a toolbar.This simple button can have two Drawable objects specified one for normal use and another one (optionally) for the button's "on" state if it's a toggle button.See alsoToolbar, ToolbarItemFactory, ToolbarItemComponent, Drawable, Button 

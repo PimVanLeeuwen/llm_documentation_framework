@@ -1,0 +1,1 @@
+A set of named property values, which can be strings, integers, floating point, etc.Effectively, this just wraps a StringPairArray in an interface that makes it easier to load and save types other than strings.See the PropertiesFile class for a subclass of this, which automatically broadcasts change messages and saves/loads the list from a file.

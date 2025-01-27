@@ -1,0 +1,1 @@
+Represents an MPE voice that an MPESynthesiser can use to play a sound.A voice plays a single sound at a time, and a synthesiser holds an array of voices so that it can play polyphonically.See alsoMPESynthesiser, MPENote 

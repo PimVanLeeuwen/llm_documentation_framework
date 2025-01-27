@@ -1,0 +1,1 @@
+A class for receiving OSC data.An OSCReceiver object allows you to receive OSC bundles and messages. It can connect to a network port, receive incoming OSC packets from the network via UDP, parse them, and forward the included OSCMessage and OSCBundle objects to its listeners.

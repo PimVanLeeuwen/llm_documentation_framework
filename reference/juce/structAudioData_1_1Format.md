@@ -1,0 +1,90 @@
+template<typename DataFormatIn, typename EndiannessIn>
+struct AudioData::Format< DataFormatIn, EndiannessIn >A struct that contains a SampleFormat and Endianness to be used with the source and destination types when calling the interleaveSamples() and deinterleaveSamples() helpers.See alsointerleaveSamples, deinterleaveSamples 
+
+Member Typedef Documentation
+
+
+◆ DataFormat
+
+
+template<typename DataFormatIn , typename EndiannessIn > 
+
+ using AudioData::Format< DataFormatIn, EndiannessIn >::DataFormat = DataFormatIn 
+ 
+
+
+
+◆ Endianness
+
+
+template<typename DataFormatIn , typename EndiannessIn > 
+
+ using AudioData::Format< DataFormatIn, EndiannessIn >::Endianness = EndiannessIn 
+ 
+
+
+
+The documentation for this struct was generated from the following file:juce\_AudioDataConverters.h
+### Purchase
+
+Get JUCE
+### Discover
+
+What's New in JUCEFeatures
+### Learn
+
+DocumentaionTutorialsMade with JUCEResources
+### Support
+
+JUCE ForumNewsletterArchive
+### About
+
+Contact UsJUCE LegalJUCE Licensing FAQ
+### Events
+
+Audio Developer Conference
+Visit our FacebookVisit our TwitterVisit our LinkedInVisit our YouTube channel© Raw Material Software Limited
+linkedin
+
+
+
+
+facebook
+
+
+pinterest
+
+
+youtube
+
+
+rss
+
+
+twitter
+
+
+instagram
+
+
+
+
+facebookblank
+
+
+rssblank
+
+
+linkedinblank
+
+
+pinterest
+
+
+youtube
+
+
+twitter
+
+
+instagram

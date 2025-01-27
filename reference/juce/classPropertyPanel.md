@@ -1,0 +1,1 @@
+A panel that holds a list of PropertyComponent objects.This panel displays a list of PropertyComponents, and allows them to be organised into collapsible sections.To use, simply create one of these and add your properties to it with addProperties() or addSection().See alsoPropertyComponent 

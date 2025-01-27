@@ -1,0 +1,1 @@
+A small class to represent some facts about a particular type of plugin.This class is for storing and managing the details about a plugin without actually having to load an instance of it.A KnownPluginList contains a list of PluginDescription objects.See alsoKnownPluginList 

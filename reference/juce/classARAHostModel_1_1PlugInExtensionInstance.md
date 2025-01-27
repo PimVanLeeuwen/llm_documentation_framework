@@ -1,0 +1,1 @@
+Wrapper class for `ARA::ARAPlugInExtensionInstance*`.Returned by ARAHostDocumentController::bindDocumentToPluginInstance(). The corresponding ARAHostDocumentController must remain valid as long as the plugin extension is in use.

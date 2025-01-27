@@ -1,0 +1,1 @@
+Has a callback method that is triggered asynchronously.This object allows an asynchronous callback function to be triggered, for tasks such as coalescing multiple updates into a single callback later on.Basically, one or more calls to the triggerAsyncUpdate() will result in the message thread calling handleAsyncUpdate() as soon as it can.

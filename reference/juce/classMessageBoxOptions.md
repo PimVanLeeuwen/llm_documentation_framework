@@ -1,0 +1,1 @@
+Class used to create a set of options to pass to the AlertWindow and NativeMessageBox methods for showing dialog boxes.You can chain together a series of calls to this class's methods to create a set of whatever options you want to specify.E.g.AlertWindow::showAsync (MessageBoxOptions()

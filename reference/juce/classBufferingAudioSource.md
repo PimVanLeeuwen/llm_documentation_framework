@@ -1,0 +1,1 @@
+An AudioSource which takes another source as input, and buffers it using a thread.Create this as a wrapper around another thread, and it will readahead with a background thread to smooth out playback. You can either create one of these directly, or use it indirectly using an AudioTransportSource.See alsoPositionableAudioSource, AudioTransportSource 

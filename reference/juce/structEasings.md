@@ -1,0 +1,1 @@
+Holds a number of easing functions that you can pass into ValueAnimatorBuilder::withEasing to transform the linear progression of animations.Using createSpring() for example would transform a rigid movement into one that is reminiscent of a weight attached to a spring.For examples of all the easing functions see the AnimationEasingDemo in the DemoRunner.

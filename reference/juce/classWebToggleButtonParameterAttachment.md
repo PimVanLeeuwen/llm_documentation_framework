@@ -1,0 +1,1 @@
+An object of this class maintains a connection between a WebToggleButtonRelay and a plugin parameter.During the lifetime of this object it keeps the two things in sync, making it easy to connect a WebToggleButtonRelay to a parameter. When this object is deleted, the connection is broken. Make sure that your parameter and WebToggleButtonRelay are not deleted before this object!

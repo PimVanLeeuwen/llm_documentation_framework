@@ -1,0 +1,4 @@
+#### clip
+
+
+ EdgeTable ColourLayer::clip

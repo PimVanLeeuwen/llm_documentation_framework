@@ -1,0 +1,1 @@
+This class defines a collection of settings to be used to open a DialogWindow.The easiest way to open a DialogWindow is to create yourself a LaunchOptions structure, initialise its fields with the appropriate details, and then call its launchAsync() method to launch the dialog.

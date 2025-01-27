@@ -1,0 +1,1 @@
+The definitions of supported OSC types and their associated OSC type tags, as defined in the OpenSoundControl 1.0 specification.Note: This implementation does not support any additional type tags that are not part of the specification.

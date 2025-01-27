@@ -1,0 +1,1 @@
+An OSC Message.An OSCMessage consists of an OSCAddressPattern and zero or more OSCArguments.OSC messages are the elementary objects that are used to exchange any data via OSC. An OSCSender can send OSCMessage objects to an OSCReceiver.

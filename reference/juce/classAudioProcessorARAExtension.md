@@ -1,0 +1,1 @@
+Extension class meant to be subclassed by the plugin's implementation of.See alsoAudioProcessor.Subclassing AudioProcessorARAExtension allows access to the three possible plugin instance roles as defined by the ARA SDK. Hosts can assign any subset of roles to each plugin instance.

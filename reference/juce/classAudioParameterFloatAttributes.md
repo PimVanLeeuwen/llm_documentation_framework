@@ -1,0 +1,1 @@
+Properties of an AudioParameterFloat.See alsoAudioParameterFloat(), RangedAudioParameterAttributes()

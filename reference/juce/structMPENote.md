@@ -1,0 +1,1 @@
+This struct represents a playing MPE note.A note is identified by a unique ID, or alternatively, by a MIDI channel and an initial note. It is characterised by five dimensions of continuous expressive control. Their current values are represented as MPEValue objects.See alsoMPEValue 

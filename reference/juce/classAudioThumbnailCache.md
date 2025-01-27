@@ -1,0 +1,1 @@
+An instance of this class is used to manage multiple AudioThumbnail objects.The cache runs a single background thread that is shared by all the thumbnails that need it, and it maintains a set of lowres previews in memory, to avoid having to rescan audio files too often.See alsoAudioThumbnail 

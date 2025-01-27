@@ -1,0 +1,1 @@
+The class is a base class for objects that manage the loading of a type of component from a ValueTree.To store and reload a tree of components as a ValueTree, each component type must have a TypeHandler to represent it.See alsoComponentBuilder::registerTypeHandler(), Drawable::registerDrawableTypeHandlers() 

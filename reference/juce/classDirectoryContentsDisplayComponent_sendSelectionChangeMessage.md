@@ -1,0 +1,4 @@
+#### sendSelectionChangeMessage()
+
+
+ void DirectoryContentsDisplayComponent::sendSelectionChangeMessage ( )

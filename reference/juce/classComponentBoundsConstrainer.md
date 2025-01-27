@@ -1,0 +1,1 @@
+A class that imposes restrictions on a Component's size or position.This is used by classes such as ResizableCornerComponent, ResizableBorderComponent and ResizableWindow.The base class can impose some basic size and position limits, but you can also subclass this for custom uses.See alsoResizableCornerComponent, ResizableBorderComponent, ResizableWindow 

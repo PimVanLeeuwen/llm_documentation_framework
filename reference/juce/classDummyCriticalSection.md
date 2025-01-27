@@ -1,0 +1,1 @@
+A class that can be used in place of a real CriticalSection object, but which doesn't perform any locking.This is currently used by some templated classes, and most compilers should manage to optimise it out of existence.See alsoCriticalSection, Array, OwnedArray, ReferenceCountedArray 

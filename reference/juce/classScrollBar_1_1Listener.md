@@ -1,0 +1,1 @@
+A class for receiving events from a ScrollBar.You can register a ScrollBar::Listener with a ScrollBar using the ScrollBar::addListener() method, and it will be called when the bar's position changes.See alsoScrollBar::addListener, ScrollBar::removeListener 

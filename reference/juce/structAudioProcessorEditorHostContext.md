@@ -1,0 +1,1 @@
+Calling AudioProcessorEditor::getHostContext() may return a pointer to an instance of this class.At the moment, this can be used to retrieve context menus for parameters in compatible VST3 hosts. Additional extensions may be added here in the future.

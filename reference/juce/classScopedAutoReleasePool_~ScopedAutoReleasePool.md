@@ -1,0 +1,4 @@
+#### ~ScopedAutoReleasePool()
+
+
+ ScopedAutoReleasePool::~ScopedAutoReleasePool ( )

@@ -1,0 +1,7 @@
+#### runModalLoop()
+
+
+ int Component::runModalLoop ( ) 
+ 
+
+Runs a component modally, waiting until the loop terminates.This method first makes the component visible, brings it to the front and gives it the keyboard focus.It then runs a loop, dispatching messages from the system message queue, but blocking all mouse or keyboard messages from reaching any components other than this one and its children.This loop continues until the component's exitModalState() method is called (or the component is deleted), and then this method returns, returning the value passed into exitModalState().Note that you SHOULD NEVER USE THIS METHOD! Modal loops are a dangerous construct because things that happen during the events that they dispatch could affect the state of objects which are currently in use somewhere on the stack, so when the loop finishes and the stack unwinds, horrible problems can occur. This is especially bad in plugins, where the host may choose to delete the plugin during runModalLoop(), so that when it returns, the entire DLL could have been unloaded from memory! Also, some OSes deliberately make it impossible to run modal loops (e.g. Android), so this method won't even exist on some platforms.See alsoenterModalState, exitModalState, isCurrentlyModal, getCurrentlyModalComponent, isCurrentlyBlockedByAnotherModalComponent, ModalComponentManager

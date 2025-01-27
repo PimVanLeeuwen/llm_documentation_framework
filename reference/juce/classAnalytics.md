@@ -1,0 +1,1 @@
+A singleton class to manage analytics data.Use an Analytics object to manage sending analytics data to one or more AnalyticsDestinations.See alsoAnalyticsDestination, ThreadedAnalyticsDestination, AnalyticsDestination::AnalyticsEvent 

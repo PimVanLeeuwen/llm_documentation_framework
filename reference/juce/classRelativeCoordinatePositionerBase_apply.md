@@ -1,0 +1,4 @@
+#### apply()
+
+
+ void RelativeCoordinatePositionerBase::apply ( )

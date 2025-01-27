@@ -1,0 +1,1 @@
+Allows you to iterate through the items in a popup menu, and examine their properties.To use this, just create one and repeatedly call its next() method. When this returns true, all the member variables of the iterator are filledout with information describing the menu item. When it returns false, the end of the list has been reached.

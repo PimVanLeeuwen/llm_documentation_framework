@@ -1,0 +1,4 @@
+#### ARADocumentController
+
+
+ friend ARAAudioSource::ARADocumentController

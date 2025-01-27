@@ -1,0 +1,1 @@
+Structure describing a mapping.

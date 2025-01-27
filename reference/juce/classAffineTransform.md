@@ -1,0 +1,1 @@
+Represents a 2D affinetransformation matrix.An affine transformation is a transformation such as a rotation, scale, shear, resize or translation.These are used for various 2D transformation tasks, e.g. with Path objects.See alsoPath, Point, Line 

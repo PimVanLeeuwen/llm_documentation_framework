@@ -1,0 +1,1 @@
+Base class for fulfilling the ARAEditorView role as described in the ARA SDK.Instances of this class are constructed by the DocumentController. If you are subclassing ARAEditorView, make sure to call the base class implementation of overridden functions.

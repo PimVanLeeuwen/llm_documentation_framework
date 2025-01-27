@@ -1,0 +1,1 @@
+A listener that receives callbacks from an ApplicationCommandManager when commands are invoked or the command list is changed.See alsoApplicationCommandManager::addListener, ApplicationCommandManager::removeListener 

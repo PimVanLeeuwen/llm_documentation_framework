@@ -1,0 +1,1 @@
+An OSC address pattern.Extends an OSC address by additionally allowing the following wildcards: ?, \*, [], {}OSC messages always have an OSC address pattern to specify the destination(s) of the message.See alsoOSCMessage, OSCAddress, OSCMessageListener 

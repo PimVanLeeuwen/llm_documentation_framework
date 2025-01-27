@@ -1,0 +1,1 @@
+Advanced properties of an AudioProcessorValueTreeState::Parameter.The members here have the same meaning as the similarlynamed member functions of AudioParameterFloatAttributes.See alsoAudioParameterFloatAttributes, RangedAudioParameterAttributes 

@@ -1,0 +1,1 @@
+This stream will decompress a sourcestream using zlib.Tip: if you're reading lots of small items from one of these streams, you can increase the performance enormously by passing it through a BufferedInputStream, so that it has to read larger blocks less often.See alsoGZIPCompressorOutputStream 

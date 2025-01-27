@@ -1,0 +1,1 @@
+Comparison function used by the implementation to store Animators in ordered collections.It can also be used to determine equality of Animator objects based on whether they reference the same underlying implementation.

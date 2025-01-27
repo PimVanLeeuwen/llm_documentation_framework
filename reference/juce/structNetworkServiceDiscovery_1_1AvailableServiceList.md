@@ -1,0 +1,1 @@
+Watches the network for broadcasts from Advertiser objects, and keeps a list of all the currently active instances.Just create an instance of AvailableServiceList and it will start listening you can register a callback with its onChange member to find out when services appear/disappear, and you can call getServices() to find out the current list.See alsoService, Advertiser 

@@ -1,0 +1,1 @@
+A class for receiving events when changes are made to a MarkerList.You can register a MarkerList::Listener with a MarkerList using the MarkerList::addListener() method, and it will be called when markers are moved, added, or deleted.See alsoMarkerList::addListener, MarkerList::removeListener 

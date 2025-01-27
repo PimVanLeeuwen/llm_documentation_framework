@@ -1,0 +1,1 @@
+Some helper methods for checking a callable object before invoking with the specified arguments.If the object provides a comparison operator for nullptr it will check before calling. For other objects it will just invoke the function call operator.

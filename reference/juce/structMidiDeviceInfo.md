@@ -1,0 +1,1 @@
+This struct contains information about a MIDI input or output device.You can get one of these structs by calling the static getAvailableDevices() or getDefaultDevice() methods of MidiInput and MidiOutput or by calling getDeviceInfo() on an instance of these classes. Devices can be opened by passing the identifier to the openDevice() method.

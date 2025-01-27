@@ -1,0 +1,1 @@
+A base class for buttons.This contains all the logic for button behaviours such as enabling/disabling, responding to shortcut keystrokes, autorepeating when held down, togglebuttons and radio groups, etc.See alsoTextButton, DrawableButton, ToggleButton 

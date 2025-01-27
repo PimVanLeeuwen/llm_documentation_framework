@@ -1,0 +1,1 @@
+An interface to allow an AudioProcessor to implement extended AAXspecific functionality.To use this class, create an object that inherits from it, implement the methods, then return a pointer to the object in your AudioProcessor `getAAXClientExtensions()` method.See alsoAudioProcessor, VST2ClientExtensions, VST3ClientExtensions 

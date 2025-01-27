@@ -1,0 +1,85 @@
+A resource returned by a ResourceProvider.See alsoOptions::withResourceProvider 
+
+Member Data Documentation
+
+
+◆ data
+
+
+ std::vector<std::byte> WebBrowserComponent::Resource::data 
+ 
+
+
+
+◆ mimeType
+
+
+ String WebBrowserComponent::Resource::mimeType 
+ 
+
+
+
+The documentation for this struct was generated from the following file:juce\_WebBrowserComponent.h
+### Purchase
+
+Get JUCE
+### Discover
+
+What's New in JUCEFeatures
+### Learn
+
+DocumentaionTutorialsMade with JUCEResources
+### Support
+
+JUCE ForumNewsletterArchive
+### About
+
+Contact UsJUCE LegalJUCE Licensing FAQ
+### Events
+
+Audio Developer Conference
+Visit our FacebookVisit our TwitterVisit our LinkedInVisit our YouTube channel© Raw Material Software Limited
+linkedin
+
+
+
+
+facebook
+
+
+pinterest
+
+
+youtube
+
+
+rss
+
+
+twitter
+
+
+instagram
+
+
+
+
+facebookblank
+
+
+rssblank
+
+
+linkedinblank
+
+
+pinterest
+
+
+youtube
+
+
+twitter
+
+
+instagram

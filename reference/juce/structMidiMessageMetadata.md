@@ -1,0 +1,1 @@
+A view of MIDI message data stored in a contiguous buffer.Instances of this class do not own the midi data bytes that they point to. Instead, they expect the midi data to live in a separate buffer that outlives the MidiMessageMetadata instance.

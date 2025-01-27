@@ -1,0 +1,1 @@
+MD5 checksum class.Create one of these with a block of source data or a stream, and it calculates the MD5 checksum of that data.You can then retrieve this checksum as a 16byte block, or as a hex string.See alsoSHA256 

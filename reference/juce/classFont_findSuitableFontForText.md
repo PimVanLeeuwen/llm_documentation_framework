@@ -1,0 +1,8 @@
+#### findSuitableFontForText()
+
+
+ Font Font::findSuitableFontForText ( const String & text, 
+ 
+ const String & language = {} ) const 
+
+Attempts to locate a visually similar font that is capable of rendering the provided string.If fallback is disabled on this Font by setFallbackEnabled(), then this will always return a copy of the current Font.Otherwise, the current font, then each of the fallback fonts specified by setPreferredFallbackFamilies() will be checked, and the first Font that is capable of rendering the string will be returned. If none of these fonts is suitable, then the system font fallback mechanism will be used to locate a font from the currently installed fonts. If the system also cannot find any suitable font, then a copy of the original Font will be returned.Note that most fonts don't contain glyphs for all possible unicode codepoints, and instead may contain e.g. just the glyphs required for a specific script. So, if the provided text would be displayed using several scripts (multiple languages, emoji, etc.) then there's a good chance that no single font will be able to render the entire text. Shorter strings will generally produce better fallback results than longer strings, with the caveat that the system may take control characters such as combining marks and variation selectors into account when selecting suitable fonts, so querying fallbacks characterbycharacter is likely to produce poor results.

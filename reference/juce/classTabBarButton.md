@@ -1,0 +1,1 @@
+In a TabbedButtonBar, this component is used for each of the buttons.If you want to create a TabbedButtonBar with custom tab components, derive your component from this class, and override the TabbedButtonBar::createTabButton() method to create it instead of the default one.See alsoTabbedButtonBar 

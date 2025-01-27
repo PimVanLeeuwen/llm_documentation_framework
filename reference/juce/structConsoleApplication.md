@@ -1,0 +1,1 @@
+Represents a the set of commands that a console app can perform, and provides helper functions for performing them.When using these helper classes to implement a console app, you probably want to do something along these lines:int main (int argc, char\* argv[])

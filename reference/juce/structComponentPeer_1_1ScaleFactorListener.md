@@ -1,0 +1,1 @@
+Used to receive callbacks when the OS scale factor of this ComponentPeer changes.This is used internally by some native JUCE windows on Windows and Linux and you shouldn't need to worry about it in your own code unless you are dealing directly with native windows.

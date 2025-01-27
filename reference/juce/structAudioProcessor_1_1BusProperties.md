@@ -1,0 +1,93 @@
+Structure used for AudioProcessor Callbacks.
+
+Member Data Documentation
+
+
+◆ busName
+
+
+ String AudioProcessor::BusProperties::busName 
+ 
+
+The name of the bus.
+
+◆ defaultLayout
+
+
+ AudioChannelSet AudioProcessor::BusProperties::defaultLayout 
+ 
+
+The default layout of the bus.
+
+◆ isActivatedByDefault
+
+
+ bool AudioProcessor::BusProperties::isActivatedByDefault 
+ 
+
+Is this bus activated by default?
+
+The documentation for this struct was generated from the following file:juce\_AudioProcessor.h
+### Purchase
+
+Get JUCE
+### Discover
+
+What's New in JUCEFeatures
+### Learn
+
+DocumentaionTutorialsMade with JUCEResources
+### Support
+
+JUCE ForumNewsletterArchive
+### About
+
+Contact UsJUCE LegalJUCE Licensing FAQ
+### Events
+
+Audio Developer Conference
+Visit our FacebookVisit our TwitterVisit our LinkedInVisit our YouTube channel© Raw Material Software Limited
+linkedin
+
+
+
+
+facebook
+
+
+pinterest
+
+
+youtube
+
+
+rss
+
+
+twitter
+
+
+instagram
+
+
+
+
+facebookblank
+
+
+rssblank
+
+
+linkedinblank
+
+
+pinterest
+
+
+youtube
+
+
+twitter
+
+
+instagram

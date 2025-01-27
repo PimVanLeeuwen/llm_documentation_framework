@@ -1,0 +1,4 @@
+#### scrollDown()
+
+
+ bool CodeEditorComponent::scrollDown ( )

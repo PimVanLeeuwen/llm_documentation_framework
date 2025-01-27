@@ -1,0 +1,1 @@
+A class that can be used to run a simple standalone application containing your filter.Just create one of these objects in your JUCEApplicationBase::initialise() method, and let it do its work. It will create your filter object using the same createPluginFilter() function that the other plugin wrappers use.

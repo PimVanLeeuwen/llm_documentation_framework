@@ -1,0 +1,4 @@
+#### killSlaveProcess()
+
+
+ void ChildProcessCoordinator::killSlaveProcess ( )

@@ -1,0 +1,1 @@
+A nonsnapping behaviour that allows the content to be freely flicked in either direction, with momentum based on the velocity at which it was released, and variable friction to make it come to a halt.This class is intended to be used as a template parameter to the AnimatedPosition class.See alsoAnimatedPosition 

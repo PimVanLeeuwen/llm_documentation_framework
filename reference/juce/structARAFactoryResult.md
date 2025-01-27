@@ -1,0 +1,85 @@
+Represents the result of AudioPluginFormatManager::createARAFactoryAsync().If the operation fails then araFactory will contain `nullptr`, and errorMessage may contain a reason for the failure.The araFactory member ensures that the module necessary for the correct functioning of the factory will remain loaded.
+
+Member Data Documentation
+
+
+◆ araFactory
+
+
+ ARAFactoryWrapper ARAFactoryResult::araFactory 
+ 
+
+
+
+◆ errorMessage
+
+
+ String ARAFactoryResult::errorMessage 
+ 
+
+
+
+The documentation for this struct was generated from the following file:juce\_ARACommon.h
+### Purchase
+
+Get JUCE
+### Discover
+
+What's New in JUCEFeatures
+### Learn
+
+DocumentaionTutorialsMade with JUCEResources
+### Support
+
+JUCE ForumNewsletterArchive
+### About
+
+Contact UsJUCE LegalJUCE Licensing FAQ
+### Events
+
+Audio Developer Conference
+Visit our FacebookVisit our TwitterVisit our LinkedInVisit our YouTube channel© Raw Material Software Limited
+linkedin
+
+
+
+
+facebook
+
+
+pinterest
+
+
+youtube
+
+
+rss
+
+
+twitter
+
+
+instagram
+
+
+
+
+facebookblank
+
+
+rssblank
+
+
+linkedinblank
+
+
+pinterest
+
+
+youtube
+
+
+twitter
+
+
+instagram

@@ -1,0 +1,1 @@
+This type is deprecated; prefer PositionInfo instead.Some position info may be unavailable, depending on the host or plugin format. Unfortunately, CurrentPositionInfo doesn't have any way of differentiating between default values and values that have been set explicitly.
