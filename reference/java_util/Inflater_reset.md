@@ -1,0 +1,7 @@
+#### reset
+
+```
+public void reset()
+```
+Resets inflater so that a new set of input data can be processed.
+

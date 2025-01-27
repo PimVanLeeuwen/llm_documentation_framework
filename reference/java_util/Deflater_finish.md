@@ -1,0 +1,8 @@
+#### finish
+
+```
+public void finish()
+```
+When called, indicates that compression should end with the current
+contents of the input buffer.
+

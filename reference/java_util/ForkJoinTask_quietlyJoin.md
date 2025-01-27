@@ -1,0 +1,10 @@
+#### quietlyJoin
+
+```
+public final void quietlyJoin()
+```
+Joins this task, without returning its result or throwing its
+exception. This method may be useful when processing
+collections of tasks when some have been cancelled or otherwise
+known to have aborted.
+

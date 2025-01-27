@@ -1,0 +1,17 @@
+#### shutdown
+
+```
+public void shutdown()
+```
+Possibly initiates an orderly shutdown in which previously
+submitted tasks are executed, but no new tasks will be
+accepted. Invocation has no effect on execution state if this
+is the `commonPool()`, and no additional effect if
+already shut down. Tasks that are in the process of being
+submitted concurrently during the course of this method may or
+may not be rejected.
+Throws:
+`SecurityException` - if a security manager exists and
+the caller is not permitted to modify threads
+because it does not hold `RuntimePermission``("modifyThread")`
+

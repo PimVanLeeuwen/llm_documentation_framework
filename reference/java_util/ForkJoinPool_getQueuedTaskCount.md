@@ -1,0 +1,14 @@
+#### getQueuedTaskCount
+
+```
+public long getQueuedTaskCount()
+```
+Returns an estimate of the total number of tasks currently held
+in queues by worker threads (but not including tasks submitted
+to the pool that have not begun executing). This value is only
+an approximation, obtained by iterating across all threads in
+the pool. This method may be useful for tuning task
+granularities.
+Returns:
+the number of queued tasks
+

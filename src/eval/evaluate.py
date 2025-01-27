@@ -40,9 +40,9 @@ def evaluate_documentation():
     # Small check for the status bar, adds negligible time
     for root, dirs, files in os.walk("docs"):
         for file in files:
-            reference_files = find_reference_file(file.split(".")[0])
+            reference_files = find_reference_file(file.split(".")[0]) + find_reference_file(root.split("/")[-1] + "_" + file.split(".")[0])
             if len(reference_files) == 1:
                 nr_files += 1
-                print(reference_files[0])
+                print(f'Matched {file} to {reference_files[0]}')
 
     print(f"Found {nr_files} files to evaluate")

@@ -1,0 +1,13 @@
+#### getCompletedTaskCount
+
+```
+public long getCompletedTaskCount()
+```
+Returns the approximate total number of tasks that have
+completed execution. Because the states of tasks and threads
+may change dynamically during computation, the returned value
+is only an approximation, but one that does not ever decrease
+across successive calls.
+Returns:
+the number of tasks
+

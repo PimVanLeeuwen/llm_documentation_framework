@@ -1,0 +1,13 @@
+#### getCountry
+
+```
+public String getCountry()
+```
+Returns the country/region code for this locale, which should
+either be the empty string, an uppercase ISO 3166 2-letter code,
+or a UN M.49 3-digit code.
+Returns:
+The country/region code, or the empty string if none is defined.
+See Also:
+`getDisplayCountry()`
+

@@ -1,0 +1,11 @@
+#### end
+
+```
+public void end()
+```
+Closes the decompressor and discards any unprocessed input.
+This method should be called when the decompressor is no longer
+being used, but will also be called automatically by the finalize()
+method. Once this method is called, the behavior of the Inflater
+object is undefined.
+

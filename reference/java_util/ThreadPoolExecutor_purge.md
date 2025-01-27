@@ -1,0 +1,14 @@
+#### purge
+
+```
+public void purge()
+```
+Tries to remove from the work queue all `Future`
+tasks that have been cancelled. This method can be useful as a
+storage reclamation operation, that has no other impact on
+functionality. Cancelled tasks are never executed, but may
+accumulate in work queues until worker threads can actively
+remove them. Invoking this method instead tries to remove them now.
+However, this method may fail to remove tasks in
+the presence of interference by other threads.
+

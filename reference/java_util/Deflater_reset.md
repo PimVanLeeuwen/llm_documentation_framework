@@ -1,0 +1,8 @@
+#### reset
+
+```
+public void reset()
+```
+Resets deflater so that a new set of input data can be processed.
+Keeps current compression level and strategy settings.
+

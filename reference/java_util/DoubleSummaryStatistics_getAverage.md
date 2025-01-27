@@ -1,0 +1,18 @@
+#### getAverage
+
+```
+public final double getAverage()
+```
+Returns the arithmetic mean of values recorded, or zero if no
+values have been recorded.
+If any recorded value is a NaN or the sum is at any point a NaN
+then the average will be code NaN.The average returned can vary depending upon the order in
+which values are recorded.
+This method may be implemented using compensated summation or
+other technique to reduce the error bound in the `numerical sum` used to compute the average.
+API Note:
+Values sorted by increasing absolute magnitude tend to yield
+more accurate results.
+Returns:
+the arithmetic mean of values, or zero if none
+

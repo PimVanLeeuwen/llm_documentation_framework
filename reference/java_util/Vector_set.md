@@ -1,0 +1,23 @@
+#### set
+
+```
+public E set(int index,
+             E element)
+```
+Replaces the element at the specified position in this Vector with the
+specified element.
+Specified by:
+`set` in interface `List<E>`
+Overrides:
+`set` in class `AbstractList<E>`
+Parameters:
+`index` - index of the element to replace
+`element` - element to be stored at the specified position
+Returns:
+the element previously at the specified position
+Throws:
+`ArrayIndexOutOfBoundsException` - if the index is out of range
+(`index < 0 || index >= size()`)
+Since:
+1.2
+

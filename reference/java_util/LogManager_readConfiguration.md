@@ -1,0 +1,18 @@
+#### readConfiguration
+
+```
+public void readConfiguration(InputStream ins)
+                       throws IOException,
+                              SecurityException
+```
+Reinitialize the logging properties and reread the logging configuration
+from the given stream, which should be in java.util.Properties format.
+A PropertyChangeEvent will be fired after the properties are read.Any log level definitions in the new configuration file will be
+applied using Logger.setLevel(), if the target Logger exists.
+Parameters:
+`ins` - stream to read properties from
+Throws:
+`SecurityException` - if a security manager exists and if
+the caller does not have LoggingPermission("control").
+`IOException` - if there are problems reading from the stream.
+

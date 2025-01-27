@@ -1,0 +1,23 @@
+#### whenCompleteAsync
+
+```
+public CompletableFuture<T> whenCompleteAsync(BiConsumer<? super T,? super Throwable> action,
+                                              Executor executor)
+```
+Description copied from interface: `CompletionStage`
+Returns a new CompletionStage with the same result or exception as
+this stage, that executes the given action using the supplied
+Executor when this stage completes.When this stage is complete, the given action is invoked with the
+result (or `null` if none) and the exception (or `null`
+if none) of this stage as arguments. The returned stage is completed
+when the action returns. If the supplied action itself encounters an
+exception, then the returned stage exceptionally completes with this
+exception unless this stage also completed exceptionally.
+Specified by:
+`whenCompleteAsync` in interface `CompletionStage<T>`
+Parameters:
+`action` - the action to perform
+`executor` - the executor to use for asynchronous execution
+Returns:
+the new CompletionStage
+

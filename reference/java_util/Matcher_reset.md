@@ -1,0 +1,15 @@
+#### reset
+
+```
+public Matcher reset(CharSequence input)
+```
+Resets this matcher with a new input sequence.Resetting a matcher discards all of its explicit state information
+and sets its append position to zero. The matcher's region is set to
+the default region, which is its entire character sequence. The
+anchoring and transparency of this matcher's region boundaries are
+unaffected.
+Parameters:
+`input` - The new input character sequence
+Returns:
+This matcher
+

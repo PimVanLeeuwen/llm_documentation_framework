@@ -1,0 +1,12 @@
+#### lock
+
+```
+public void lock()
+```
+Acquires the read lock.Acquires the read lock if the write lock is not held by
+another thread and returns immediately.If the write lock is held by another thread then
+the current thread becomes disabled for thread scheduling
+purposes and lies dormant until the read lock has been acquired.
+Specified by:
+`lock` in interface `Lock`
+

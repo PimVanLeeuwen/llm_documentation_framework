@@ -1,0 +1,12 @@
+#### getQueue
+
+```
+public BlockingQueue<Runnable> getQueue()
+```
+Returns the task queue used by this executor. Access to the
+task queue is intended primarily for debugging and monitoring.
+This queue may be in active use. Retrieving the task queue
+does not prevent queued tasks from executing.
+Returns:
+the task queue
+

@@ -1,0 +1,16 @@
+#### setDSTSavings
+
+```
+public void setDSTSavings(int millisSavedDuringDST)
+```
+Sets the amount of time in milliseconds that the clock is advanced
+during daylight saving time.
+Parameters:
+`millisSavedDuringDST` - the number of milliseconds the time is
+advanced with respect to standard time when the daylight saving time rules
+are in effect. A positive number, typically one hour (3600000).
+Since:
+1.2
+See Also:
+`getDSTSavings()`
+

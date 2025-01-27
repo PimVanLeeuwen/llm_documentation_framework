@@ -1,0 +1,23 @@
+#### getSum
+
+```
+public final double getSum()
+```
+Returns the sum of values recorded, or zero if no values have been
+recorded.
+If any recorded value is a NaN or the sum is at any point a NaN
+then the sum will be NaN.The value of a floating-point sum is a function both of the
+input values as well as the order of addition operations. The
+order of addition operations of this method is intentionally
+not defined to allow for implementation flexibility to improve
+the speed and accuracy of the computed result.
+In particular, this method may be implemented using compensated
+summation or other technique to reduce the error bound in the
+numerical sum compared to a simple summation of `double`
+values.
+API Note:
+Values sorted by increasing absolute magnitude tend to yield
+more accurate results.
+Returns:
+the sum of values, or zero if none
+

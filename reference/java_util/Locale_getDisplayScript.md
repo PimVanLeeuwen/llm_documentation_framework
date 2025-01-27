@@ -1,0 +1,19 @@
+#### getDisplayScript
+
+```
+public String getDisplayScript(Locale inLocale)
+```
+Returns a name for the locale's script that is appropriate
+for display to the user. If possible, the name will be
+localized for the given locale. Returns the empty string if
+this locale doesn't specify a script code.
+Parameters:
+`inLocale` - The locale for which to retrieve the display script.
+Returns:
+the display name of the script code for the current default
+`DISPLAY` locale
+Throws:
+`NullPointerException` - if `inLocale` is `null`
+Since:
+1.7
+

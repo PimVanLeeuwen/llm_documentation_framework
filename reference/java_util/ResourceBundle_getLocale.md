@@ -1,0 +1,11 @@
+#### getLocale
+
+```
+public Locale getLocale()
+```
+Returns the locale of this resource bundle. This method can be used after a
+call to getBundle() to determine whether the resource bundle returned really
+corresponds to the requested locale or is a fallback.
+Returns:
+the locale of this resource bundle
+

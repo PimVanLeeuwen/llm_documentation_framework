@@ -1,0 +1,13 @@
+#### unordered
+
+```
+S unordered()
+```
+Returns an equivalent stream that is
+unordered. May return
+itself, either because the stream was already unordered, or because
+the underlying stream state was modified to be unordered.This is an intermediate
+operation.
+Returns:
+an unordered stream
+

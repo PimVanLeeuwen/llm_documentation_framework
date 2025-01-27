@@ -1,0 +1,13 @@
+#### forceTermination
+
+```
+public void forceTermination()
+```
+Forces this phaser to enter termination state. Counts of
+registered parties are unaffected. If this phaser is a member
+of a tiered set of phasers, then all of the phasers in the set
+are terminated. If this phaser is already terminated, this
+method has no effect. This method may be useful for
+coordinating recovery after one or more tasks encounter
+unexpected exceptions.
+

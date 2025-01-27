@@ -1,0 +1,24 @@
+#### flush
+
+```
+public abstract void flush()
+                    throws BackingStoreException
+```
+Forces any changes in the contents of this preference node and its
+descendants to the persistent store. Once this method returns
+successfully, it is safe to assume that all changes made in the
+subtree rooted at this node prior to the method invocation have become
+permanent.Implementations are free to flush changes into the persistent store
+at any time. They do not need to wait for this method to be called.When a flush occurs on a newly created node, it is made persistent,
+as are any ancestors (and descendants) that have yet to be made
+persistent. Note however that any preference value changes in
+ancestors are not guaranteed to be made persistent.If this method is invoked on a node that has been removed with
+the `removeNode()` method, flushSpi() is invoked on this node,
+but not on others.
+Throws:
+`BackingStoreException` - if this operation cannot be completed
+due to a failure in the backing store, or inability to
+communicate with it.
+See Also:
+`sync()`
+

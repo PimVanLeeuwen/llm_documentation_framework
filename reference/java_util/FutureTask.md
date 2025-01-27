@@ -1,0 +1,21 @@
+```
+public class FutureTask<V>
+extends Object
+implements RunnableFuture<V>
+```
+A cancellable asynchronous computation. This class provides a base
+implementation of `Future`, with methods to start and cancel
+a computation, query to see if the computation is complete, and
+retrieve the result of the computation. The result can only be
+retrieved when the computation has completed; the `get`
+methods will block if the computation has not yet completed. Once
+the computation has completed, the computation cannot be restarted
+or cancelled (unless the computation is invoked using
+`runAndReset()`).A `FutureTask` can be used to wrap a `Callable` or
+`Runnable` object. Because `FutureTask` implements
+`Runnable`, a `FutureTask` can be submitted to an
+`Executor` for execution.In addition to serving as a standalone class, this class provides
+`protected` functionality that may be useful when creating
+customized task classes.
+Since:
+1.5

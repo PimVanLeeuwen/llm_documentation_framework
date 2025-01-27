@@ -1,0 +1,21 @@
+#### syncSpi
+
+```
+protected abstract void syncSpi()
+                         throws BackingStoreException
+```
+This method is invoked with this node locked. The contract of this
+method is to synchronize any cached preferences stored at this node
+with any stored in the backing store. (It is perfectly possible that
+this node does not exist on the backing store, either because it has
+been deleted by another VM, or because it has not yet been created.)
+Note that this method should not synchronize the preferences in
+any subnodes of this node. If the backing store naturally syncs an
+entire subtree at once, the implementer is encouraged to override
+sync(), rather than merely overriding this method.If this node throws a BackingStoreException, the exception
+will propagate out beyond the enclosing `sync()` invocation.
+Throws:
+`BackingStoreException` - if this operation cannot be completed
+due to a failure in the backing store, or inability to
+communicate with it.
+

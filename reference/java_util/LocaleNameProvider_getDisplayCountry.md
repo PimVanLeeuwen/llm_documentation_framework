@@ -1,0 +1,32 @@
+#### getDisplayCountry
+
+```
+public abstract String getDisplayCountry(String countryCode,
+                                         Locale locale)
+```
+Returns a localized name for the given 
+IETF BCP47 region code (either ISO 3166 country code or UN M.49 area
+codes) and the given locale that is appropriate for display to the user.
+For example, if `countryCode` is "FR" and `locale`
+is en\_US, getDisplayCountry() will return "France"; if `countryCode`
+is "US" and `locale` is fr\_FR, getDisplayCountry() will return "Etats-Unis".
+If the name returned cannot be localized according to `locale`,
+(say, the provider does not have a Japanese name for Croatia),
+this method returns null.
+Parameters:
+`countryCode` - the country(region) code string in the form of two
+upper-case letters between 'A' (U+0041) and 'Z' (U+005A) or the UN M.49 area code
+in the form of three digit letters between '0' (U+0030) and '9' (U+0039).
+`locale` - the desired locale
+Returns:
+the name of the given country code for the specified locale, or null if it's not
+available.
+Throws:
+`NullPointerException` - if `countryCode` or `locale` is null
+`IllegalArgumentException` - if `countryCode` is not in the form of
+two upper-case letters or three digit letters, or `locale` isn't
+one of the locales returned from
+`getAvailableLocales()`.
+See Also:
+`Locale.getDisplayCountry(java.util.Locale)`
+

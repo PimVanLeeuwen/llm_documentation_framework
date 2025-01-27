@@ -1,0 +1,11 @@
+#### getQueuedSubmissionCount
+
+```
+public int getQueuedSubmissionCount()
+```
+Returns an estimate of the number of tasks submitted to this
+pool that have not yet begun executing. This method may take
+time proportional to the number of submissions.
+Returns:
+the number of queued submissions
+

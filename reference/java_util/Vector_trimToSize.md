@@ -1,0 +1,12 @@
+#### trimToSize
+
+```
+public void trimToSize()
+```
+Trims the capacity of this vector to be the vector's current
+size. If the capacity of this vector is larger than its current
+size, then the capacity is changed to equal the size by replacing
+its internal data array, kept in the field `elementData`,
+with a smaller one. An application can use this operation to
+minimize the storage of a vector.
+

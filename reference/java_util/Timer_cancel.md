@@ -1,0 +1,14 @@
+#### cancel
+
+```
+public void cancel()
+```
+Terminates this timer, discarding any currently scheduled tasks.
+Does not interfere with a currently executing task (if it exists).
+Once a timer has been terminated, its execution thread terminates
+gracefully, and no more tasks may be scheduled on it.Note that calling this method from within the run method of a
+timer task that was invoked by this timer absolutely guarantees that
+the ongoing task execution is the last task execution that will ever
+be performed by this timer.This method may be called repeatedly; the second and subsequent
+calls have no effect.
+
