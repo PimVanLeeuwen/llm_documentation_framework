@@ -179,11 +179,13 @@ def document_node(node: ASTNode, llm_provider: str, llm_model: str):
 	# set the documentation in the node
 	# node.set_documentation(invoke_llm_api(prompt, llm_provider, llm_model, str(uuid.uuid4())) + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")
 	node_documentation = invoke_llm_local(prompt)
-	if node.get_children():
-		node_documentation += "\\\\\n## Method Summary: \n"
-		for c in node.get_children():
-			if c.node_type == ASTNodeType.METHOD and c.has_documentation():
-				node_documentation += f"### {c.get_name()}\n{c.get_short_documentation()}\n"
+
+	# This was added to potentially lie closer to reference documentation but that has changed.
+	# if node.get_children():
+	# 	node_documentation += "\\\\\n## Method Summary: \n"
+	# 	for c in node.get_children():
+	# 		if c.node_type == ASTNodeType.METHOD and c.has_documentation():
+	# 			node_documentation += f"### {c.get_name()}\n{c.get_short_documentation()}\n"
 
 	node_documentation += "## Code: \n```\n" + node.get_content() + "\n```"
 	node.set_documentation(node_documentation)
