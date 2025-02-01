@@ -187,7 +187,7 @@ def document_node(node: ASTNode, llm_provider: str, llm_model: str):
 	# 		if c.node_type == ASTNodeType.METHOD and c.has_documentation():
 	# 			node_documentation += f"### {c.get_name()}\n{c.get_short_documentation()}\n"
 
-	node_documentation += "## Code: \n```\n" + node.get_content() + "\n```"
+	node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
 	node.set_documentation(node_documentation)
 
 

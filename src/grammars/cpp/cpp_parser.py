@@ -91,7 +91,10 @@ class MyCPPListener(CPP14ParserListener):
         Args:
             ctx (CPP14Parser.NamespaceDefinitionContext): context to parse along (from super).
         """
-        object_node = ASTNode(ctx.Identifier().getText(), ASTNodeType.OBJECT, parent_node=self.current_node, content=ctx.start.getInputStream().getText(ctx.start.start, ctx.stop.stop))
+        if ctx.Identifier():
+            object_node = ASTNode(ctx.Identifier().getText(), ASTNodeType.OBJECT, parent_node=self.current_node, content=ctx.start.getInputStream().getText(ctx.start.start, ctx.stop.stop))
+        else:
+            object_node = ASTNode("PLACEHOLDER_WITH_ERROR", ASTNodeType.OBJECT, parent_node=self.current_node, content="PLACEHOLDER_WITH_ERROR")
         self.current_node.add_child(object_node)
         self.current_node = object_node
 
