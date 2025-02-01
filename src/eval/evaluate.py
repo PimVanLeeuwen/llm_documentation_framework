@@ -22,7 +22,7 @@ def find_reference_file(name: str):
 
     output_files = []
 
-    for root, dirs, files in os.walk("reference"):
+    for root, dirs, files in os.walk("reference/juce"):
         for file in files:
             if file.split(".")[0] == name and len(file.split(".")) == 2:
                 output_files.append(os.path.join(root, file))

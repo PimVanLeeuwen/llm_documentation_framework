@@ -10,7 +10,7 @@ import re
 from markdownify import markdownify as md
 
 CONVERT_JAVA = False
-CONVERT_CPP = False
+CONVERT_CPP = True
 
 ######################################################################################################################################
 # The piece below is for the Java Util generation, these are not very fancy/structured because they are very specific and incidental #
