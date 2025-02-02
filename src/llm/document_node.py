@@ -18,6 +18,9 @@ from src.llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK
 # API URL and max retries variables
 API_URL = "https://api.generative.engine.capgemini.com/v2/llm/invoke"
 API_KEY = os.environ.get('CAPGEMINI_API_KEY')
+MODEL_PROVIDER = os.environ.get('MODEL_PROVIDER')
+MODEL_NAME = os.environ.get('MODEL_NAME')
+USE_LOCAL_LLM = os.environ.get('USE_LOCAL_LLM')
 
 MAX_RETRIES = 10
 
@@ -41,14 +44,11 @@ def invoke_llm_local(prompt, model="llama3.1"):
 
 	return response['message']['content']
 
-def invoke_llm_api(prompt, model_provider: str, model_name: str,
-				   prompt_id="123e4567-e89b-12d3-a456-426614174002"):
+def invoke_llm_api(prompt, prompt_id="123e4567-e89b-12d3-a456-426614174002"):
 	"""calls the API to generate LLM documentation
 
 	Args:
 		prompt (str): The prompt to parse.
-		model_provider (str): The provider of the model.
-		model_name (str): The name of the model.
 		prompt_id (str, optional): UUID of the prompt. Defaults to "123e4567-e89b-12d3-a456-426614174002".
 
 	Returns:
@@ -70,8 +70,8 @@ def invoke_llm_api(prompt, model_provider: str, model_name: str,
 			"mode": "chain",
 			"text": prompt,
 			"files": [],
-			"modelName": model_name,
-			"provider": model_provider,
+			"modelName": MODEL_NAME,
+			"provider": MODEL_PROVIDER,
 			"systemPrompt": "You are an AI docs assistant. Your task is to generate clear, concise docs for the given code of an object to help developers and beginners understand its function and usage.",
 			"sessionId": prompt_id,
 			"modelKwargs": {
@@ -95,13 +95,11 @@ def invoke_llm_api(prompt, model_provider: str, model_name: str,
 		return None
 
 
-def document_node(node: ASTNode, llm_provider: str, llm_model: str):
+def document_node(node: ASTNode):
 	"""
 	given a method node and the corresponding tree, query the LLM to generate docs and return the output
 
 	Args:
-		llm_provider (str) The provider to use for the LLM used in documentation
-        llm_model (str) The LLM model to use for documentation.
 		node (ASTNode): The node to document.
 	"""
 
@@ -173,12 +171,11 @@ def document_node(node: ASTNode, llm_provider: str, llm_model: str):
 	# PROMPTING THE LLM
 
 	# set the short documentation in the node
-	# node.set_short_documentation(invoke_llm_api(short_prompt, llm_provider, llm_model, str(uuid.uuid4())))
-	node.set_short_documentation(invoke_llm_local(short_prompt))
+	node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM else invoke_llm_api(short_prompt, str(uuid.uuid4()))
+	node.set_short_documentation(node_short_documentation)
 
 	# set the documentation in the node
-	# node.set_documentation(invoke_llm_api(prompt, llm_provider, llm_model, str(uuid.uuid4())) + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")
-	node_documentation = invoke_llm_local(prompt)
+	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM else invoke_llm_api(prompt, str(uuid.uuid4()))
 
 	# This was added to potentially lie closer to reference documentation but that has changed.
 	# if node.get_children():

@@ -24,6 +24,12 @@ METHOD_PROMPT = """
 
 """
 
+NO_CONTEXT_METHOD_PROMPT = """
+## Information
+**Code Content:** \\
+`{code_content}`
+"""
+
 SHORT_TASK = """
 ## Task
 Give a two-line general explanation about this code. 

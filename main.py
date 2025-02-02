@@ -17,15 +17,20 @@ from src.folder_operations.folders_and_files import create_tree_from_files
 from src.llm.document_tree import document_tree
 from src.eval.evaluate import evaluate_documentation
 
+API_KEY = os.environ.get('CAPGEMINI_API_KEY')
+MODEL_PROVIDER = os.environ.get('MODEL_PROVIDER')
+MODEL_NAME = os.environ.get('MODEL_NAME')
+REPOSITORY_PATH = os.environ.get('REPOSITORY_PATH')
+PROVIDE_CONTEXT = os.environ.get('PROVIDE_CONTEXT')
+USE_LOCAL_LLM = os.environ.get('USE_LOCAL_LLM')
+
 if __name__ == '__main__':
 	# Initialize parser
 	parser = argparse.ArgumentParser()
 
 	# Adding optional argument
-	parser.add_argument("-d", "--Gen-Doc", help="Generate Documentation, requires path of the repo")
+	parser.add_argument("-d", "--Gen-Doc", action="store_true", help="Generate Documentation")
 	parser.add_argument("-w", "--Run-Website", action="store_true", help="Run the website, requires documentation to have been generated (before)")
-	parser.add_argument("-p", "--Model-Provider", help="Provider of the LLM model to use in the documentation")
-	parser.add_argument("-m", "--Model-Name", help="Name of the LLM model to use in the documentation")
 	parser.add_argument("-e", "--Evaluate", action="store_true", help="Give the evaluation of a generated documentation, for this reference documentation must be placed in the reference folder. The same layout is used as the generated documentation.")
 
 	# Read arguments from command line
@@ -33,6 +38,9 @@ if __name__ == '__main__':
 
 	if not (args.Gen_Doc or args.Run_Website or args.Evaluate):
 		parser.print_help(sys.stderr)
+
+	if not (API_KEY and MODEL_PROVIDER and MODEL_NAME and REPOSITORY_PATH and PROVIDE_CONTEXT and USE_LOCAL_LLM):
+		raise Exception("Not all env variables are defined, please define them according to .env.example")
 
 	if args.Gen_Doc:
 		# generate the AST
@@ -43,8 +51,8 @@ if __name__ == '__main__':
 			f.write(tree.root.__repr__(recursive=True, extended=True))
 
 		# Put the documentation in the tree
-		if args.Model_Provider and args.Model_Name: document_tree(tree, llm_model=args.Model_Name, llm_provider=args.Model_Provider)
-		else: document_tree(tree)
+		document_tree(tree)
+
 
 		# Put the documentation in the right format
 		tree_to_mkdocs(tree)
