@@ -21,6 +21,7 @@ API_KEY = os.environ.get('CAPGEMINI_API_KEY')
 MODEL_PROVIDER = os.environ.get('MODEL_PROVIDER')
 MODEL_NAME = os.environ.get('MODEL_NAME')
 USE_LOCAL_LLM = os.environ.get('USE_LOCAL_LLM')
+PROVIDE_CONTEXT = os.environ.get('PROVIDE_CONTEXT')
 
 MAX_RETRIES = 10
 
@@ -171,24 +172,14 @@ def document_node(node: ASTNode):
 	# PROMPTING THE LLM
 
 	# set the short documentation in the node
-	node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM else invoke_llm_api(short_prompt, str(uuid.uuid4()))
-	node.set_short_documentation(node_short_documentation)
+	if PROVIDE_CONTEXT:
+		node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM else invoke_llm_api(short_prompt, str(uuid.uuid4()))
+		node.set_short_documentation(node_short_documentation)
 
 	# set the documentation in the node
 	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM else invoke_llm_api(prompt, str(uuid.uuid4()))
-
-	# This was added to potentially lie closer to reference documentation but that has changed.
-	# if node.get_children():
-	# 	node_documentation += "\\\\\n## Method Summary: \n"
-	# 	for c in node.get_children():
-	# 		if c.node_type == ASTNodeType.METHOD and c.has_documentation():
-	# 			node_documentation += f"### {c.get_name()}\n{c.get_short_documentation()}\n"
-
 	node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
 	node.set_documentation(node_documentation)
-
-
-	# node.set_documentation(invoke_llm_local(prompt) + " \\\\\n## Code: \n```\n" + node.get_content() + "\n```")
 
 	# write the comment to the docs
 	os.makedirs(os.path.dirname(f"docs/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
