@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
 	if args.Gen_Doc:
 		# generate the AST
-		tree = create_tree_from_files(args.Gen_Doc, tuple([".java", ".cpp"]))
+		tree = create_tree_from_files(REPOSITORY_PATH, tuple([".java", ".cpp"]))
 
 		# Write the Tree
 		with open("AbstractSyntaxTree.txt", "w") as f:
