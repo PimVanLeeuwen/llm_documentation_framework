@@ -1,1 +1,0 @@
-Represents a voice that a Synthesiser can use to play a SynthesiserSound.A voice plays a single sound at a time, and a synthesiser holds an array of voices so that it can play polyphonically.See alsoSynthesiser, SynthesiserSound 

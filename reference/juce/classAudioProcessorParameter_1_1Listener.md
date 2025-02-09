@@ -1,1 +1,0 @@
-A base class for listeners that want to know about changes to an AudioProcessorParameter.Use AudioProcessorParameter::addListener() to register your listener with an AudioProcessorParameter.This Listener replaces most of the functionality in the AudioProcessorListener class, which will be deprecated and removed.

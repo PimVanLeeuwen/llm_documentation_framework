@@ -1,1 +1,0 @@
-Represents a destination into which MIDICI messages can be written.Each message should be written into the output buffer. Then, send() will send the current contents of the buffer to the specified group.

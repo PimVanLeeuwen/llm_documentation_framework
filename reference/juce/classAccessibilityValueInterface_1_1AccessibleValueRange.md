@@ -1,1 +1,0 @@
-Represents the range of this value, if supported.Return one of these from the `getRange()` method, providing a minimum, maximum, and interval value for the range to indicate that this is a ranged value.The default state is an "invalid" range, indicating that the accessibility element does not support ranged values.See alsoAccessibilityRangedNumericValueInterface 

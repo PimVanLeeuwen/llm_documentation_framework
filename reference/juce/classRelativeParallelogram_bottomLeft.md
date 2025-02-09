@@ -1,4 +1,0 @@
-#### bottomLeft
-
-
- RelativePoint RelativeParallelogram::bottomLeft

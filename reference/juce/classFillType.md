@@ -1,1 +1,0 @@
-Represents a colour or fill pattern to use for rendering paths.This is used by the Graphics and DrawablePath classes as a way to encapsulate a brush type. It can either be a solid colour, a gradient, or a tiled image.See alsoGraphics::setFillType, DrawablePath::setFill 

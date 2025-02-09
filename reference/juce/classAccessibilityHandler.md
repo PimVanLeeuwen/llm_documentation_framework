@@ -1,1 +1,0 @@
-Base class for accessible Components.This class wraps a Component and provides methods that allow an accessibility client, such as VoiceOver on macOS, or Narrator on Windows, to control it.It handles hierarchical navigation, properties, state, and various interfaces.

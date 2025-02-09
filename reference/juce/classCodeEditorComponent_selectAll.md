@@ -1,4 +1,0 @@
-#### selectAll()
-
-
- bool CodeEditorComponent::selectAll ( )

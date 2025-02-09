@@ -1,1 +1,0 @@
-A base class for writing simple onepage graphical apps.A subclass can inherit from this and implement just a few methods such as paint() and mousehandling. The base class provides some simple abstractions to take care of continuously repainting itself.

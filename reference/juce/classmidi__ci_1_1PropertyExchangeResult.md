@@ -1,1 +1,0 @@
-Contains data returned by a responder in response to a request.PropertyExchangeResult::kind indicates whether the transaction resulted in a wellformed message; however, it's possible that the message is a wellformed message indicating an error in the responder, so it's important to check the 'status' field of the header before attempting to do anything with the payload.

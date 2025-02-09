@@ -1,1 +1,0 @@
-An AudioSource that takes a PositionableAudioSource and allows it to be played, stopped, started, etc.This can also be told use a buffer and background thread to read ahead, and if can correct for different samplerates.You may want to use one of these along with an AudioSourcePlayer and AudioIODevice to control playback of an audio file.See alsoAudioSource, AudioSourcePlayer 

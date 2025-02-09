@@ -1,1 +1,0 @@
-Adds referencecounting to an object.This is effectively a version of the ReferenceCountedObject class, but which uses a nonatomic counter, and so is not threadsafe (but which will be more efficient). For more details on how to use it, see the ReferenceCountedObject class notes.See alsoReferenceCountedObject, ReferenceCountedObjectPtr, ReferenceCountedArray 

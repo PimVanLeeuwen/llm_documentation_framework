@@ -1,4 +1,0 @@
-#### registerButton
-
-
- TextButton OnlineUnlockForm::registerButton

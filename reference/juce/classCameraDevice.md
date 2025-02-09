@@ -1,1 +1,0 @@
-Controls any video capture devices that might be available.Use getAvailableDevices() to list the devices that are attached to the system, then call openDevice() or openDeviceAsync() to open one for use. Once you have a CameraDevice object, you can get a viewer component from it, and use its methods to stream to a file or capture stillframes.

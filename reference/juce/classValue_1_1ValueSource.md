@@ -1,1 +1,0 @@
-Used internally by the Value class as the base class for its shared value objects.The Value class is essentially a referencecounted pointer to a shared instance of a ValueSource object. If you're feeling adventurous, you can create your own custom ValueSource classes to allow Value objects to represent your own custom data items.

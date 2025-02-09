@@ -1,4 +1,0 @@
-#### redo()
-
-
- bool CodeEditorComponent::redo ( )

@@ -1,1 +1,0 @@
-Represents a permission granted to an application to read and/or write to a particular document or tree.This class also contains static methods to request, revoke, and query the permissions of your app. These functions are noops on all platforms other than Android.

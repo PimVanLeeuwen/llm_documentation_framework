@@ -1,1 +1,0 @@
-A class for controlling MenuBar components.This class is used to tell a MenuBar what menus to show, and to respond to a menu being selected.See alsoMenuBarModel::Listener, MenuBarComponent, PopupMenu 

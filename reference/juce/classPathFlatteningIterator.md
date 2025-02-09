@@ -1,1 +1,0 @@
-Flattens a Path object into a series of straightline sections.Use one of these to iterate through a Path object, and it will convert all the curves into line sections so it's easy to render or perform geometric operations on.See alsoPath 

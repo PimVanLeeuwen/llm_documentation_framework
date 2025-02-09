@@ -1,1 +1,0 @@
-Represents the state of the mouse buttons and modifier keys.This is used both by mouse events and by KeyPress objects to describe the state of keys such as shift, control, alt, etc.See alsoKeyPress, MouseEvent::mods 

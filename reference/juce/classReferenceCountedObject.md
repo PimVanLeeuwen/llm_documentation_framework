@@ -1,1 +1,0 @@
-A base class which provides methods for referencecounting.To add referencecounting to a class, derive it from this class, and use the ReferenceCountedObjectPtr class to point to it.e.g.class MyClass : public ReferenceCountedObject

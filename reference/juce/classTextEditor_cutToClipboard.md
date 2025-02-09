@@ -1,4 +1,0 @@
-#### cutToClipboard()
-
-
- bool TextEditor::cutToClipboard ( )

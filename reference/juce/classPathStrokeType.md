@@ -1,1 +1,0 @@
-Describes a type of stroke used to render a solid outline along a path.A PathStrokeType object can be used directly to create the shape of an outline around a path, and is used by Graphics::strokePath to specify the type of stroke to draw.See alsoPath, Graphics::strokePath 

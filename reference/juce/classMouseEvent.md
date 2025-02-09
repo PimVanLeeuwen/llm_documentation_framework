@@ -1,1 +1,0 @@
-Contains position and status information about a mouse event.See alsoMouseListener, Component::mouseMove, Component::mouseEnter, Component::mouseExit, Component::mouseDown, Component::mouseUp, Component::mouseDrag 

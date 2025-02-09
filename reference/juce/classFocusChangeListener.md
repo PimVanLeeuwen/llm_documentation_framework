@@ -1,1 +1,0 @@
-Classes can implement this interface and register themselves with the Desktop class to receive callbacks when the currently focused component changes.See alsoDesktop::addFocusChangeListener, Desktop::removeFocusChangeListener 

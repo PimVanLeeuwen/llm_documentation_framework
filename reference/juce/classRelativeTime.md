@@ -1,1 +1,0 @@
-A relative measure of time.The time is stored as a number of seconds, at doubleprecision floating point accuracy, and may be positive or negative.If you need an absolute time, (i.e. a date + time), see the Time class.

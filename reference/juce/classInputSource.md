@@ -1,1 +1,0 @@
-A lightweight object that can create a stream to read some kind of resource.This may be used to refer to a file, or some other kind of source, allowing a caller to create an input stream that can read from it when required.See alsoFileInputSource 

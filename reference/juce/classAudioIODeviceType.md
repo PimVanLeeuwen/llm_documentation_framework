@@ -1,1 +1,0 @@
-Represents a type of audio driver, such as DirectSound, ASIO, CoreAudio, etc.To get a list of available audio driver types, use the AudioDeviceManager::createAudioDeviceTypes() method. Each of the objects returned can then be used to list the available devices of that type. E.g.OwnedArray<AudioIODeviceType> types;

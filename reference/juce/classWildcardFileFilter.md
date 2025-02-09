@@ -1,1 +1,0 @@
-A type of FileFilter that works by wildcard pattern matching.This filter only allows files that match one of the specified patterns, but allows all directories through.See alsoFileFilter, DirectoryContentsList, FileListComponent, FileBrowserComponent 

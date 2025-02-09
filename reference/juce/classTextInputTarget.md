@@ -1,1 +1,0 @@
-An abstract base class which can be implemented by components that function as text editors.This class allows different types of text editor component to provide a uniform interface, which can be used by things like OSspecific input methods, onscreen keyboards, etc.

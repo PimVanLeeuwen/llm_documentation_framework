@@ -1,4 +1,0 @@
-#### ~ARAEditGuard()
-
-
- ARAEditGuard::~ARAEditGuard ( )

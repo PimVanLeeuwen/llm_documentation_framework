@@ -1,1 +1,0 @@
-A type of AudioSource which can be repositioned.The basic AudioSource just streams continuously with no idea of a current time or length, so the PositionableAudioSource is used for a finite stream that has a current read position.See alsoAudioSource, AudioTransportSource 

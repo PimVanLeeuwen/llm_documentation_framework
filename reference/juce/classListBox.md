@@ -1,1 +1,0 @@
-A list of items that can be scrolled vertically.To create a list, you'll need to create a subclass of ListBoxModel. This can either paint each row of the list and respond to events via callbacks, or for more specialised tasks, it can supply a custom component to fill each row.See alsoComboBox, TableListBox 

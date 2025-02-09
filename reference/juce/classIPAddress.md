@@ -1,1 +1,0 @@
-Represents an IP address.

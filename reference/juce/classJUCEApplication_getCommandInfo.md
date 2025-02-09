@@ -1,7 +1,0 @@
-#### getCommandInfo()
-
-
- void JUCEApplication::getCommandInfo ( CommandID commandID, ApplicationCommandInfo & result ) overridevirtual 
- 
-
-This must provide details about one of the commands that this target can perform.This will be called with one of the command IDs that the target provided in its getAllCommands() methods.It should fillin all appropriate fields of the ApplicationCommandInfo structure with suitable information about the command. (The commandID field will already have been filledin by the caller).The easiest way to set the info is using the ApplicationCommandInfo::setInfo() method to set all the fields at once.If the command is currently inactive for some reason, this method must use ApplicationCommandInfo::setActive() to make that clear, (or it should set the isDisabled bit of the ApplicationCommandInfo::flags field).Any default keypresses for the command should be appended to the ApplicationCommandInfo::defaultKeypresses field.Note that if you change something that affects the status of the commands that would be returned by this method (e.g. something that makes some commands active or inactive), you should call ApplicationCommandManager::commandStatusChanged() to cause the manager to refresh its status.Implements ApplicationCommandTarget.

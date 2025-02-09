@@ -1,1 +1,0 @@
-Represents the window borders around a window component.You must use operator bool() to evaluate the validity of the object before accessing its value.Returned by getFrameSizeIfPresent(). A missing value may be returned on Linux for a short time after window creation.

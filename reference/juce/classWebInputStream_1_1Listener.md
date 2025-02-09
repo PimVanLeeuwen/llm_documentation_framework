@@ -1,1 +1,0 @@
-Used to receive callbacks for POST data send progress.Pass one of these into the connect() method and its postDataSendProgress() method will be called periodically with updates on POST data upload progress.

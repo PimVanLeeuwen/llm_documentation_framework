@@ -1,1 +1,0 @@
-SHA256 secure hash generator.Create one of these objects from a block of source data or a stream, and it calculates the SHA256 hash of that data.You can retrieve the hash as a raw 32byte block, or as a 64digit hex string.See alsoMD5 

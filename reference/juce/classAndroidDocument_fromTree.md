@@ -1,7 +1,0 @@
-#### fromTree()
-
-
- static AndroidDocument AndroidDocument::fromTree ( const URL & treeUrl ) static 
- 
-
-Create an AndroidDocument representing the root of a tree of files.The argument should be a URL representing a tree. Such URLs are returned by the system filepicker when it is in folderselection mode. If you pass a URL referring to a document inside a tree, this will return a document referring to the root of the tree. If you pass a URL referring to a single file, this will fail.When targeting platform version 30 or later, access to the filesystem via file paths is heavily restricted, and access to shared storage must use a new URIbased system instead. At time of writing, apps uploaded to the Play Store must target API 30 or higher. If you want read/write access to a shared folder, you must:Use a native FileChooser in canSelectDirectories mode, to allow the user to select a folder that your app can access. Your app will only have access to the contents of this directory; it cannot escape to the filesystem root. The system will not allow the user to grant access to certain locations, including filesystem roots and the Download folder.Pass the URI that the user selected to fromTree(), and use the resulting AndroidDocument to read/write to the file system.This function may fail on Android devices with API level 20 or lower, and on nonAndroid platforms. If this function fails, hasValue() will return false on the returned document.

@@ -1,4 +1,0 @@
-#### message
-
-
- Label OnlineUnlockForm::message

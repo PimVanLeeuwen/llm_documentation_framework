@@ -1,1 +1,0 @@
-A wrapper for a streaming (TCP) socket.This allows lowlevel use of sockets; for an easiertouse messaging layer on top of sockets, you could also try the InterprocessConnection class.See alsoDatagramSocket, InterprocessConnection, InterprocessConnectionServer 

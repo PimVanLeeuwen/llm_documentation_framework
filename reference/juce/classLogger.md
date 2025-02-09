@@ -1,1 +1,0 @@
-Acts as an applicationwide logging class.A subclass of Logger can be created and passed into the Logger::setCurrentLogger method and this will then be used by all calls to writeToLog.The logger class also contains methods for writing messages to the debugger's output stream.See alsoFileLogger 

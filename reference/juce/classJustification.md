@@ -1,1 +1,0 @@
-Represents a type of justification to be used when positioning graphical items.e.g. it indicates whether something should be placed topleft, topright, centred, etc.It is used in various places wherever this kind of information is needed.

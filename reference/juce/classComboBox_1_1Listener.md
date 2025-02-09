@@ -1,1 +1,0 @@
-A class for receiving events from a ComboBox.You can register a ComboBox::Listener with a ComboBox using the ComboBox::addListener() method, and it will be called when the selected item in the box changes.See alsoComboBox::addListener, ComboBox::removeListener 

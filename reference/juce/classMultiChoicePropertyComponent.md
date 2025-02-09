@@ -1,1 +1,0 @@
-A PropertyComponent that shows its value as an expandable list of ToggleButtons.This type of property component contains a list of options where multiple options can be selected at once.See alsoPropertyComponent, PropertyPanel 

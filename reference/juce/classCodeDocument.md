@@ -1,1 +1,0 @@
-A class for storing and manipulating a source code file.When using a CodeEditorComponent, it takes one of these as its source object.The CodeDocument stores its content as an array of lines, which makes it quick to insert and delete.See alsoCodeEditorComponent 

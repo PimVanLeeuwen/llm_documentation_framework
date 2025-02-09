@@ -1,1 +1,0 @@
-LookAndFeel objects define the appearance of all the JUCE widgets, and subclasses can be used to apply different 'skins' to the application.This class is an abstract baseclass for actual lookandfeels that you can instantiate, see LookAndFeel\_V1, LookAndFeel\_V2 and LookAndFeel\_V3.See alsoLookAndFeel\_V1, LookAndFeel\_V2, LookAndFeel\_V3 

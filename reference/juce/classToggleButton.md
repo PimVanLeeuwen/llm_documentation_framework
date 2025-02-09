@@ -1,1 +1,0 @@
-A button that can be toggled on/off.All buttons can be toggle buttons, but this lets you create one of the standard ones which has a tickbox and a text label next to it.See alsoButton, DrawableButton, TextButton 

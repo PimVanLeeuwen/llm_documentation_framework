@@ -1,1 +1,0 @@
-This class represents a single value for any of the MPE dimensions of control.It supports values with 7bit or 14bit resolutions (corresponding to 1 or 2 MIDI bytes, respectively). It also offers helper functions to query the value in a variety of representations that can be useful in an audio or MIDI context.

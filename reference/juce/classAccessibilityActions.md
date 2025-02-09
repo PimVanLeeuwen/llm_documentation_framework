@@ -1,1 +1,0 @@
-A simple wrapper for building a collection of supported accessibility actions and corresponding callbacks for a UI element.Pass one of these when constructing an `AccessibilityHandler` to enable users to interact with a UI element via the supported actions.

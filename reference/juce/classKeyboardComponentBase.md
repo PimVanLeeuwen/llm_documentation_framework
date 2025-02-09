@@ -1,1 +1,0 @@
-A base class for drawing a custom MIDI keyboard component.Implement the drawKeyboardBackground(), drawWhiteKey(), and drawBlackKey() methods to draw your content and this class will handle the underlying keyboard logic.The component is a ChangeBroadcaster, so if you want to be informed when the keyboard is scrolled, you can register a ChangeListener for callbacks.

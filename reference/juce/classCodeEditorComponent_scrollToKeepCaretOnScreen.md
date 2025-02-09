@@ -1,4 +1,0 @@
-#### scrollToKeepCaretOnScreen()
-
-
- void CodeEditorComponent::scrollToKeepCaretOnScreen ( )

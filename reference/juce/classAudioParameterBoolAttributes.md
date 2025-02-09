@@ -1,1 +1,0 @@
-Properties of an AudioParameterBool.See alsoAudioParameterBool(), RangedAudioParameterAttributes()

@@ -1,1 +1,0 @@
-This is a base class for holding image data in implementationspecific ways.You may never need to use this class directly it's used internally by the Image class to store the actual image data. To access pixel data directly, you should use Image::BitmapData rather than this class.ImagePixelData objects are created indirectly, by subclasses of ImageType.See alsoImage, ImageType 

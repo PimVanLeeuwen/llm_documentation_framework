@@ -1,1 +1,0 @@
-A set of threads that will run a list of jobs.When a ThreadPoolJob object is added to the ThreadPool's list, its runJob() method will be called by the next pooled thread that becomes free.See alsoThreadPoolJob, Thread 

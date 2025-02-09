@@ -1,1 +1,0 @@
-A table of cells, using a TableHeaderComponent as its header.This component makes it easy to create a table by providing a TableListBoxModel as the data source.See alsoTableListBoxModel, TableHeaderComponent 

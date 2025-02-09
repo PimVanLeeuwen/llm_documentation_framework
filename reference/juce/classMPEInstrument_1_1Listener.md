@@ -1,1 +1,0 @@
-Derive from this class to be informed about any changes in the MPE notes played by this instrument, and any changes to its zone layout.Note: This listener type receives its callbacks immediately, and not via the message thread (so you might be for example in the MIDI thread). Therefore you should never do heavy work such as graphics rendering etc. inside those callbacks.

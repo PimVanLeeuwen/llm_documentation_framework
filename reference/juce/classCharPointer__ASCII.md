@@ -1,1 +1,0 @@
-Wraps a pointer to a nullterminated ASCII character string, and provides various methods to operate on the data.A valid ASCII string is assumed to not contain any characters above 127.See alsoCharPointer\_UTF8, CharPointer\_UTF16, CharPointer\_UTF32 

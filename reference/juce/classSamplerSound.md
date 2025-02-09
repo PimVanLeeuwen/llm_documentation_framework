@@ -1,1 +1,0 @@
-A subclass of SynthesiserSound that represents a sampled audio clip.This is a pretty basic sampler, and just attempts to load the whole audio stream into memory.To use it, create a Synthesiser, add some SamplerVoice objects to it, then give it some SampledSound objects to play.See alsoSamplerVoice, Synthesiser, SynthesiserSound 

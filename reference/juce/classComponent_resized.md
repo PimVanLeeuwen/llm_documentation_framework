@@ -1,7 +1,0 @@
-#### resized()
-
-
- virtual void Component::resized ( ) virtual 
- 
-
-Called when this component's size has been changed.A component can implement this method to do things such as laying out its child components when its width or height changes.The method is called synchronously as a result of the setBounds or setSize methods, so repeatedly changing a components size will repeatedly call its resized method (unlike things like repainting, where multiple calls to repaint are coalesced together).If the component is a toplevel window on the desktop, its size could also be changed by operatingsystem factors beyond the application's control.See alsomoved, setSize Reimplemented in AudioDeviceSelectorComponent, CallOutBox, CodeEditorComponent, ComboBox, DialogWindow, DrawableButton, FileBrowserComponent, FilenameComponent, FileSearchPathListComponent, GenericAudioProcessorEditor, KeyboardComponentBase, KeyMappingEditorComponent, Label, ListBox, MenuBarComponent, MultiChoicePropertyComponent, MultiDocumentPanel, OnlineUnlockForm, PluginListComponent, PreferencesPanel, PropertyComponent, PropertyPanel, ResizableWindow, ScrollBar, SidePanel, Slider, StandaloneFilterWindow, TabBarButton, TabbedButtonBar, TabbedComponent, TableHeaderComponent, TableListBox, TextEditor, Toolbar, ToolbarButton, ToolbarItemComponent, ToolbarItemPalette, TreeView, Viewport, and WebBrowserComponent.Referenced by StandaloneFilterWindow::resized().

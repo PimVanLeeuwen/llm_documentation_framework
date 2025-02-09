@@ -1,4 +1,0 @@
-#### undo()
-
-
- bool TextEditor::undo ( )

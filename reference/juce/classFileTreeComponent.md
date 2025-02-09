@@ -1,1 +1,0 @@
-A component that displays the files in a directory as a treeview.This implements the DirectoryContentsDisplayComponent base class so that it can be used in a FileBrowserComponent.To attach a listener to it, use its DirectoryContentsDisplayComponent base class and the FileBrowserListener class.See alsoDirectoryContentsList, FileListComponent 

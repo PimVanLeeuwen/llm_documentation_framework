@@ -1,1 +1,0 @@
-A class for receiving events from a Label.You can register a Label::Listener with a Label using the Label::addListener() method, and it will be called when the text of the label changes, either because of a call to Label::setText() or by the user editing the text (if the label is editable).See alsoLabel::addListener, Label::removeListener 

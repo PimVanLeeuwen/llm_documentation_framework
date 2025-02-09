@@ -1,7 +1,0 @@
-#### createEditor()
-
-
- virtual AudioProcessorEditor \* AudioProcessor::createEditor ( ) pure virtual 
- 
-
-Creates the processor's GUI.This can return nullptr if you want a GUIless processor, in which case the host may create a generic UI that lets the user twiddle the parameters directly.If you do want to pass back a component, the component should be created and set to the correct size before returning it. If you implement this method, you must also implement the hasEditor() method and make it return true.Remember not to do anything silly like allowing your processor to keep a pointer to the component that gets created it could be deleted later without any warning, which would make your pointer into a dangler. Use the getActiveEditor() method instead.The correct way to handle the connection between an editor component and its processor is to use something like a ChangeBroadcaster so that the editor can register itself as a listener, and be told when a change occurs. This lets them safely unregister themselves when they are deleted.Here are a few things to bear in mind when writing an editor:Initially there won't be an editor, until the user opens one, or they might not open one at all. Your processor mustn't rely on it being there.An editor object may be deleted and a replacement one created again at any time.It's safe to assume that an editor will be deleted before its processor.See alsohasEditor Implemented in AudioProcessorGraph::AudioGraphIOProcessor, and AudioProcessorGraph.

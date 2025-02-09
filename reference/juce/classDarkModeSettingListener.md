@@ -1,1 +1,0 @@
-Classes can implement this interface and register themselves with the Desktop class to receive callbacks when the operating system dark mode setting changes.The Desktop::isDarkModeActive() method can then be used to query the current setting.See alsoDesktop::addDarkModeSettingListener, Desktop::removeDarkModeSettingListener, Desktop::isDarkModeActive 

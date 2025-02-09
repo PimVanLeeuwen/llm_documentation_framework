@@ -1,7 +1,0 @@
-#### create9point1point6()
-
-
- static AudioChannelSet JUCE\_CALLTYPE AudioChannelSet::create9point1point6 ( ) static 
- 
-
-Creates a set for a 9.1.6 Atmos surround setup (left, right, centre, LFE, leftSurroundSide, rightSurroundSide, leftSurroundRear, rightSurroundRear, wideLeft, wideRight, topFrontLeft, topFrontRight, topSideLeft, topSideRight, topRearLeft, topRearRight).Older versions of the VST3 SDK only supported ITU versions of the 9.0.4, 9.1.4, 9.0.6, and 9.1.6 layouts, which have the frontchannel ordering "L Lc C Rc R". To maintain the correct relative channel ordering, JUCE would perform the following mapping: L > wideLeft, Lc > left, Rc > right, R > wideRightThe version of the VST3 SDK bundled with JUCE now supports Atmos versions of the above layouts, which have the frontchannel ordering "Lw L C R Rw". This order matches the JUCE ordering, so no remapping is required.create9point0point4(), create9point1point4(), create9point0point6(), and create9point1point6() now correspond to the VST3 k90\_4\_W, k91\_4\_W, k90\_6\_W, and k91\_6\_W Atmos layouts respectively.If you need to support the old ITU layouts, use create9point0point4ITU(), create9point1point4ITU(), create9point0point6ITU(), and create9point1point6ITU() instead.Is equivalent to: k91\_6\_W (VST3), kAudioChannelLayoutTag\_Atmos\_9\_1\_6 (CoreAudio).See alsocreate9point1point6ITU()

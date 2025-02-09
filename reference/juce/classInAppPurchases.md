@@ -1,1 +1,0 @@
-Provides inapp purchase functionality.Your app should create a single instance of this class, and on iOS it should be created as soon as your app starts. This is because on application startup any previously pending transactions will be resumed.Once an InAppPurchases object is created, call addListener() to attach listeners.

@@ -1,1 +1,0 @@
-Container that handles geometry for grid layouts (fixed columns and rows) using a set of declarative rules.Implemented from the `CSS Grid Layout` specification as described at: https://csstricks.com/snippets/css/completeguidegrid/See alsoGridItem 

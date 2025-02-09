@@ -1,1 +1,0 @@
-This class handles the assignment of new MIDI notes to member channels of an active MPE zone.To use it, create an instance passing in the MPE zone that it should operate on and then call use the findMidiChannelForNewNote() method for all noteon messages and the noteOff() method for all noteoff messages.

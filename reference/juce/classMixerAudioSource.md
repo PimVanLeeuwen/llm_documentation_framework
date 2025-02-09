@@ -1,1 +1,0 @@
-An AudioSource that mixes together the output of a set of other AudioSources.Input sources can be added and removed while the mixer is running as long as their prepareToPlay() and releaseResources() methods are called before and after adding them to the mixer.

@@ -1,1 +1,0 @@
-A glyph from a particular font, with a particular size, style, typeface and position.You should rarely need to use this class directly for most purposes, the GlyphArrangement class will do what you need for text layout.See alsoGlyphArrangement, Font 

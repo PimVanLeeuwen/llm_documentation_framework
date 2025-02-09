@@ -1,1 +1,0 @@
-Manages a temporary file, which will be deleted when this object is deleted.This object is intended to be used as a stack based object, using its scope to make sure the temporary file isn't left lying around.For example:{

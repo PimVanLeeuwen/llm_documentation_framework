@@ -1,1 +1,0 @@
-Components that want to use popup tooltips should implement this interface.A TooltipWindow will wait for the mouse to hover over a component that implements the TooltipClient interface, and when it finds one, it will display the tooltip returned by its getTooltip() method.See alsoTooltipWindow, SettableTooltipClient 

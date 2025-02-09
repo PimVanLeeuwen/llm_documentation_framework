@@ -1,1 +1,0 @@
-A component containing a list of toolbar items, which the user can drag onto a toolbar to add them.You can use this class directly, but it's a lot easier to call Toolbar::showCustomisationDialog(), which automatically shows one of these in a dialog box with lots of extra controls.See alsoToolbar 

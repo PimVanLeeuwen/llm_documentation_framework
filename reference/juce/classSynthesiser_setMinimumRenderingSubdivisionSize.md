@@ -1,7 +1,0 @@
-#### setMinimumRenderingSubdivisionSize()
-
-
- void Synthesiser::setMinimumRenderingSubdivisionSize ( int numSamples, bool shouldBeStrict = false ) noexcept 
- 
-
-Sets a minimum limit on the size to which audio subblocks will be divided when rendering.When rendering, the audio blocks that are passed into renderNextBlock() will be split up into smaller blocks that lie between all the incoming midi messages, and it is these smaller subblocks that are rendered with multiple calls to renderVoices().Obviously in a pathological case where there are midi messages on every sample, then renderVoices() could be called once per sample and lead to poor performance, so this setting allows you to set a lower limit on the block size.The default setting is 32, which means that midi messages are accurate to about < 1ms accuracy, which is probably fine for most purposes, but you may want to increase or decrease this value for your synth.If shouldBeStrict is true, the audio subblocks will strictly never be smaller than numSamples.If shouldBeStrict is false (default), the first audio subblock in the buffer is allowed to be smaller, to make sure that the first MIDI event in a buffer will always be sampleaccurate (this can sometimes help to avoid quantisation or phasing issues).

@@ -1,1 +1,0 @@
-To find out when the available MIDI devices change, call MidiDeviceListConnection::make(), passing a lambda that will be called on each configuration change.To stop the lambda receiving callbacks, destroy the MidiDeviceListConnection instance returned from make(), or call reset() on it.// Start listening for configuration changes

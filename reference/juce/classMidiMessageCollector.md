@@ -1,1 +1,0 @@
-Collects incoming realtime MIDI messages and turns them into blocks suitable for processing by a blockbased audio callback.The class can also be used as either a MidiKeyboardState::Listener or a MidiInputCallback so it can easily use a midi input or keyboard component as its source.See alsoMidiMessage, MidiInput 

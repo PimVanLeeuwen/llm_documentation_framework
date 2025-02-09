@@ -1,1 +1,0 @@
-A collection of functions for manipulating characters and character strings.Most of these methods are designed for internal use by the String and CharPointer classes, but some of them may be useful to call directly.See alsoString, CharPointer\_UTF8, CharPointer\_UTF16, CharPointer\_UTF32 

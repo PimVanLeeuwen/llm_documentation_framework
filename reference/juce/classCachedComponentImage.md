@@ -1,1 +1,0 @@
-Base class used internally for structures that can store cached images of component state.Most people are unlikely to ever need to know about this class it's really only for powerusers!See alsoComponent::setCachedComponentImage 

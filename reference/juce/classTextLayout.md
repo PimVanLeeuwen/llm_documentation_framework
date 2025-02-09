@@ -1,1 +1,0 @@
-A Preformatted piece of text, which may contain multiple fonts and colours.A TextLayout is created from an AttributedString, and once created can be quickly drawn into a Graphics context.See alsoAttributedString 

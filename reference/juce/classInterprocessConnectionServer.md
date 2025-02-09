@@ -1,1 +1,0 @@
-An object that waits for client sockets to connect to a port on this host, and creates InterprocessConnection objects for each one.To use this, create a class derived from it which implements the createConnectionObject() method, so that it creates suitable connection objects for each client that tries to connect.See alsoInterprocessConnection 

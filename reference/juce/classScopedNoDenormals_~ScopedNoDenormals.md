@@ -1,4 +1,0 @@
-#### ~ScopedNoDenormals()
-
-
- ScopedNoDenormals::~ScopedNoDenormals ( ) noexcept

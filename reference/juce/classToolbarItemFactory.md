@@ -1,1 +1,0 @@
-A factory object which can create ToolbarItemComponent objects.A subclass of ToolbarItemFactory publishes a set of types of toolbar item that it can create.Each type of item is identified by a unique ID, and multiple instances of an item type can exist at once (even on the same toolbar, e.g. spacers or separator bars).See alsoToolbar, ToolbarItemComponent, ToolbarButton 

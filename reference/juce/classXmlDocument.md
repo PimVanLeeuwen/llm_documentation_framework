@@ -1,1 +1,0 @@
-Parses a textbased XML document and creates an XmlElement object from it.The parser will parse DTDs to load external entities but won't check the document for validity against the DTD.e.g.XmlDocument myDocument (File ("myfile.xml"));

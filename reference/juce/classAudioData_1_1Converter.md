@@ -1,1 +1,0 @@
-A base class for objects that are used to convert between two different sample formats.The AudioData::ConverterInstance implements this base class and can be templated, so you can create an instance that converts between two particular formats, and then store this in the abstract base class.See alsoAudioData::ConverterInstance 

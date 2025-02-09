@@ -1,1 +1,0 @@
-Listener class for events that happen to a ValueTree.To get events from a ValueTree, make your class implement this interface, and use ValueTree::addListener() and ValueTree::removeListener() to register it.

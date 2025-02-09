@@ -1,1 +1,0 @@
-Base class for a renderer fulfilling the ARAPlaybackRenderer role as described in the ARA SDK.Instances of this class are constructed by the DocumentController. If you are subclassing ARAPlaybackRenderer, make sure to call the base class implementation of any overridden function, except for processBlock.

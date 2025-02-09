@@ -1,1 +1,0 @@
-Creates and displays a popupmenu.To show a popupmenu, you create one of these, add some items to it, then call its show() method, which returns the id of the item the user selects.E.g.void MyWidget::mouseDown (const MouseEvent& e)

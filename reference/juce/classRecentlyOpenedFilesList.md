@@ -1,1 +1,0 @@
-Manages a set of files for use as a list of recentlyopened documents.This is a handy class for holding your list of recentlyopened documents, with helpful methods for things like purging any nonexistent files, automatically adding them to a menu, and making persistence easy.See alsoFile, FileBasedDocument 

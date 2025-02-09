@@ -1,1 +1,0 @@
-An object to take care of the logic for dragging components around with the mouse.Very easy to use in your mouseDown() callback, call startDraggingComponent(), then in your mouseDrag() callback, call dragComponent().When starting a drag, you can give it a ComponentBoundsConstrainer to use to limit the component's position and keep it onscreen.e.g.class MyDraggableComp

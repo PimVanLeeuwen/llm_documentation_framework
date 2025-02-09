@@ -1,1 +1,0 @@
-Gets informed about changes to a component's hierarchy or position.To monitor a component for changes, register a subclass of ComponentListener with the component using Component::addComponentListener().Be sure to deregister listeners before you delete them!See alsoComponent::addComponentListener, Component::removeComponentListener 

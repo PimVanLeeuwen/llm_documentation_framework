@@ -1,4 +1,0 @@
-#### pasteFromClipboard()
-
-
- bool TextEditor::pasteFromClipboard ( )

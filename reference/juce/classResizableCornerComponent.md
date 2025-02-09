@@ -1,1 +1,0 @@
-A component that resizes a parent component when dragged.This is the small triangular stripey resizer component you get in the bottomright of windows (more commonly on the Mac than Windows). Put one in the corner of a larger component and it will automatically resize its parent when it gets dragged around.See alsoResizableBorderComponent 

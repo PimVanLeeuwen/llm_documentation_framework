@@ -1,1 +1,0 @@
-A position in a code document.Using this class you can find a position in a code document and quickly get its character position, line, and index. By calling setPositionMaintained (true), the position is automatically updated when text is inserted or deleted in the document, so that it maintains its original place in the text.

@@ -1,4 +1,0 @@
-#### deviceManager
-
-
- AudioDeviceManager& AudioAppComponent::deviceManager

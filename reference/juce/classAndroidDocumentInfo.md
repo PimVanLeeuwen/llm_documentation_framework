@@ -1,1 +1,0 @@
-Some information about a document.Each instance represents some information about the document at the point when the instance was created.Instance information is not updated automatically. If you think some file information may have changed, create a new instance.

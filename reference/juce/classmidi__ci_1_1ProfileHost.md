@@ -1,1 +1,0 @@
-Acting as a ResponderListener, instances of this class can formulate appropriate replies to profile transactions initiated by remote devices.ProfileHost instances also contains methods to inform remote devices about changes to local profile state.Stores the current state of profiles on the local device.

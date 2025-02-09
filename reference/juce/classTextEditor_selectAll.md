@@ -1,4 +1,0 @@
-#### selectAll()
-
-
- bool TextEditor::selectAll ( )

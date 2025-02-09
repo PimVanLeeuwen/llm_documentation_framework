@@ -1,4 +1,0 @@
-#### handleUserClosingWindow()
-
-
- void ComponentPeer::handleUserClosingWindow ( )

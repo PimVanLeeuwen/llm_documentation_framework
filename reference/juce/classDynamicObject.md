@@ -1,1 +1,0 @@
-Represents a dynamically implemented object.This class is primarily intended for wrapping scripting language objects, but could be used for other purposes.An instance of a DynamicObject can be used to store named properties, and by subclassing hasMethod() and invokeMethod(), you can give your object methods.

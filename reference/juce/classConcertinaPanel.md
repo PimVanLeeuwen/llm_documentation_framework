@@ -1,1 +1,0 @@
-A panel which holds a vertical stack of components which can be expanded and contracted.Each section has its own header bar which can be dragged up and down to resize it, or doubleclicked to fully expand that section.

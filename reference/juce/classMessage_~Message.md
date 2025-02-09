@@ -1,4 +1,0 @@
-#### ~Message()
-
-
- Message::~Message ( ) override

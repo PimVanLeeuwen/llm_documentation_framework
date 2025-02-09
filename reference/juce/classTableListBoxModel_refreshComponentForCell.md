@@ -1,7 +1,0 @@
-#### refreshComponentForCell()
-
-
- virtual Component \* TableListBoxModel::refreshComponentForCell ( int rowNumber, int columnId, bool isRowSelected, Component \* existingComponentToUpdate ) virtual 
- 
-
-This is used to create or update a custom component to go in a cell.Any cell may contain a custom component, or can just be drawn with the paintCell() method and handle mouse clicks with cellClicked().This method will be called whenever a custom component might need to be updated e.g. when the table is changed, or TableListBox::updateContent() is called.If you don't need a custom component for the specified cell, then return nullptr. (Bear in mind that even if you're not creating a new component, you may still need to delete existingComponentToUpdate if it's nonnull).If you do want a custom component, and the existingComponentToUpdate is null, then this method must create a new component suitable for the cell, and return it.If the existingComponentToUpdate is nonnull, it will be a pointer to a component previously created by this method. In this case, the method must either update it to make sure it's correctly representing the given cell (which may be different from the one that the component was created for), or it can delete this component and return a new one.

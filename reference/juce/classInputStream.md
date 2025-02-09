@@ -1,1 +1,0 @@
-The base class for streams that read data.Input and output streams are used throughout the library subclasses can override some or all of the virtual functions to implement their behaviour.See alsoOutputStream, MemoryInputStream, BufferedInputStream, FileInputStream 

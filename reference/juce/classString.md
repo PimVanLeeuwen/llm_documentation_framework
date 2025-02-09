@@ -1,1 +1,0 @@
-The JUCE String class!Using a referencecounted internal representation, these strings are fast and efficient, and there are methods to do just about any operation you'll ever dream of.See alsoStringArray, StringPairArray 

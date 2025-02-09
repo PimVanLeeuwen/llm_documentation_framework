@@ -1,1 +1,0 @@
-A path object that consists of RelativePoint coordinates rather than the normal fixed ones.One of these paths can be converted into a Path object for drawing and manipulation, but unlike a Path, its points can be dynamic instead of just fixed.See alsoRelativePoint, RelativeCoordinate 

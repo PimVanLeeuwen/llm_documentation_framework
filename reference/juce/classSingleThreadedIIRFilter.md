@@ -1,1 +1,0 @@
-An IIR filter that can perform low, high, or bandpass filtering on an audio signal, with no threadsafety guarantees.You should use this class if you need an IIR filter, and don't plan to call its member functions from multiple threads at once.See alsoIIRFilter, IIRCoefficient, IIRFilterAudioSource 

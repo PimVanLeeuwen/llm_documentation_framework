@@ -1,1 +1,0 @@
-Performs a simple reverb effect on a stream of audio data.This is a simple stereo reverb, based on the technique and tunings used in FreeVerb. Use setSampleRate() to prepare it, and then call processStereo() or processMono() to apply the reverb to your audio data.See alsoReverbAudioSource 

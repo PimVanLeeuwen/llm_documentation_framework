@@ -1,1 +1,0 @@
-Represents a key press, including any modifier keys that are needed.E.g. a KeyPress might represent CTRL+C, SHIFT+ALT+H, Spacebar, Escape, etc.See alsoComponent, KeyListener, KeyPressMappingSet, Button::addShortcut 

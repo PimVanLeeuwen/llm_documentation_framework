@@ -1,1 +1,0 @@
-Whirlpool hash class.The Whirlpool algorithm was developed by Paulo S. L. M. Barreto and Vincent Rijmen.See P.S.L.M. Barreto, V. Rijmen, "The Whirlpool hashing function" NESSIE submission, 2000 (tweaked version, 2001), https://www.cosic.esat.kuleuven.ac.be/nessie/workshop/submissions/whirlpool.zipSee alsoSHA256, MD5 

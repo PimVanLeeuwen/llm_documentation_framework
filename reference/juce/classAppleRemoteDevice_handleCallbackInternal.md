@@ -1,4 +1,0 @@
-#### handleCallbackInternal()
-
-
- void AppleRemoteDevice::handleCallbackInternal ( )

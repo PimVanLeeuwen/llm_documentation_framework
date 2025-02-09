@@ -1,1 +1,0 @@
-Interface for deciding which files are suitable for something.For example, this is used by DirectoryContentsList to select which files go into the list.See alsoWildcardFileFilter, DirectoryContentsList, FileListComponent, FileBrowserComponent 

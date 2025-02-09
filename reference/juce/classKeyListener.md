@@ -1,1 +1,0 @@
-Receives callbacks when keys are pressed.You can add a key listener to a component to be informed when that component gets key events. See the Component::addKeyListener method for more details.See alsoKeyPress, Component::addKeyListener, KeyPressMappingSet 

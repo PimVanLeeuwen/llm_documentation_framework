@@ -1,1 +1,0 @@
-Receives events from an Apple IR remote control device (Only available in OSX!).To use it, just create a subclass of this class, implementing the buttonPressed() callback, then call start() and stop() to start or stop receiving events.

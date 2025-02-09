@@ -1,1 +1,0 @@
-A child of an AudioProcessorParameterGroup.This can contain either an AudioProcessorParameter or an AudioProcessorParameterGroup. You can query which using the getParameter and getGroup methods.for (auto\* child : group)

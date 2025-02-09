@@ -1,4 +1,0 @@
-#### ~NativeScaleFactorNotifier()
-
-
- NativeScaleFactorNotifier::~NativeScaleFactorNotifier ( ) override

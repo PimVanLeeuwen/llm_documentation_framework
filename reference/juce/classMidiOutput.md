@@ -1,1 +1,0 @@
-Represents a midi output device.To create one of these, use the static getAvailableDevices() method to find out what outputs are available, and then use the openDevice() method to try to open one.See alsoMidiInput 

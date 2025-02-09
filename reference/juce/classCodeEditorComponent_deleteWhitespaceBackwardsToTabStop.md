@@ -1,4 +1,0 @@
-#### deleteWhitespaceBackwardsToTabStop()
-
-
- bool CodeEditorComponent::deleteWhitespaceBackwardsToTabStop ( )

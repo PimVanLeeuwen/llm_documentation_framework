@@ -1,1 +1,0 @@
-A component with a TabbedButtonBar along one of its sides.This makes it easy to create a set of tabbed pages, just add a bunch of tabs with addTab(), and this will take care of showing the pages for you when the user clicks on a different tab.See alsoTabbedButtonBar 

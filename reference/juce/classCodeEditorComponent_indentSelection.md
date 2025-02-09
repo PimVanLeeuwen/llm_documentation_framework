@@ -1,4 +1,0 @@
-#### indentSelection()
-
-
- void CodeEditorComponent::indentSelection ( )

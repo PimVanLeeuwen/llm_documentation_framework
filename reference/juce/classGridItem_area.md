@@ -1,4 +1,0 @@
-#### area
-
-
- String GridItem::area

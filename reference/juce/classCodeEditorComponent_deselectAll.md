@@ -1,4 +1,0 @@
-#### deselectAll()
-
-
- void CodeEditorComponent::deselectAll ( )

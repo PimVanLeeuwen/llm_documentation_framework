@@ -1,1 +1,0 @@
-Used by the TimeSliceThread class.To register your class with a TimeSliceThread, derive from this class and use the TimeSliceThread::addTimeSliceClient() method to add it to the list.Make sure you always call TimeSliceThread::removeTimeSliceClient() before deleting your client!See alsoTimeSliceThread 

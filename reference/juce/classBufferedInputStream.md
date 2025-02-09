@@ -1,1 +1,0 @@
-Wraps another input stream, and reads from it using an intermediate buffer.If you're using an input stream such as a file input stream, and making lots of small read accesses to it, it's probably sensible to wrap it in one of these, so that the source stream gets accessed in larger chunk sizes, meaning less work for the underlying stream.

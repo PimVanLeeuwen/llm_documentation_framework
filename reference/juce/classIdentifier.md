@@ -1,1 +1,0 @@
-Represents a string identifier, designed for accessing properties by name.Comparing two Identifier objects is very fast (an O(1) operation), but creating them can be slower than just using a String directly, so the optimal way to use them is to keep some static Identifier objects for the things you use often.See alsoNamedValueSet, ValueTree 

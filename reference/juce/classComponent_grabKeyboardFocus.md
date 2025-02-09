@@ -1,7 +1,0 @@
-#### grabKeyboardFocus()
-
-
- void Component::grabKeyboardFocus ( ) 
- 
-
-Tries to give keyboard focus to this component.When the user clicks on a component or its grabKeyboardFocus() method is called, the following procedure is used to work out which component should get it:if the component that was clicked on actually wants focus (as indicated by calling getWantsKeyboardFocus), it gets it.if the component itself doesn't want focus, it will try to pass it on to whichever of its children is the default component, as determined by the getDefaultComponent() implementation of the ComponentTraverser returned by createKeyboardFocusTraverser().if none of its children want focus at all, it will pass it up to its parent instead, unless it's a toplevel component without a parent, in which case it just takes the focus itself.Important note! It's obviously not possible for a component to be focused unless it's actually visible, onscreen, and inside a window that is also visible. So there's no point trying to call this in the component's own constructor or before all of its parent hierarchy has been fully instantiated.See alsogiveAwayKeyboardFocus, setWantsKeyboardFocus, getWantsKeyboardFocus, hasKeyboardFocus, getCurrentlyFocusedComponent, focusGained, focusLost, keyPressed, keyStateChanged

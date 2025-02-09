@@ -1,7 +1,0 @@
-#### getName()
-
-
- String LV2PluginFormat::getName ( ) const overridevirtual 
- 
-
-Returns the format name.E.g. "VST", "AudioUnit", etc.Implements AudioPluginFormat.

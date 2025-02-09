@@ -1,1 +1,0 @@
-A component that acts as one of the vertical or horizontal bars you see being used to resize panels in a window.One of these acts with a StretchableLayoutManager to resize the other components.See alsoStretchableLayoutManager 

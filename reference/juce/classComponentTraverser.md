@@ -1,1 +1,0 @@
-Base class for traversing components.If you need custom focus or keyboard focus traversal for a component you can create a subclass of ComponentTraverser and return it from Component::createFocusTraverser() or Component::createKeyboardFocusTraverser().See alsoComponent::createFocusTraverser, Component::createKeyboardFocusTraverser 

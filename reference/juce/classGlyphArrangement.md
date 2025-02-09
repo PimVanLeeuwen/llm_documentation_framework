@@ -1,1 +1,0 @@
-A set of glyphs, each with a position.You can create a GlyphArrangement, text to it and then draw it onto a graphics context. It's used internally by the text methods in the Graphics class, but can be used directly if more control is needed.See alsoFont, PositionedGlyph 

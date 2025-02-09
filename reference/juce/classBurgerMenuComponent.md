@@ -1,1 +1,0 @@
-A component which lists all menu items and groups them into categories by their respective parent menus.This kind of component is often used for socalled "burger" menus in mobile apps.See alsoMenuBarModel 

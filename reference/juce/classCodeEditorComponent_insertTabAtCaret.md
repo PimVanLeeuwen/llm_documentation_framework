@@ -1,4 +1,0 @@
-#### insertTabAtCaret()
-
-
- void CodeEditorComponent::insertTabAtCaret ( )

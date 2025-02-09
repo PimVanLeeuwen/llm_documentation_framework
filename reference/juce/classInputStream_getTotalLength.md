@@ -1,7 +1,0 @@
-#### getTotalLength()
-
-
- virtual int64 InputStream::getTotalLength ( ) pure virtual 
- 
-
-Returns the total number of bytes available for reading in this stream.Note that this is the number of bytes available from the start of the stream, not from the current position.If the size of the stream isn't actually known, this will return 1.See alsogetNumBytesRemaining Implemented in ARAInputStream, BufferedInputStream, FileInputStream, GZIPDecompressorInputStream, MemoryInputStream, SubregionStream, and WebInputStream.

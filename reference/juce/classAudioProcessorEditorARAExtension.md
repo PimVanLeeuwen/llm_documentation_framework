@@ -1,1 +1,0 @@
-Extension class meant to be subclassed by the plugin's implementation of.See alsoAudioProcessorEditor.Subclassing AudioProcessorARAExtension allows access to the ARAEditorView instance role as described by the ARA SDK.

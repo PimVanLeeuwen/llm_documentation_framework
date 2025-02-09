@@ -1,1 +1,0 @@
-A typeface represents a sizeindependent font.This base class is abstract, but calling createSystemTypefaceFor() will return a platformspecific subclass that can be used.Normally you should never need to deal directly with Typeface objects the Font class does everything you typically need for rendering text.See alsoFont 
