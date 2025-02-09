@@ -22,6 +22,7 @@ MODEL_PROVIDER = os.environ.get('MODEL_PROVIDER')
 MODEL_NAME = os.environ.get('MODEL_NAME')
 REPOSITORY_PATH = os.environ.get('REPOSITORY_PATH')
 PROVIDE_CONTEXT = os.environ.get('PROVIDE_CONTEXT')
+PROVIDE_CODE = os.environ.get('PROVIDE_CODE')
 USE_LOCAL_LLM = os.environ.get('USE_LOCAL_LLM')
 
 if __name__ == '__main__':
@@ -39,7 +40,7 @@ if __name__ == '__main__':
 	if not (args.Gen_Doc or args.Run_Website or args.Evaluate):
 		parser.print_help(sys.stderr)
 
-	if not (API_KEY and MODEL_PROVIDER and MODEL_NAME and REPOSITORY_PATH and PROVIDE_CONTEXT and USE_LOCAL_LLM):
+	if not (API_KEY and MODEL_PROVIDER and MODEL_NAME and REPOSITORY_PATH and PROVIDE_CONTEXT and USE_LOCAL_LLM and PROVIDE_CODE):
 		raise Exception("Not all env variables are defined, please define them according to .env.example")
 
 	if args.Gen_Doc:

@@ -20,6 +20,7 @@ API_URL = "https://api.generative.engine.capgemini.com/v2/llm/invoke"
 API_KEY = os.environ.get('CAPGEMINI_API_KEY')
 MODEL_PROVIDER = os.environ.get('MODEL_PROVIDER')
 MODEL_NAME = os.environ.get('MODEL_NAME')
+PROVIDE_CODE = os.environ.get('PROVIDE_CODE')
 USE_LOCAL_LLM = os.environ.get('USE_LOCAL_LLM')
 PROVIDE_CONTEXT = os.environ.get('PROVIDE_CONTEXT')
 
@@ -178,7 +179,7 @@ def document_node(node: ASTNode):
 
 	# set the documentation in the node
 	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM else invoke_llm_api(prompt, str(uuid.uuid4()))
-	node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
+	if PROVIDE_CODE: node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
 	node.set_documentation(node_documentation)
 
 	# write the comment to the docs
