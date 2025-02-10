@@ -179,7 +179,9 @@ def document_node(node: ASTNode):
 
 	# set the documentation in the node
 	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM else invoke_llm_api(prompt, str(uuid.uuid4()))
-	if PROVIDE_CODE: node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
+	# if PROVIDE_CODE:
+	# 	print("Writing Code")
+	# 	node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
 	node.set_documentation(node_documentation)
 
 	# write the comment to the docs
