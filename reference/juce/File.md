@@ -1,0 +1,1 @@
+Represents a local file or directory.This class encapsulates the absolute pathname of a file or directory, and has methods for finding out about the file and changing its properties.To read or write to the file, there are methods for returning an input or output stream.See alsoFileInputStream, FileOutputStream 

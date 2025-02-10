@@ -1,0 +1,1 @@
+Properties of an AudioParameterInt.See alsoAudioParameterInt(), RangedAudioParameterAttributes()

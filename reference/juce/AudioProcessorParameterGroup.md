@@ -1,0 +1,1 @@
+A class encapsulating a group of AudioProcessorParameters and nested AudioProcessorParameterGroups.This class is predominantly writeonly; there are methods for adding group members but none for removing them. Ultimately you will probably want to add a fully constructed group to an AudioProcessor.See alsoAudioProcessor::addParameterGroup 

@@ -1,0 +1,7 @@
+#### destroy()
+
+
+ static void ARAHostModel::MusicalContext::destroy ( ARA::Host::DocumentController & , Ptr ) static 
+ 
+
+Called by ManagedARAHandle to deregister the model object during the destruction of AudioModification.You shouldn't call this function manually.

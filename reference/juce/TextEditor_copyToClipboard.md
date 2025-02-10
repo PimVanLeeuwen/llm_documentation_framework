@@ -1,0 +1,4 @@
+#### copyToClipboard()
+
+
+ bool TextEditor::copyToClipboard ( )

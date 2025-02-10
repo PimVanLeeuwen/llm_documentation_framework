@@ -1,0 +1,4 @@
+#### scrollUp()
+
+
+ bool CodeEditorComponent::scrollUp ( )

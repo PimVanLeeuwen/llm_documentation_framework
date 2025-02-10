@@ -1,0 +1,1 @@
+Contains static methods for converting JSONformatted text to and from var objects.The var class is structurally compatible with JSONformatted data, so these functions allow you to parse JSON into a var object, and to convert a var object to JSONformatted text.See alsovar 

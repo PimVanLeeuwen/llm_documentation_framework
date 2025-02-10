@@ -1,0 +1,1 @@
+Receives events from a TableHeaderComponent when columns are resized, moved, etc.You can register one of these objects for table events using TableHeaderComponent::addListener() and TableHeaderComponent::removeListener().See alsoTableHeaderComponent 

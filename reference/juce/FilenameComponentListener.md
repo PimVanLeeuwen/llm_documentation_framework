@@ -1,0 +1,1 @@
+Listens for events happening to a FilenameComponent.Use FilenameComponent::addListener() and FilenameComponent::removeListener() to register one of these objects for event callbacks when the filename is changed.See alsoFilenameComponent 

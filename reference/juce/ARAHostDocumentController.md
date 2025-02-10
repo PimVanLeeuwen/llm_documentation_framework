@@ -1,0 +1,1 @@
+Wrapper class for `ARA::Host::DocumentController`.In order to create an ARAHostDocumentController from an ARAFactoryWrapper you must provide at least two mandatory host side interfaces. You can create these implementations by inheriting from the base classes in the `ARA::Host` namespace.

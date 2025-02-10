@@ -1,0 +1,1 @@
+The Component class uses a ComponentPeer internally to create and manage a real operatingsystem window.This is an abstract base class the platform specific code contains implementations of it for the various platforms.Usercode should very rarely need to have any involvement with this class.See alsoComponent::createNewPeer 

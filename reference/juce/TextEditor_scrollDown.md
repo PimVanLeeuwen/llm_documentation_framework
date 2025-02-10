@@ -1,0 +1,4 @@
+#### scrollDown()
+
+
+ bool TextEditor::scrollDown ( )

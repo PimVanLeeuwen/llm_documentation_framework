@@ -1,0 +1,1 @@
+A drawable object which acts as a container for a set of other Drawables.Note that although this is a Component, it takes ownership of its child components and will delete them, so that you can use it as a selfcontained graphic object. The intention is that you should not add your own components to it, only add other Drawable objects.See alsoDrawable 

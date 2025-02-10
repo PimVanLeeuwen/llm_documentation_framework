@@ -1,0 +1,1 @@
+Represents the state of an accessible UI element.An instance of this class is returned by `AccessibilityHandler::getCurrentState()` to convey its current state to an accessibility client.See alsoAccessibilityHandler 

@@ -1,0 +1,1 @@
+A type of UI component that displays the parameters of an AudioProcessor as a simple list of sliders, combo boxes and switches.This can be used for showing an editor for a processor that doesn't supply its own custom editor.See alsoAudioProcessor 

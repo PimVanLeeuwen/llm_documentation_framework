@@ -1,0 +1,1 @@
+Represents a FlexBox container, which contains and manages the layout of a set of FlexItem objects.To use this class, set its parameters appropriately (you can search online for more help on exactly how the FlexBox protocol works!), then add your subitems to the items array, and call performLayout() in the resized() function of your Component.See alsoFlexItem 

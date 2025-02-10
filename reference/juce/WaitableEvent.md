@@ -1,0 +1,1 @@
+Allows threads to wait for events triggered by other threads.A thread can call WaitableEvent::wait() to suspend the calling thread until another thread wakes it up by calling the WaitableEvent::signal() method.

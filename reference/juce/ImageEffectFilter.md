@@ -1,0 +1,1 @@
+A graphical effect filter that can be applied to components.An ImageEffectFilter can be applied to the image that a component paints before it hits the screen.This is used for adding effects like shadows, blurs, etc.See alsoComponent::setComponentEffect 

@@ -1,0 +1,1 @@
+Acting as a ResponderListener, instances of this class can formulate appropriate replies to property transactions initiated by remote devices.PropertyHost instances also contain methods to inform remote devices about changes to local property state.Keeps track of property subscriptions requested by remote devices.

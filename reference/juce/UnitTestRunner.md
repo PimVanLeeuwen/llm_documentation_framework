@@ -1,0 +1,1 @@
+Runs a set of unit tests.You can instantiate one of these objects and use it to invoke tests on a set of UnitTest objects.By using a subclass of UnitTestRunner, you can intercept logging messages and perform custom behaviour when each test completes.See alsoUnitTest 

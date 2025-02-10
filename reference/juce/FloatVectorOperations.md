@@ -1,0 +1,1 @@
+A collection of simple vector operations on arrays of floating point numbers, accelerated with SIMD instructions where possible and providing all methods from FloatVectorOperationsBase.See alsoFloatVectorOperationsBase 

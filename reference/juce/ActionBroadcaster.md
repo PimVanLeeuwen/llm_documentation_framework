@@ -1,0 +1,1 @@
+Manages a list of ActionListeners, and can send them messages.To quickly add methods to your class that can add/remove action listeners and broadcast to them, you can derive from this.See alsoActionListener, ChangeListener 

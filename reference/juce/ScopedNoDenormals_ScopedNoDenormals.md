@@ -1,0 +1,4 @@
+#### ScopedNoDenormals()
+
+
+ ScopedNoDenormals::ScopedNoDenormals ( ) noexcept

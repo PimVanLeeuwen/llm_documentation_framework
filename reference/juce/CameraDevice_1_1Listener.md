@@ -1,0 +1,1 @@
+Receives callbacks with individual frames from a CameraDevice.It is mainly useful for processing multiple frames that has to be done as quickly as possible. The callbacks can be called from any thread.If you just need to take one picture, you should use takeStillPicture() instead.See alsoCameraDevice::addListener 

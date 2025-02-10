@@ -1,0 +1,1 @@
+An iterator to move over contiguous raw MIDI data, which Allows iterating over a MidiBuffer using C++11 rangefor syntax.In the following example, we log all threebyte messages in a midi buffer.void processBlock (AudioBuffer<float>&, MidiBuffer& midiBuffer) override

@@ -1,0 +1,1 @@
+Baseclass for codecs that can read and write image file formats such as PNG, JPEG, etc.This class also contains static methods to make it easy to load images from files, streams or from memory.See alsoImage, ImageCache 

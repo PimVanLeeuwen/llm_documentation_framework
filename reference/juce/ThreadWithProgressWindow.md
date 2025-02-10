@@ -1,0 +1,1 @@
+A thread that automatically pops up a modal dialog box with a progress bar and cancel button while it's busy running.These are handy for performing some sort of task while giving the user feedback about how long there is to go, etc.E.g.class MyTask : public ThreadWithProgressWindow

@@ -1,0 +1,1 @@
+Provides a base for classes that can store and draw scaled views of an audio waveform.Typically, you'll want to use the derived class AudioThumbnail, which provides a concrete implementation.See alsoAudioThumbnail, AudioThumbnailCache 

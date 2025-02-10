@@ -1,0 +1,1 @@
+Base class for the component that acts as the GUI for an AudioProcessor.Derive your editor component from this class, and create an instance of it by overriding the AudioProcessor::createEditor() method.See alsoAudioProcessor, GenericAudioProcessorEditor 

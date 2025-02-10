@@ -1,0 +1,1 @@
+An object that creates and plays a standalone instance of an AudioProcessor.The object will create your processor using the same createPluginFilter() function that the other plugin wrappers use, and will run it through the computer's audio/MIDI devices using AudioDeviceManager and AudioProcessorPlayer.

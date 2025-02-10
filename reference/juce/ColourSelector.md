@@ -1,0 +1,1 @@
+A component that lets the user choose a colour.This shows RGB sliders and a colourspace that the user can pick colours from.This class is also a ChangeBroadcaster, so listeners can register to be told when the colour changes.

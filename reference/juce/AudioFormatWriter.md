@@ -1,0 +1,1 @@
+Writes samples to an audio file stream.A subclass that writes a specific type of audio format will be created by an AudioFormat object.After creating one of these with the AudioFormat::createWriterFor() method you can call its write() method to store the samples, and then delete it.See alsoAudioFormat, AudioFormatReader 

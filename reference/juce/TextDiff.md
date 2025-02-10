@@ -1,0 +1,1 @@
+Calculates and applies a sequence of changes to convert one text string into another.Once created, the TextDiff object contains an array of change objects, where each change can be either an insertion or a deletion. When applied in order to the original string, these changes will convert it to the target string.

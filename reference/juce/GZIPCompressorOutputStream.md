@@ -1,0 +1,1 @@
+A stream which uses zlib to compress the data written into it.Important note: When you call flush() on a GZIPCompressorOutputStream, the gzip data is closed this means that no more data can be written to it, and any subsequent attempts to call write() will cause an assertion.See alsoGZIPDecompressorInputStream 

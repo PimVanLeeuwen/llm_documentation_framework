@@ -1,0 +1,1 @@
+Represents a particular font, including its size, style, etc.Apart from the typeface to be used, a Font object also dictates whether the font is bold, italic, underlined, how big it is, and its kerning and horizontal scale factor.See alsoTypeface 

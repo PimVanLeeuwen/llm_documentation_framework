@@ -1,0 +1,7 @@
+#### getCurrentPosition()
+
+
+ bool AudioPlayHead::getCurrentPosition ( CurrentPositionInfo & result ) 
+ 
+
+Deprecated, use getPosition() instead.Fillsin the given structure with details about the transport's position at the start of the current processing block. If this method returns false then the current play head position is not available and the given structure will be undefined.You can ONLY call this from your processBlock() method! Calling it at other times will produce undefined behaviour, as the host may not have any context in which a time would make sense, and some hosts will almost certainly have multithreading issues if it's not called on the audio thread.References AudioPlayHead::CurrentPositionInfo::bpm, AudioPlayHead::CurrentPositionInfo::editOriginTime, AudioPlayHead::CurrentPositionInfo::frameRate, AudioPlayHead::CurrentPositionInfo::isLooping, AudioPlayHead::CurrentPositionInfo::isPlaying, AudioPlayHead::CurrentPositionInfo::isRecording, AudioPlayHead::CurrentPositionInfo::ppqLoopEnd, AudioPlayHead::CurrentPositionInfo::ppqLoopStart, AudioPlayHead::CurrentPositionInfo::ppqPosition, AudioPlayHead::CurrentPositionInfo::ppqPositionOfLastBarStart, AudioPlayHead::CurrentPositionInfo::resetToDefault(), AudioPlayHead::CurrentPositionInfo::timeInSamples, AudioPlayHead::CurrentPositionInfo::timeInSeconds, AudioPlayHead::CurrentPositionInfo::timeSigDenominator, and AudioPlayHead::CurrentPositionInfo::timeSigNumerator.

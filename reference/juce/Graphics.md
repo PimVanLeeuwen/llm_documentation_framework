@@ -1,0 +1,1 @@
+A graphics context, used for drawing a component or image.When a Component needs painting, a Graphics context is passed to its Component::paint() method, and this you then call methods within this object to actually draw the component's content.A Graphics can also be created from an image, to allow drawing directly onto that image.See alsoComponent::paint 

@@ -1,0 +1,1 @@
+A subclass of SynthesiserVoice that can play a SamplerSound.To use it, create a Synthesiser, add some SamplerVoice objects to it, then give it some SampledSound objects to play.See alsoSamplerSound, Synthesiser, SynthesiserVoice 

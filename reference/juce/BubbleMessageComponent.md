@@ -1,0 +1,1 @@
+A speechbubble component that displays a short message.This can be used to show a message with the tail of the speech bubble pointing to a particular component or location on the screen.See alsoBubbleComponent 

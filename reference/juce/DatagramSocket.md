@@ -1,0 +1,1 @@
+A wrapper for a datagram (UDP) socket.This allows lowlevel use of sockets; for an easiertouse messaging layer on top of sockets, you could also try the InterprocessConnection class.See alsoStreamingSocket, InterprocessConnection, InterprocessConnectionServer 

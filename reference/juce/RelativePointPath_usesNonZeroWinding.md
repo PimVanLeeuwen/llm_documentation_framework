@@ -1,0 +1,4 @@
+#### usesNonZeroWinding
+
+
+ bool RelativePointPath::usesNonZeroWinding

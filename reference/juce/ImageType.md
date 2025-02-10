@@ -1,0 +1,1 @@
+This base class is for handlers that control a type of image manipulation format, e.g.an inmemory bitmap, an OpenGL image, CoreGraphics image, etc.See alsoSoftwareImageType, NativeImageType, OpenGLImageType 

@@ -1,0 +1,1 @@
+A path is a sequence of lines and curves that may either form a closed shape or be openended.To use a path, you can create an empty one, then add lines and curves to it to create shapes, then it can be rendered by a Graphics context or used for geometric operations.e.g.Path myPath;

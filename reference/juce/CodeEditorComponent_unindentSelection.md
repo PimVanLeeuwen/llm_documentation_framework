@@ -1,0 +1,4 @@
+#### unindentSelection()
+
+
+ void CodeEditorComponent::unindentSelection ( )

@@ -1,0 +1,1 @@
+A ComponentBoundsConstrainer that can be used to add a constant border onto another ComponentBoundsConstrainer.This is useful when trying to constrain the size of a resizable window or other component that wraps a constrained component, such as a plugin editor.See alsoResizableCornerComponent, ResizableBorderComponent, ResizableWindow, ComponentBoundsConstrainer 

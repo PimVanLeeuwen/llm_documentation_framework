@@ -1,0 +1,1 @@
+Base class for a renderer fulfilling the ARAEditorRenderer role as described in the ARA SDK.Instances of this class are constructed by the DocumentController. If you are subclassing ARAEditorRenderer, make sure to call the base class implementation of any overridden function, except for processBlock.

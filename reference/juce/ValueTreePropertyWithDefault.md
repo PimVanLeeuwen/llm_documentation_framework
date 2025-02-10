@@ -1,0 +1,1 @@
+This class acts as a wrapper around a property inside a ValueTree.If the property inside the ValueTree is missing it will return a default value, which can be specified in the constructor or by calling setDefault().

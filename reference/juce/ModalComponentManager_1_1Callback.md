@@ -1,0 +1,1 @@
+Receives callbacks when a modal component is dismissed.You can register a callback using Component::enterModalState() or ModalComponentManager::attachCallback().For some quick ways of creating callback objects, see the ModalCallbackFunction class.See alsoModalCallbackFunction 

@@ -1,0 +1,7 @@
+#### canApplyBusCountChange()
+
+
+ virtual bool AudioProcessor::canApplyBusCountChange ( bool isInput, bool isAddingBuses, BusProperties & outNewBusProperties ) protectedvirtual 
+ 
+
+Callback to query if adding/removing buses currently possible.This callback is called when the host calls addBus or removeBus. Similar to canApplyBusesLayout, this callback is only called while the AudioProcessor is stopped and gives the processor a last chance to reject a requested bus change. It can also be used to apply the bus count change to an underlying wrapped plugin.When adding a bus, isAddingBuses will be true and the plugin is expected to fill out outNewBusProperties with the properties of the bus which will be created just after the successful return of this callback.Implementations of AudioProcessor will rarely need to override this method. Only override this method if your processor supports adding and removing buses and if it needs more fine grain control over the naming of new buses or may reject bus number changes although canAddBus or canRemoveBus returned true.The default implementation will return false if canAddBus/canRemoveBus returns false (the default behavior). Otherwise, this method returns "Input #busIndex" for input buses and "Output #busIndex" for output buses where busIndex is the index for newly created buses. The default layout in this case will be the layout of the previous bus of the same direction.
