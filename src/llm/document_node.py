@@ -86,8 +86,6 @@ def invoke_llm_api(prompt, prompt_id="123e4567-e89b-12d3-a456-426614174002"):
 		}
 	}
 
-	print(MODEL_NAME)
-
 	for i in range(MAX_RETRIES):
 		try:
 			response = requests.post(API_URL, headers=headers, json=payload)
