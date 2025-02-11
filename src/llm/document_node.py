@@ -47,6 +47,7 @@ def invoke_llm_local(prompt, model="llama3.1"):
 	return response['message']['content']
 
 def invoke_llm_api(prompt, prompt_id="123e4567-e89b-12d3-a456-426614174002"):
+	# print("api")
 	"""calls the API to generate LLM documentation
 
 	Args:
@@ -84,6 +85,8 @@ def invoke_llm_api(prompt, prompt_id="123e4567-e89b-12d3-a456-426614174002"):
 			}
 		}
 	}
+
+	print(MODEL_NAME)
 
 	for i in range(MAX_RETRIES):
 		try:
@@ -173,15 +176,15 @@ def document_node(node: ASTNode):
 	# PROMPTING THE LLM
 
 	# set the short documentation in the node
-	if PROVIDE_CONTEXT:
-		node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM else invoke_llm_api(short_prompt, str(uuid.uuid4()))
+	if PROVIDE_CONTEXT == "True":
+		node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM == "True" else invoke_llm_api(short_prompt, str(uuid.uuid4()))
 		node.set_short_documentation(node_short_documentation)
 
 	# set the documentation in the node
-	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM else invoke_llm_api(prompt, str(uuid.uuid4()))
-	# if PROVIDE_CODE:
-	# 	print("Writing Code")
-	# 	node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
+	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM == "True" else invoke_llm_api(prompt, str(uuid.uuid4()))
+	if PROVIDE_CODE  == "True":
+		# print("Writing Code")
+		node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
 	node.set_documentation(node_documentation)
 
 	# write the comment to the docs
