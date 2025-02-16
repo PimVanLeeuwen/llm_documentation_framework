@@ -13,7 +13,7 @@ import requests
 import uuid
 
 from src.tree.tree_nodes import ASTNode, ASTNodeType
-from src.llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK
+from src.llm.prompt import METHOD_PROMPT, SHORT_TASK, LONG_TASK, NO_CONTEXT_METHOD_PROMPT
 
 # API URL and max retries variables
 API_URL = "https://api.generative.engine.capgemini.com/v2/llm/invoke"
@@ -108,6 +108,7 @@ def document_node(node: ASTNode):
 
 	# set the repo name
 	long_prompt = LONG_TASK
+	no_context_prompt = NO_CONTEXT_METHOD_PROMPT
 	prompt = METHOD_PROMPT.replace("{project_structure_prefix}", node.get_path().split("/")[0])
 	# set the path of the node
 	prompt = prompt.replace("{file_path}", node.get_path())
@@ -116,6 +117,7 @@ def document_node(node: ASTNode):
 	long_prompt = long_prompt.replace("{name}", node.get_name())
 	# set the content of the code
 	prompt = prompt.replace("{code_content}", node.get_content())
+	no_context_prompt = no_context_prompt.replace("{code_content}", node.get_content())
 
 	# set the type of the node
 	# This will warn if we document an unsupported node
@@ -135,7 +137,7 @@ def document_node(node: ASTNode):
 		param_prompt += "**Parameters**:\\\n"
 		for param in param_list:
 			param_prompt += f"`{param}`: *FILL IN* \\\n"
-	long_prompt = long_prompt.replace("{parameters_or_attribute}", param_prompt)
+	long_prompt = long_prompt.replace("{parameters_or_attribute}", param_prompt) if PROVIDE_CONTEXT == "True" else long_prompt.replace("{parameters_or_attribute}", "")
 
 	# fetch the calls and add these
 	call_list = node.get_calls()
@@ -163,7 +165,7 @@ def document_node(node: ASTNode):
 				children_prompt += f"{child.get_short_documentation()} \n"
 	prompt = prompt.replace("{children}", children_prompt)
 	short_prompt = prompt + SHORT_TASK
-	prompt = prompt + long_prompt
+	prompt = prompt + long_prompt if PROVIDE_CONTEXT == "True" else no_context_prompt + long_prompt
 
 	# add the prompt so that we can inspect it later
 	os.makedirs(os.path.dirname(f"prompts/{node.get_path()}/{node.get_name()}.md"), exist_ok=True)
@@ -175,6 +177,7 @@ def document_node(node: ASTNode):
 
 	# set the short documentation in the node
 	if PROVIDE_CONTEXT == "True":
+		print("setting short")
 		node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM == "True" else invoke_llm_api(short_prompt, str(uuid.uuid4()))
 		node.set_short_documentation(node_short_documentation)
 
