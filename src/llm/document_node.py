@@ -10,6 +10,7 @@ import os
 import warnings
 import ollama
 import requests
+import time
 import uuid
 
 from src.tree.tree_nodes import ASTNode, ASTNodeType
@@ -87,15 +88,18 @@ def invoke_llm_api(prompt, prompt_id="123e4567-e89b-12d3-a456-426614174002"):
 	}
 
 	for i in range(MAX_RETRIES):
-		try:
-			response = requests.post(API_URL, headers=headers, json=payload)
-			if response.status_code == 200:
-				return response.json().get("content")
-			raise Exception(f"Not 200 return code, but {response.status_code}")
-		except Exception as e:
-			warnings.warn(f"try {i} failed with {e}")
+		response = requests.post(API_URL, headers=headers, json=payload)
+		if response.status_code == 200:
+			return response.json().get("content")
+		elif response.status_code == 429:
+			raise ConnectionRefusedError(f"Not 200 return code, but {response.status_code}: API is refusing")
+		elif response.status_code == 500:
+			time.sleep(5)
+		else:
+			warnings.warn(f"try {i} failed with Error code: {response.status_code}")
 	else:
-		return None
+		warnings.warn(f"Failed to set documentation")
+		return "ERROR"
 
 
 def document_node(node: ASTNode):
@@ -185,7 +189,7 @@ def document_node(node: ASTNode):
 	node_documentation = invoke_llm_local(prompt) if USE_LOCAL_LLM == "True" else invoke_llm_api(prompt, str(uuid.uuid4()))
 	if PROVIDE_CODE  == "True":
 		# print("Writing Code")
-		node_documentation += "\\\\\n## Code: \n```\n" + node.get_content() + "\n```"
+		node_documentation = node_documentation + "\\\\\n## Code: \n```\n" + node.get_content() + "\n```" if node.get_content() else node_documentation
 	node.set_documentation(node_documentation)
 
 	# write the comment to the docs
