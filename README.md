@@ -1,6 +1,8 @@
 # LLM Documentation Framework: FARLLID
 
-This Github project covers the practical side of my creation of FARLLID, an automatic documentation generation tool that creates documentation for entire repositories using LLM and ANTLR language parsing. It works for C++ and Java right now, but with ANTLR parsing, it can easily be extended to more languages. 
+This GitHub project covers the practical side of my creation of FARLLID, an automatic documentation generation tool that creates documentation for entire repositories using LLM and ANTLR language parsing. It works for C++ and Java, but with ANTLR parsing, it can easily be extended to more languages. 
+
+FARLLID was created as part of my Master's Thesis, which will also be linked once this is public. 
 
 ## Prerequisites 
 
