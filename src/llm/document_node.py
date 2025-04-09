@@ -181,7 +181,6 @@ def document_node(node: ASTNode):
 
 	# set the short documentation in the node
 	if PROVIDE_CONTEXT == "True":
-		print("setting short")
 		node_short_documentation = invoke_llm_local(short_prompt) if USE_LOCAL_LLM == "True" else invoke_llm_api(short_prompt, str(uuid.uuid4()))
 		node.set_short_documentation(node_short_documentation)
 
