@@ -12,6 +12,8 @@ Before you can run the program, you need to pip install the dependencies that ar
 pip3 install -r requirements.txt
 ```
 
+Ollama is used for local model usage, so it must be installed and configured before you run it (https://ollama.com/download/).  
+
 Then you must ensure that you set the variables listed in the `.env.example` file in your environment. In particular: 
 
 CAPGEMINI_API_KEY=
